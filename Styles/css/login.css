@@ -1,0 +1,265 @@
+﻿@import url('site.css');
+@import url('font-awesome.css');
+
+/*-----------------------------------------------------------------------------------------
+                                         Global   
+-----------------------------------------------------------------------------------------*/
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+html { height: 100%; }
+
+body {
+    background: #ddd url(../images/bg.jpg) repeat top left;
+    font-weight: 300;
+    font-size: 15px;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+p { margin-bottom: 0px; line-height: 0; }
+.container {
+    background: #F5F5F5;
+    width: 40%;
+    margin: 30px auto;
+	top: 50%;
+    border-radius: 0.4em;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 10px 5px rgba(0,0,0,0.2);
+}
+.register {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.main {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+.container > header {
+	margin: 10px;
+	padding: 10px 10px 10px 10px;
+	position: relative;
+	display: block;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    text-align: center;
+    border-bottom: 0px solid #191919;
+}
+.container > header h1 {
+	font-size: 30px;
+	font-weight: 300;
+	margin: 0;
+	padding: 15px 0 5px 0;
+	color: #666;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+}
+.container > header img {
+	width: 40%;
+	font-weight: 300;
+	margin: 0;
+	padding: 15px auto;
+	color: #666;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+}
+.container > footer {
+	margin: 0 10px;
+	position: relative;
+	display: block;
+    color: #000;
+    padding: 2px 0px 2px 0px;
+    text-align: center;
+    font-size: 10px;
+    /*border-top: 1px solid #191919;*/
+}
+
+/*-----------------------------------------------------------------------------------------
+                                       Login Style
+-----------------------------------------------------------------------------------------*/
+
+.form {
+    /* Size & position */
+    width: 90%;
+    margin: 20px auto 20px;
+    padding: 10px;
+    position: relative; /* For the submit button positioning */
+
+    /* Styles */
+    box-shadow: 
+        0 0 1px rgba(0, 0, 0, 0.3), 
+        0 3px 7px rgba(0, 0, 0, 0.3), 
+        inset 0 1px rgba(255,255,255,1),
+        inset 0 -3px 2px rgba(0,0,0,0.25);
+    border-radius: 5px;
+    background: white; /* Fallback */
+    background: -moz-linear-gradient(#eeefef, #ffffff 10%);
+    background: -ms-linear-gradient(#eeefef, #ffffff 10%);
+    background: -o-linear-gradient(#eeefef, #ffffff 10%);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#eeefef), color-stop(0.1, #ffffff));
+    background: -webkit-linear-gradient(#eeefef, #ffffff 10%);
+    background: linear-gradient(#eeefef, #ffffff 10%);
+}
+.form .field {
+    position: relative; /* For the icon positioning */
+}
+.form .field i {
+    /* Size and position */
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    height: 36px;
+    width: 36px;
+
+    /* Line */
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.7);
+
+    /* Styles */
+    color: #777777;
+    text-align: center;
+    line-height: 42px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+.form input[type=text],
+.form input[type=password] {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+    
+    /* Size and position */
+    width: 100%;
+    padding: 10px 18px 10px 45px;
+
+    /* Styles */
+    border: none; /* Remove the default border */
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.1),
+        inset 0 3px 2px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    background: #f9f9f9;
+    color: #777;
+    -webkit-transition: color 0.3s ease-out;
+    -moz-transition: color 0.3s ease-out;
+    -ms-transition: color 0.3s ease-out;
+    -o-transition: color 0.3s ease-out;
+    transition: color 0.3s ease-out;
+}
+.form input[type=text] {
+    margin-bottom: 10px;
+}
+.form input[type=text]:hover ~ i,
+.form input[type=password]:hover ~ i {
+    color: #52cfeb;
+}
+.form input[type=text]:focus ~ i,
+.form input[type=password]:focus ~ i {
+    color: #42A2BC;
+}
+.form input[type=text]:focus,
+.form input[type=password]:focus,
+.form button[type=submit]:focus {
+    outline: none;
+}
+.form .submit {
+    /* Size and position */
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    top: 17px;
+    right: -25px;
+    padding: 10px;
+    z-index: 2;
+
+    /* Styles */
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 2px rgba(0,0,0,0.1),
+        0 3px 2px rgba(0,0,0,0.1),
+        inset 0 -3px 2px rgba(0,0,0,0.2);
+}
+.form .submit:after {
+    /* Size and position */
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -2px;
+    left: 30px;
+
+    /* Styles */
+    background: #ffffff;
+    
+    /* Other masks trick */
+    box-shadow: 0 62px white, -32px 31px white;
+}
+.form button {
+    /* Size and position */
+    width: 100%;
+    height: 100%;
+    margin-top: -1px;
+
+    /* Icon styles */
+    font-size: 1.4em;
+    line-height: 1.75;
+    color: white;
+
+    /* Styles */
+    border: none; /* Remove the default border */
+    border-radius: inherit;
+    background: #BD1558; /* Fallback */
+    background: url(/Style/images/noise.png), -moz-radial-gradient(center, ellipse cover, #BD1558 0%, #b53467 100%);
+    background: url(/Style/images/noise.png), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#BD1558), color-stop(100%,#b53467));
+    background: url(/Style/images/noise.png), -webkit-radial-gradient(center, ellipse cover, #BD1558 0%,#b53467 100%);
+    background: url(/Style/images/noise.png), -o-radial-gradient(center, ellipse cover, #BD1558 0%,#b53467 100%);
+    background: url(/Style/images/noise.png), -ms-radial-gradient(center, ellipse cover, #BD1558 0%,#b53467 100%);
+    background: url(/Style/images/noise.png), radial-gradient(ellipse at center, #BD1558 0%,#b53467 100%);
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 1px 2px rgba(0,0,0,0.35),
+        inset 0 3px 2px rgba(255,255,255,0.2),
+        inset 0 -3px 2px rgba(0,0,0,0.1);
+        
+    cursor: pointer;
+}
+.form button:hover,
+.form button[type=submit]:focus {
+    background: #BD1558;
+    
+    /* Font styles */
+    color: #5C001F;
+    
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.form button:active {
+    background: #42A2BC;
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.3),
+        inset 0 3px 4px rgba(0,0,0,0.3);
+}

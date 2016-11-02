@@ -1,0 +1,57 @@
+﻿body{font-size: 13px; font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif; }
+
+#watermark{
+    margin:6% auto; 
+    display:block; 
+    height:83%; 
+    position:fixed; 
+    left:0; 
+    right:0; 
+    z-index:0; 
+    opacity:0.08; 
+    pointer-events: none;
+}           
+        
+#wrapper{margin:0 auto; width:95%; box-shadow: 0px 8px 8px #888888}
+        
+div.mainInfo{padding:5px}
+.cvContent{padding:10px 35px 10px 35px}
+.topheader{
+    background-color:#64001C; 
+    color: white; 
+    padding:5px; 
+    text-align:center; 
+    font-size:18px; 
+    border-radius:10px
+}
+.subheader{
+    background-color:#64001C; 
+    color: white; 
+    padding-left:15px; 
+    text-align:left; 
+    margin:5px 0 10px 0; 
+    border-radius:10px;
+}
+.centerInfo{padding-left:5%; padding-right:5%; text-align:center}
+.subInfo{padding:0px ; margin-top:88px}
+.moreInfo{padding-left:5%; padding-right:5%; margin-bottom:10px}
+.biggerInfo{font-size:15.5px;}
+.limitlist{min-height:105px}
+
+table.tbresult{border:3px solid white; width:100%} 
+td.rshead{background-color:silver; font-weight:bold}
+table.award{border:1px solid white; border-bottom-width:8px}
+td.level{width:150px; text-align:center; vertical-align:top}
+.year{width:90px; text-align:center}
+
+p{margin:3px 0 0 0}
+
+img.img-profile{
+    height: 150px;
+    width: 115px;
+    padding:5px;
+    border:1px solid #dcdcdc;
+    background-color:#ffffff;
+    display: block;
+    margin: auto auto;
+}
