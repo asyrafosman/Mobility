@@ -3,8 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active" style="text-align: center"><a href="Home.aspx">&nbsp;Home</a></li>
-            <li></li>
+            <li class="active"><a href="Home.aspx"><span class="fa fa-home"></span> Home</a></li>
         </ul>
     </div>
     <table style="width: 100%;">
