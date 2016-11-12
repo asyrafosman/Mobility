@@ -32,10 +32,6 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
 		if (!IsPostBack)
 		{
 			string sesisem = Session["acadUserSs"].ToString();
-			showProfile();
-            checkDebt("");
-            showAchievement("", "");
-            showActivities("");
 			lblLoggedInUser.Text = Session["acadUserNm"].ToString();
 		}
     }
@@ -128,62 +124,4 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("http://elearning.utm.my");
     }
-
-    /**
-      * Function  : showProfile() 
-      * Remarks   : To Show Student's Profile
-      * Date      : 31/10/2016
-      * Developer : Mohd Azman
-      **/
-    protected void showProfile()
-    {
-        imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
-        lblProgramme.Text = Session["acadUserPr"].ToString();
-        lblFaculty.Text = Session["acadUserFn"].ToString();
-        lblMatric.Text = Session["acadUserMt"].ToString();
-        lblBilSemester.Text = Session["acadUserBs"].ToString() + " / " + Session["acadUserNs"].ToString();
-        lblAA.Text = Session["acadUserSv"].ToString();
-        lblToS.Text = Session["acadUserTs"].ToString() + " (Full Time)";
-        lblEmail.Text = Session["acadUserEm"].ToString();
-        lblPhone.Text = Session["acadUserTl"].ToString();
-    }
-
-    /**
-       * Function  : checkDebt() 
-       * Remarks   : To Show Student's Debt
-       * Date      : 31/10/2016
-       * Developer : Mohd Azman
-       **/
-    protected void checkDebt(string nokp)
-    {
-        pnlDebt.Visible = true;
-        lblDebt.Text = "RM 200.50";
-    }
-
-    /**
-       * Function  : showAchievement() 
-       * Remarks   : To Show Student's Num of Achievement
-       * Date      : 31/10/2016
-       * Developer : Mohd Azman
-       **/
-    protected void showAchievement(string sesisem, string nokp)
-    {
-	    lblResult.Text = "3.80";
-    }
-
-    /**
-       * Function  : showActivities() 
-       * Remarks   : To Show Student's Num of Activities
-       * Date      : 31/10/2016
-       * Developer : Mohd Azman
-       **/
-    protected void showActivities(string matrik)
-    {
-        lblActivity.Text = "20";
-    }
-
-
- 
-
 }
