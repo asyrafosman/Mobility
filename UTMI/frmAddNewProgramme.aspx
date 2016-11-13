@@ -7,7 +7,7 @@
             <li class="active"><a><span class="fa fa-plus-circle"></span> Add Activity</a></li>
         </ul>
     </div>
-    <table align="right">
+    <table style="float:right">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Add New Programme</asp:Label>
@@ -321,6 +321,7 @@
             </td>
             <td>
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtStartDate" ControlToValidate="txtEndDate" ErrorMessage="End Date must be greater than Start Date" Operator="GreaterThan">&nbsp;</asp:CompareValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
@@ -362,10 +363,8 @@
             <td style="width: 1px">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="6">
-                <center>
-                    <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-akad btn-sm" OnClick="btnSave_Click" />
-                </center>
+            <td colspan="6" style="text-align: center">
+                <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-akad btn-sm" OnClick="btnSave_Click" />
             </td>
         </tr>
     </table>

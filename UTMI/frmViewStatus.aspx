@@ -1,15 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudent.aspx.cs" Inherits="UTMI_frmViewStudent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStatus.aspx.cs" Inherits="UTMI_frmViewStudent" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-user"></span> Applicant Details</a></li>
+            <li class="active"><a><span class="fa fa-user"></span> Applicant Status</a></li>
         </ul>
     </div>
     <table style="float:right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Details</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Status</asp:Label>
             </td>
         </tr>
     </table>
@@ -99,56 +99,95 @@
     <br />
     <table style="width: 100%">
         <tr>
-            <td style="width: 150px">
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
+            </td>
+            <td colspan="2" style="color: #FFFFFF; background-color: #990000; text-align:center;">
+                <asp:Label ID="lblTxtFaculty" runat="server" Text="Faculty" Font-Bold="True"></asp:Label>
+            </td>
+            <td colspan="2" style="color: #FFFFFF; background-color: #990000; text-align:center;">
+                <asp:Label ID="lblTxtUtmi" runat="server" Text="UTM International" Font-Bold="True"></asp:Label>
+            </td>
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
+            </td>
+        </tr>
+        <tr>
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
+                <asp:Label ID="lblTxtSystem" runat="server" Text="System" Font-Bold="True"></asp:Label>
+            </td>
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
                 <asp:Label ID="lblTxtAA" runat="server" Text="Academic Advisor" Font-Bold="True"></asp:Label>
             </td>
-            <td style="width: 1px">:</td>
-            <td>
-                <asp:Label ID="lblAAComment" runat="server" Text=""></asp:Label>
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
+                <asp:Label ID="lblTxtTda" runat="server" Text="Deputy Dean Academic" Font-Bold="True"></asp:Label>
+            </td>
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
+                <asp:Label ID="lblTxtUtmiAR" runat="server" Text="UTMI Assistant Registrar" Font-Bold="True"></asp:Label>
+            </td>
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
+                <asp:Label ID="lblTxtUtmiD" runat="server" Text="UTMI Director" Font-Bold="True"></asp:Label>
+            </td>
+            <td style="color: #FFFFFF; background-color: #990000; text-align:center;">
+                <asp:Label ID="lblTxtTncaa" runat="server" Text="TNCAA" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="width: 150px">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <span class="label label-success">Saved</span>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <span class="label label-success">Reviewed</span>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <span class="label label-success">Recommended</span>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <span class="label label-warning">In Process</span>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <span class="label label-danger">Not Recommended</span>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                &nbsp;</td>
+            <td style="background-color: #FFFBD6; text-align:center;">
                 <asp:Label ID="lblAAName" runat="server" Font-Bold="True"></asp:Label>
             </td>
-        </tr>
-        <tr>
-            <td style="width: 150px">
-                <asp:Label ID="lblTxtTDAComment" runat="server" Text="Deputy Dean Academic" Font-Bold="True"></asp:Label>
-            </td>
-            <td style="width: 1px">:</td>
-            <td>
-                <asp:Label ID="lblTDAComment" runat="server" Text=""></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 150px">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>
+            <td style="background-color: #FFFBD6; text-align:center;">
                 <asp:Label ID="lblTDAName" runat="server" Font-Bold="True"></asp:Label>
             </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblUTMIARName" runat="server" Font-Bold="True"></asp:Label>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblUTMIDName" runat="server" Font-Bold="True"></asp:Label>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblTNCAAName" runat="server" Font-Bold="True"></asp:Label>
+            </td>
         </tr>
         <tr>
-            <td style="width: 150px">
-                <asp:Label ID="lblTxtComment" runat="server" Text="Comment" Font-Bold="True"></asp:Label>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblSystemDate" runat="server" Text=""></asp:Label>
             </td>
-            <td style="width: 1px">:</td>
-            <td>
-                <asp:TextBox ID="lblComment" runat="server" style="width: 100%"></asp:TextBox>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblAADate" runat="server" Text=""></asp:Label>
             </td>
-        </tr>
-        <tr>
-            <td colspan="3" style="text-align: center">
-                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" />
-                &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-akad btn-sm" />
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblTDADate" runat="server" Text=""></asp:Label>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblUTMIARDate" runat="server" Text=""></asp:Label>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblUTMIDDate" runat="server" Text=""></asp:Label>
+            </td>
+            <td style="background-color: #FFFBD6; text-align:center;">
+                <asp:Label ID="lblTNCAADate" runat="server" Text=""></asp:Label>
             </td>
         </tr>
     </table>
     <br />
-
-
 </asp:Content>
 

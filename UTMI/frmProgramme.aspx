@@ -6,7 +6,7 @@
             <li class="active"><a href="frmProgramme.aspx"><span class="fa fa-list"></span> List of Programmes</a></li>
         </ul>
     </div>
-    <table align="right">
+    <table style="float:right">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Programme List</asp:Label>

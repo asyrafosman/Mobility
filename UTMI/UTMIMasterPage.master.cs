@@ -11,24 +11,13 @@ using System.Web.UI.HtmlControls;
 
 public partial class Student_UGMasterPage : System.Web.UI.MasterPage
 {
-    OracleConnection oraCon = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
+    OracleConnection oraCon = new OracleConnection(ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "AIR KELAPA BIN KELABU ASAP";
-        Session["acadUserPr"] = "Bachelor Of Computer Science (Database Systems)";
-        Session["acadUserFn"] = "Computing";
-        Session["acadUserMt"] = "A14CS0999";
-        Session["acadUserBs"] = "6";
-        Session["acadUserNs"] = "8";
-        Session["acadUserSv"] = "Dr. Gigi Sweetiee";
-        Session["acadUserTs"] = "Taught Course";
-        Session["acadUserEm"] = "kaakasim@live.utm.my";
-        Session["acadUserTl"] = "017-754943283";
-
-
-
+        Session["acadUserNm"] = "UTMI ASSISTANT REGISTRAR";
+        
 		if (!IsPostBack)
 		{
 			string sesisem = Session["acadUserSs"].ToString();

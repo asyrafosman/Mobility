@@ -28,6 +28,9 @@ public partial class UTMI_frmViewStudent : System.Web.UI.Page
         Session["acadProgEndDate"] = "30-06-2017";
         Session["acadProgAAComment"] = "Good.";
         Session["acadProgTDAComment"] = "Excellent.";
+        Session["acadProgSystemDate"] = "1/11/2016";
+        Session["acadProgSvDate"] = "3/11/2016";
+        Session["acadProgTdaDate"] = "6/11/2016";
 
         if (!IsPostBack)
         {
@@ -53,9 +56,10 @@ public partial class UTMI_frmViewStudent : System.Web.UI.Page
         lblStartDate.Text = Session["acadProgStartDate"].ToString();
         lblEndDate.Text = Session["acadProgEndDate"].ToString();
 
+        lblSystemDate.Text = Session["acadProgSystemDate"].ToString();
         lblAAName.Text = Session["acadUserSv"].ToString();
-        lblAAComment.Text = Session["acadProgAAComment"].ToString();
+        lblAADate.Text = Session["acadProgSvDate"].ToString();
         lblTDAName.Text = Session["acadUserTda"].ToString();
-        lblTDAComment.Text = Session["acadProgTDAComment"].ToString();
+        lblTDADate.Text = Session["acadProgTdaDate"].ToString();
     }
 }

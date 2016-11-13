@@ -9,7 +9,7 @@
             <li><a href="frmOutboundRejected.aspx"><span class="fa fa-times"></span> Rejected</a></li>
         </ul>
     </div>
-    <table align="right">
+    <table style="float:right">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Inbox</asp:Label>
