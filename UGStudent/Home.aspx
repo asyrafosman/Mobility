@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UGStudent/UGMasterPage.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="UGStudent_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a href="Home.aspx"><span class="fa fa-home"></span> Home</a></li>
+            <li class="active"><a href="Home.aspx"><span class="fa fa-home"></span>Home</a></li>
         </ul>
     </div>
     <table style="width: 100%;">
@@ -11,7 +11,8 @@
             <td class="style158">
                 <table style="width: 100%">
                     <tr>
-                        <td style="width: 148px; color: #FFFFFF; background-color: #CC0066; text-align: center;"><br />
+                        <td style="width: 148px; color: #FFFFFF; background-color: #CC0066; text-align: center;">
+                            <br />
                         </td>
                         <td style="width: 318px; background-color: #CC0066; color: #FFFFFF; text-align: center;"><strong>Research Internship</strong></td>
                         <td style="width: 28px; background-color: #FFFFFF; color: #FFFFFF; text-align: center;">&nbsp;</td>
@@ -87,4 +88,3 @@
         </tr>
     </table>
 </asp:Content>
-

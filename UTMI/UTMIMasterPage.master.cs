@@ -1,29 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.OracleClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 
 public partial class Student_UGMasterPage : System.Web.UI.MasterPage
 {
-    OracleConnection oraCon = new OracleConnection(ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
+    private OracleConnection oraCon = new OracleConnection(ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
         Session["acadUserNm"] = "UTMI ASSISTANT REGISTRAR";
-        
-		if (!IsPostBack)
-		{
-			string sesisem = Session["acadUserSs"].ToString();
-			lblLoggedInUser.Text = Session["acadUserNm"].ToString();
-		}
+
+        if (!IsPostBack)
+        {
+            string sesisem = Session["acadUserSs"].ToString();
+            lblLoggedInUser.Text = Session["acadUserNm"].ToString();
+        }
     }
+
     protected void AC_Click(object sender, ImageClickEventArgs e)
     {
         Server.Transfer("frmAcadCalendar.aspx", false);

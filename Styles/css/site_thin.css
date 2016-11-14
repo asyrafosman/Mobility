@@ -1,9 +1,8 @@
 ﻿@import url('font-awesome.css');
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
-
 /*-----------------------------------------------------------------------------------------
-                                       Default   
+                                       Default
 -----------------------------------------------------------------------------------------*/
 
 body {
@@ -23,7 +22,7 @@ a:active { color: #00a1d2; }
 td, tr { padding: 3px; }
 input { margin-bottom: 8px; }
 
-/* Heading  
+/* Heading
 ----------------------------------------------------------*/
 
 h1, h2, h3, h4, h5, h6 { color: #000; font-weight: bold; }
@@ -35,7 +34,7 @@ h5 { font-size: 16px; line-height: 20px; font-weight: normal; }
 h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 
 /*-----------------------------------------------------------------------------------------
-                                       Primary Layout Element   
+                                       Primary Layout Element
 -----------------------------------------------------------------------------------------*/
 .watermarked {
     height: 20px;
@@ -84,13 +83,13 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 .blink { text-decoration:blink }
 
 /*-----------------------------------------------------------------------------------------
-                                       Navigation Menu   
+                                       Navigation Menu
 -----------------------------------------------------------------------------------------*/
 
 .menu-bg {
     width: 100%;
     height: 35px;
-    
+
     /* Styles */
     border: none; /* Remove the default border */
     border-radius: 5px;
@@ -101,12 +100,12 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
     background: url(../Styles/images/noise.png), -o-radial-gradient(center, ellipse cover, #BD1558 0%,#b53467 100%);
     background: url(../Styles/images/noise.png), -ms-radial-gradient(center, ellipse cover, #BD1558 0%,#b53467 100%);
     background: url(../Styles/images/noise.png), radial-gradient(ellipse at center, #BD1558 0%,#b53467 100%);
-    box-shadow: 
+    box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.3),
         2px 3px 4px rgba(0,0,0,0.35),
         inset 0 3px 2px rgba(255,255,255,0.2),
         inset 0 -3px 2px rgba(0,0,0,0.1);
-        
+
     cursor: pointer;
 }
 
@@ -223,14 +222,14 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
     text-shadow: 0 1px 0 rgba(255,255,255,0.8);
-    
+
     /* Size and position */
     padding: 4px 20px;
     width: 50%;
-    
+
     /* Styles */
     border: none; /* Remove the default border */
-    box-shadow: 
+    box-shadow:
         inset 0 0 5px rgba(0,0,0,0.1),
         inset 0 3px 2px rgba(0,0,0,0.1);
     border-radius: 20px;
@@ -244,7 +243,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 }
 
 /*-----------------------------------------------------------------------------------------
-                                         ADMIN   
+                                         ADMIN
 -----------------------------------------------------------------------------------------*/
 
 .admin-header{
@@ -322,7 +321,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 }
 
 /*-----------------------------------------------------------------------------------------
-                                     STATUS TABLE  
+                                     STATUS TABLE
 -----------------------------------------------------------------------------------------*/
 
 .statab-header{
@@ -358,7 +357,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 }
 
 /*-----------------------------------------------------------------------------------------
-                                         MISC   
+                                         MISC
 -----------------------------------------------------------------------------------------*/
 
 .failureNotification {
@@ -373,7 +372,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 
 .labeldebt {
     margin-left: -5px;
-    text-decoration: blink; 
+    text-decoration: blink;
 }
 
 .caps { text-transform: uppercase; }
@@ -382,28 +381,28 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
     z-index: 0;
 }
 
-/* Align  
+/* Align
 ----------------------------------------------------------*/
 
 .left { float: left; height: 50px;}
 .right { text-align: right; float: right; height: 50px;}
 .center { text-align: center; }
 
-/* Table  
+/* Table
 ----------------------------------------------------------*/
 
 .table { width: 100%; }
 .columnOdd { width: 12%; }
 .columnEven { width: 38%; }
 
-/* Divider  
+/* Divider
 ----------------------------------------------------------*/
 
 .divide-s { background-color:#64001C;  height: 5px; padding: 0px; margin: 0px -10px 3px 0px; }
 
 .divide-xs { background-color:#64001C;  height: 3px; padding: 0px; margin: 0px -13px 3px -7px; width: 123%; }
 
-/* Clear  
+/* Clear
 ----------------------------------------------------------*/
 
 .clear { clear: both; }
@@ -425,7 +424,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 
 .xsfiller{ min-height: 2px; }
 
-.img-row{ width; 165px !important; } 
+.img-row{ width; 165px !important; }
 
 .img-profile{
     margin-left: 25px;
@@ -436,7 +435,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
     padding:5px;
     border:1px solid #dcdcdc;
     background-color:#ffffff;
-    float: right; 
+    float: right;
 }
 
 .name-row{ max-height: 15%; margin: 5px;}
@@ -447,7 +446,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 }
 
 .grid-row {
-    min-height: 150px; 
+    min-height: 150px;
     margin-left: 18px;
     margin-right: 18px;
 }
@@ -455,7 +454,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 .cnt-sum {
     display: block;
     height:100%;
-    text-align: center; 
+    text-align: center;
     margin-top: -1px;
     margin-bottom: -5px;
 }
@@ -463,7 +462,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 .cnt-sum-2 {
     display: block;
     height:30px;
-    text-align: center; 
+    text-align: center;
     margin-top: -1px;
     margin-bottom: 5px;
 }
@@ -498,12 +497,12 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 .side-title{ margin: 0px; }
 
 .side-icon{
-    width: 45px; 
+    width: 45px;
     height: 45px;
     margin-left: 40%;
-    margin-right: 25%; 
+    margin-right: 25%;
     margin-top: -5px;
-    margin-bottom: 20%; 
+    margin-bottom: 20%;
 }
 
 .tab-icon{ height: 20px; width: 20px; }
@@ -547,7 +546,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
     padding-top: 0px !important;
     padding-bottom: 0px !important;
     margin-bottom: 0px !important;
-    margin-top: 1px !important; 
+    margin-top: 1px !important;
 }
 
 .alert {
@@ -560,7 +559,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
   border-color: #ddd;
 }
 /*-----------------------------------------------------------------------------------------
-                                       Popup Box   
+                                       Popup Box
 -----------------------------------------------------------------------------------------*/
 
 .popup-box-title { font-size: 20px; line-height: 24px; color: #F8A617; text-align:center; font-weight:bold; }
@@ -569,7 +568,7 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 	display:none;
 	width: 40%;
 	background: #333;
-	padding: 8px; 	
+	padding: 8px;
 	border: 2px solid #ddd;
 	float: left;
 	font-size: 1.2em;
@@ -586,15 +585,15 @@ h6 { font-size: 14px; line-height: 18px; font-weight: normal; }
 
 #popup-box-mask {
 	display: none;
-	background: #000; 
-	position: fixed; left: 0; top: 0; 
+	background: #000;
+	position: fixed; left: 0; top: 0;
 	z-index: 10;
 	width: 100%; height: 100%;
 	opacity: 0.8;
 	z-index: 999;
 }
 img.btn_close {
-	float: right; 
+	float: right;
 	margin: -28px -28px 0 0;
 }
 .popup-box-wrapper {
@@ -630,7 +629,7 @@ img.btn_close {
     font-size: 13px;
     font-weight: 400;
     text-shadow: 0 1px 0 rgba(255,255,255,0.8);
-    
+
     /* Size and position */
     width: 90%;
     height: 100%;
@@ -639,7 +638,7 @@ img.btn_close {
 
     /* Styles */
     border: none; /* Remove the default border */
-    box-shadow: 
+    box-shadow:
         inset 0 0 5px rgba(0,0,0,0.1),
         inset 0 3px 2px rgba(0,0,0,0.1);
     border-radius: 3px;
@@ -664,7 +663,7 @@ img.btn_close {
 .popup-box-wrapper button[type=submit]:focus {
     outline: none;
 }
-.popup-box-button { 
+.popup-box-button {
     /* Size and position */
     width: 100%;
     height: 100%;
@@ -686,15 +685,15 @@ img.btn_close {
     background: url(/Style/images/noise.png), -o-radial-gradient(center, ellipse cover, #BD1558 0%,#5C001F 100%);
     background: url(/Style/images/noise.png), -ms-radial-gradient(center, ellipse cover, #BD1558 0%,#5C001F 100%);
     background: url(/Style/images/noise.png), radial-gradient(ellipse at center, #BD1558 0%,#5C001F 100%);
-    box-shadow: 
+    box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.3),
         0 1px 2px rgba(0,0,0,0.35),
         inset 0 3px 2px rgba(255,255,255,0.2),
         inset 0 -3px 2px rgba(0,0,0,0.1);
-        
+
     cursor: pointer;
 }
-.popup-box-button:hover { 
+.popup-box-button:hover {
     background: #BD1558;
     color: #5C001F;
     -webkit-transition: all 0.3s ease-out;
@@ -703,7 +702,7 @@ img.btn_close {
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 }
-.popup-box-detailsView {    
+.popup-box-detailsView {
     /* Icon styles */
     font-size: 13px;
     line-height: 1.75;
@@ -719,12 +718,12 @@ img.btn_close {
     background: url(/Style/images/noise.png), -o-radial-gradient(center, ellipse cover, #BD1558 0%,#5C001F 100%);
     background: url(/Style/images/noise.png), -ms-radial-gradient(center, ellipse cover, #BD1558 0%,#5C001F 100%);
     background: url(/Style/images/noise.png), radial-gradient(ellipse at center, #BD1558 0%,#5C001F 100%);
-    box-shadow: 
+    box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.3),
         0 1px 2px rgba(0,0,0,0.35),
         inset 0 3px 2px rgba(255,255,255,0.2),
         inset 0 -3px 2px rgba(0,0,0,0.1);
-        
+
     cursor: pointer;
 }
 
@@ -733,4 +732,3 @@ img.btn_close {
         display: none;
     }
 }
-

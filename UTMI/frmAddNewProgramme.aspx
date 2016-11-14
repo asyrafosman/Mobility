@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmAddNewProgramme.aspx.cs" Inherits="UTMI_frmAddNewProgramme" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-plus-circle"></span> Add Activity</a></li>
+            <li class="active"><a><span class="fa fa-plus-circle"></span>Add Activity</a></li>
         </ul>
     </div>
-    <table style="float:right">
+    <table style="float: right">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Add New Programme</asp:Label>
@@ -20,7 +21,7 @@
     <table style="width: 100%">
         <tr>
             <td class="style158" style="height: 18px;" colspan="4">
-                <span id="MainContent_BodyContent_Label37" style="font-weight:bold;font-style:normal;">Programme Details</span>
+                <span id="MainContent_BodyContent_Label37" style="font-weight: bold; font-style: normal;">Programme Details</span>
                 &nbsp;( <a><span class="fa fa-hand-pointer-o"></span></a>&nbsp; Click Field to Edit
                 )
                 &nbsp;
@@ -316,8 +317,8 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>  
-                    <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="txtStartDate" Format="dd/MM/yyyy"> </cc1:CalendarExtender>  
+                <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="txtStartDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
             </td>
             <td>
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
@@ -325,8 +326,8 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox>  
-                    <cc1:CalendarExtender ID="Calendar2" PopupButtonID="imgPopup" runat="server" TargetControlID="txtEndDate" Format="dd/MM/yyyy"> </cc1:CalendarExtender>  
+                <asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="Calendar2" PopupButtonID="imgPopup" runat="server" TargetControlID="txtEndDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
             </td>
         </tr>
         <tr>
@@ -336,8 +337,8 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtDeadline" runat="server"></asp:TextBox>  
-                    <cc1:CalendarExtender ID="Calendar3" PopupButtonID="imgPopup" runat="server" TargetControlID="txtDeadline" Format="dd/MM/yyyy"> </cc1:CalendarExtender>  
+                <asp:TextBox ID="txtDeadline" runat="server"></asp:TextBox>
+                <cc1:CalendarExtender ID="Calendar3" PopupButtonID="imgPopup" runat="server" TargetControlID="txtDeadline" Format="dd/MM/yyyy"></cc1:CalendarExtender>
             </td>
             <td>
                 <asp:Label ID="lblOpenTo" runat="server" Text="Open To"></asp:Label>
@@ -358,8 +359,7 @@
             <td>
                 <asp:TextBox ID="txtIntakeSession" runat="server"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
+            <td>&nbsp;</td>
             <td style="width: 1px">&nbsp;</td>
         </tr>
         <tr>
@@ -370,4 +370,3 @@
     </table>
     <br>
 </asp:Content>
-

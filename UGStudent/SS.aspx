@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UGStudent/UGMasterPage.master" AutoEventWireup="true" CodeFile="SS.aspx.cs" Inherits="UGStudent_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
             <li class="active" style="text-align: center"><a href="StudentExchange.aspx">Summer School</a></li>
@@ -9,9 +9,7 @@
     </div>
     <table style="width: 100%;">
         <tr>
-            <td class="style158">
-                &nbsp;</td>
+            <td class="style158">&nbsp;</td>
         </tr>
     </table>
 </asp:Content>
-

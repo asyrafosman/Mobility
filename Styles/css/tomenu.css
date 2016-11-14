@@ -160,7 +160,6 @@
   transition: color .2s ease;
 }
 
-
 #cssmenu ul ul li:hover > a,
 #cssmenu ul ul li a:hover {
   color: #64001C;
@@ -232,7 +231,7 @@
     color: #000000;
     background: none;
   }
-  
+
   #cssmenu ul ul li:hover > a,
   #cssmenu ul ul li a:hover {
     color: #64001C;
@@ -320,7 +319,6 @@
   #cssmenu .submenu-button.submenu-opened:after {
     display: none;
   }
-  
 }
 tr {
 	text-align: left;

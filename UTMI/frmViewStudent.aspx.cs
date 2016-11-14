@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class UTMI_frmViewStudent : System.Web.UI.Page
 {
@@ -35,6 +30,7 @@ public partial class UTMI_frmViewStudent : System.Web.UI.Page
             showProfile();
         }
     }
+
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/PhotoStudent.ashx.jpeg\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UGStudent/UGMasterPage.master" AutoEventWireup="true" CodeFile="Application.aspx.cs" Inherits="UGStudent_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small; top: 0px; left: 0px;">
             <li class="active" style="text-align: center; top: 2px; left: 1px;"><a href="Application.aspx">New Application</a></li>
@@ -15,7 +15,7 @@
                         <td style="color: #FFFFFF; background-color: #FFFFFF; font-size: small; height: 18px;">
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                             </asp:ScriptManager>
-                            <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="5" BackColor="White" BorderColor="White" BorderStyle="None" Height="437px" Width="916px" style="color: #000000" outline-style=none>
+                            <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="5" BackColor="White" BorderColor="White" BorderStyle="None" Height="437px" Width="916px" Style="color: #000000" outline-style="none">
                                 <ajaxToolkit:TabPanel runat="server" HeaderText="TabPanel1" ID="TabPanel1">
                                     <HeaderTemplate>
                                         Programme
@@ -163,7 +163,7 @@
                                                 <td style="color: #000000">&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                <td style="color: #000000; " colspan="5">&nbsp;</td>
+                                                <td style="color: #000000;" colspan="5">&nbsp;</td>
                                             </tr>
                                         </table>
                                         <br />
@@ -243,7 +243,8 @@
                                         <asp:Button ID="Button20" runat="server" Text="Cancel" />
                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Button ID="Button21" runat="server" Text="Save &amp; Continue" />
-                                        &nbsp;Page 5 of 6<br />&nbsp;
+                                        &nbsp;Page 5 of 6<br />
+                                        &nbsp;
                                     </ContentTemplate>
                                 </ajaxToolkit:TabPanel>
                                 <ajaxToolkit:TabPanel ID="TabPanel6" runat="server" HeaderText="TabPanel6">
@@ -263,18 +264,18 @@
                                             <br />
                                             <asp:CheckBox ID="CheckBox1" runat="server" />
                                             <span id="rtr-s-Paragraph_2_0" style="padding: 0px; margin: 0px; outline: 0px; zoom: 1; -webkit-tap-highlight-color: transparent; color: rgb(0, 0, 0); text-align: center; text-decoration: none; font-family: Calibri, Arial; font-size: 12pt; font-style: normal; font-weight: 700; line-height: 12pt; font-variant: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">I hereby declare that the information provided in this form is true. &nbsp;I acknowledge that Universiti Teknologi Malaysia reserves the right to vary or reserve any decision regarding admission or enrolment made on the basis of the given information.</span><span id="rtr-s-Paragraph_2_1" style="padding: 0px; margin: 0px; outline: 0px; zoom: 1; -webkit-tap-highlight-color: transparent; color: rgb(0, 0, 0); text-align: left; text-decoration: none; font-family: Calibri, Arial; font-size: 12pt; font-style: normal; font-weight: normal; line-height: 12pt; font-variant: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><span class="Apple-converted-space">&nbsp;<br />
-                                            <br />
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <br />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <asp:Button ID="Button10" runat="server" Text="Cancel" />
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <asp:Button ID="Button11" runat="server" Text="Submit" />
-                                            &nbsp;Page 6 of 6<br />&nbsp;&nbsp;&nbsp;&nbsp; </span></span>
+                                                &nbsp;Page 6 of 6<br />
+                                                &nbsp;&nbsp;&nbsp;&nbsp; </span></span>
                                         </div>
                                     </ContentTemplate>
                                 </ajaxToolkit:TabPanel>
                             </ajaxToolkit:TabContainer>
-                            </td>
-                            
+                        </td>
                     </tr>
                     <tr>
                         <td style="color: #FFFFFF; background-color: #FFFFFF; font-size: small; height: 19px;"></td>
@@ -284,4 +285,3 @@
         </tr>
     </table>
 </asp:Content>
-

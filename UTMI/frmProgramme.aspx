@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmProgramme.aspx.cs" Inherits="UTMI_frmProgramme" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a href="frmProgramme.aspx"><span class="fa fa-list"></span> List of Programmes</a></li>
+            <li class="active"><a href="frmProgramme.aspx"><span class="fa fa-list"></span>List of Programmes</a></li>
         </ul>
     </div>
-    <table style="float:right">
+    <table style="float: right">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Programme List</asp:Label>
@@ -24,7 +24,7 @@
             </td>
         </tr>
     </table>
-    <table align="right">
+    <table style="float: right">
         <tr>
             <td>
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmAddNewProgramme.aspx"><i class="fa fa-plus-circle fa-lg" style="color:maroon"></i> Add New Programme</asp:HyperLink>
@@ -104,4 +104,3 @@
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
 </asp:Content>
-

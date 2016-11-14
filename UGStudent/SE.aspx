@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UGStudent/UGMasterPage.master" AutoEventWireup="true" CodeFile="SE.aspx.cs" Inherits="UGStudent_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
             <li class="active" style="text-align: center"><a href="StudentExchange.aspx">&nbsp;Student Exchange</a></li>
@@ -28,4 +28,3 @@
         </tr>
     </table>
 </asp:Content>
-

@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudent.aspx.cs" Inherits="UTMI_frmViewStudent" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-user"></span> Applicant Details</a></li>
+            <li class="active"><a><span class="fa fa-user"></span>Applicant Details</a></li>
         </ul>
     </div>
-    <table style="float:right">
+    <table style="float: right">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Details</asp:Label>
@@ -31,7 +31,8 @@
                         <br />
                         <asp:Label ID="lblFaculty" runat="server" Font-Bold="True" ForeColor="#AD0000" Text=""></asp:Label>
                         <p class="filler">
-                            &nbsp;</p>
+                            &nbsp;
+                        </p>
                     </div>
                 </div>
                 <div class="row">
@@ -136,7 +137,7 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="lblComment" runat="server" style="width: 100%"></asp:TextBox>
+                <asp:TextBox ID="lblComment" runat="server" Style="width: 100%"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -148,7 +149,4 @@
         </tr>
     </table>
     <br />
-
-
 </asp:Content>
-

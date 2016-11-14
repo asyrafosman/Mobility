@@ -1,21 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmOutboundInbox.aspx.cs" Inherits="UTMI_Dashboard" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a href="frmOutboundInbox.aspx"><span class="fa fa-inbox"></span> Inbox</a></li>
-            <li><a href="frmOutboundInProcess.aspx"><span class="fa fa-play"></span> In Process</a></li>
-            <li><a href="frmOutboundCompleted.aspx"><span class="fa fa-check"></span> Completed</a></li>
-            <li><a href="frmOutboundRejected.aspx"><span class="fa fa-times"></span> Rejected</a></li>
+            <li class="active"><a href="frmOutboundInbox.aspx"><span class="fa fa-inbox"></span>Inbox</a></li>
+            <li><a href="frmOutboundInProcess.aspx"><span class="fa fa-play"></span>In Process</a></li>
+            <li><a href="frmOutboundCompleted.aspx"><span class="fa fa-check"></span>Completed</a></li>
+            <li><a href="frmOutboundRejected.aspx"><span class="fa fa-times"></span>Rejected</a></li>
         </ul>
     </div>
-    <table style="float:right">
+    <table style="float: right">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Inbox</asp:Label>
             </td>
         </tr>
     </table>
+    <br>
     <br>
     <table align="center">
         <tr>
@@ -27,9 +28,8 @@
         </tr>
     </table>
     <br>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound]">
-    </asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" style="width: 100%">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound]"></asp:SqlDataSource>
+    <asp:GridView ID="GridView1" runat="server" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Style="width: 100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="applicationId" HeaderText="Application ID" ReadOnly="True" SortExpression="applicationId" />
@@ -51,12 +51,12 @@
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound] WHERE ([studentName] LIKE '%' + @studentName + '%')">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound] WHERE ([studentName] LIKE '%' + @studentName + '%')">
         <SelectParameters>
             <asp:ControlParameter ControlID="txtSearch" Name="studentName" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Visible="False" style="width: 100%">
+    <asp:GridView ID="GridView2" runat="server" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Visible="False" Style="width: 100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="applicationId" HeaderText="Application ID" ReadOnly="True" SortExpression="applicationId" />
@@ -79,4 +79,3 @@
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
 </asp:Content>
-

@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Data.OracleClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 
 public partial class Student_UGMasterPage : System.Web.UI.MasterPage
 {
-    OracleConnection oraCon = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
+    private OracleConnection oraCon = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -27,18 +20,17 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
         Session["acadUserEm"] = "kaakasim@live.utm.my";
         Session["acadUserTl"] = "017-754943283";
 
-
-
-		if (!IsPostBack)
-		{
-			string sesisem = Session["acadUserSs"].ToString();
-			showProfile();
+        if (!IsPostBack)
+        {
+            string sesisem = Session["acadUserSs"].ToString();
+            showProfile();
             checkDebt("");
             showAchievement("", "");
             showActivities("");
-			lblLoggedInUser.Text = Session["acadUserNm"].ToString();
-		}
+            lblLoggedInUser.Text = Session["acadUserNm"].ToString();
+        }
     }
+
     protected void AC_Click(object sender, ImageClickEventArgs e)
     {
         Server.Transfer("frmAcadCalendar.aspx", false);
@@ -130,11 +122,12 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
     }
 
     /**
-      * Function  : showProfile() 
+      * Function  : showProfile()
       * Remarks   : To Show Student's Profile
       * Date      : 31/10/2016
       * Developer : Mohd Azman
       **/
+
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
@@ -150,11 +143,12 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
     }
 
     /**
-       * Function  : checkDebt() 
+       * Function  : checkDebt()
        * Remarks   : To Show Student's Debt
        * Date      : 31/10/2016
        * Developer : Mohd Azman
        **/
+
     protected void checkDebt(string nokp)
     {
         pnlDebt.Visible = true;
@@ -162,28 +156,26 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
     }
 
     /**
-       * Function  : showAchievement() 
+       * Function  : showAchievement()
        * Remarks   : To Show Student's Num of Achievement
        * Date      : 31/10/2016
        * Developer : Mohd Azman
        **/
+
     protected void showAchievement(string sesisem, string nokp)
     {
-	    lblResult.Text = "3.80";
+        lblResult.Text = "3.80";
     }
 
     /**
-       * Function  : showActivities() 
+       * Function  : showActivities()
        * Remarks   : To Show Student's Num of Activities
        * Date      : 31/10/2016
        * Developer : Mohd Azman
        **/
+
     protected void showActivities(string matrik)
     {
         lblActivity.Text = "20";
     }
-
-
- 
-
 }
