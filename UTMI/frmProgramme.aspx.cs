@@ -12,11 +12,11 @@ public partial class UTMI_frmProgramme : System.Web.UI.Page
         GridView1.Visible = false;
         GridView2.Visible = true;
     }
-    protected void UpdateProg(object sender, EventArgs e)
+    protected void ViewProg(object sender, EventArgs e)
     {
         string id = (sender as LinkButton).CommandArgument;
 
-        Response.Redirect("frmUpdateProg.aspx");
+        Response.Redirect("frmViewProg.aspx");
     }
     protected void DeleteProg(object sender, EventArgs e)
     {

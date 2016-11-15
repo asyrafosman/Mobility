@@ -28,21 +28,19 @@
                 <ul id="ulProgramme" runat="server">
                 </ul>
             </li>
-            <li><a>
-                <asp:Label ID="Label2" runat="server" Text="Application" CssClass="textMenu"></asp:Label></a>
-                <ul>
-                    <li><a href="frmOutboundInbox.aspx"><span class="fa fa-upload"></span>Outbound</a></li>
-                    <li><a href="frmInboundInbox.aspx"><span class="fa fa-download"></span>Inbound</a></li>
-                </ul>
-            </li>
-            <li><a>
-                <asp:Label ID="Label3" runat="server" Text="Student Activity" CssClass="textMenu"></asp:Label></a>
+            <li><a href="frmStudActivity.aspx">
+                <asp:Label ID="Label2" runat="server" Text="Student Activity" CssClass="textMenu"></asp:Label></a>
                 <ul id="ulActivity" runat="server">
                 </ul>
             </li>
-            <li><a>
-                <asp:Label ID="Label4" runat="server" Text="Student Report" CssClass="textMenu"></asp:Label></a>
+            <li><a  href="frmStudReport.aspx">
+                <asp:Label ID="Label3" runat="server" Text="Student Report" CssClass="textMenu"></asp:Label></a>
                 <ul id="ulReport" runat="server">
+                </ul>
+            </li>
+            <li><a href="frmStatistic.aspx">
+                <asp:Label ID="Label4" runat="server" Text="Statistic" CssClass="textMenu"></asp:Label></a>
+                <ul id="ulStatistic" runat="server">
                 </ul>
             </li>
         </ul>

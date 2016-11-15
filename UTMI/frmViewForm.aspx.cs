@@ -1,29 +1,46 @@
 ﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.UI;
 
 public partial class UTMI_frmViewForm : System.Web.UI.Page
 {
+    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Declaration
+        //string id = Request.QueryString["ProgId"];
+        String strSelect;
+        SqlCommand cmdSelect;
+        SqlDataReader drSelect;
+        //id = Session["pengguna"].ToString();
+        string Matric = "A14CS0053";
+
+        con.Open();  // Open Connection with database
+
+        strSelect = "SELECT Matric, Name, IC, DoB, ContactNum, Email, Religion, Citizenship, Race, Address, Kin, EmergencyContact, KinAddress FROM Student WHERE Matric='" + Matric + "'";
+        cmdSelect = new SqlCommand(strSelect, con);
+        drSelect = cmdSelect.ExecuteReader();
+        drSelect.Read();
+
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "MOHAMAD ASYRAF BIN OSMAN";
+        Session["acadUserNm"] = drSelect["Name"].ToString();
         Session["acadUserPr"] = "Bachelor Of Computer Science (Software Engineering)";
         Session["acadUserFn"] = "Computing";
-        Session["acadUserMt"] = "A14CS0053";
+        Session["acadUserMt"] = drSelect["Matric"].ToString();
         Session["acadUserBs"] = "5";
         Session["acadUserNs"] = "8";
-        Session["acadUserSv"] = "Dr. Radziah Binti Mohamad";
-        Session["acadUserTda"] = "Prof. Dr. Habibollah Bin Harun";
-        Session["acadUserTs"] = "Taught Course";
-        Session["acadUserEm"] = "masyraf96@live.utm.my";
-        Session["acadUserTl"] = "0172364838";
-        Session["acadUserIC"] = "950405055261";
-        Session["acadUserDoB"] = "05-04-1995";
-        Session["acadUserReligion"] = "1-Islam";
-        Session["acadUserRace"] = "A-Melayu Semenanjung";
-        Session["acadUserCitizenship"] = "MAL-Malaysia";
-        Session["acadUserNextOfKin"] = "OSMAN BIN ABDUL LATIFF";
-        Session["acadUserEmergencyContact"] = "0123039064";
-        Session["acadUserAddress"] = "NO. 2, JALAN BBI 5, TAMAN BUKIT BERUANG INDAH, 75450, MELAKA";
+        Session["acadUserEm"] = drSelect["Email"].ToString();
+        Session["acadUserTl"] = drSelect["ContactNum"].ToString();
+        Session["acadUserIC"] = drSelect["IC"].ToString();
+        Session["acadUserDoB"] = drSelect["DoB"].ToString();
+        Session["acadUserReligion"] = drSelect["Religion"].ToString();
+        Session["acadUserRace"] = drSelect["Race"].ToString();
+        Session["acadUserCitizenship"] = drSelect["Citizenship"].ToString();
+        Session["acadUserNextOfKin"] = drSelect["Kin"].ToString();
+        Session["acadUserEmergencyContact"] = drSelect["EmergencyContact"].ToString();
+        Session["acadUserAddress"] = drSelect["Address"].ToString();
+        Session["acadUserKinAddress"] = drSelect["KinAddress"].ToString();
         Session["acadUserPassport"] = "1234567890";
         Session["acadUserPassportEx"] = "31/12/2020";
         Session["acadUserCGPA"] = "3.98";
@@ -45,6 +62,8 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         Session["acadFinancialContigency"] = "1500";
         Session["acadFinancialTotalAllocated"] = "3000";
 
+        con.Close();  // Close Connection with database
+
         if (!IsPostBack)
         {
             string sesisem = Session["acadUserSs"].ToString();
@@ -60,8 +79,6 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         lblFaculty.Text = Session["acadUserFn"].ToString();
         lblMatric.Text = Session["acadUserMt"].ToString();
         lblSemesterNorm.Text = Session["acadUserBs"].ToString() + " / " + Session["acadUserNs"].ToString();
-        //lblAA.Text = Session["acadUserSv"].ToString();
-        //lblToS.Text = Session["acadUserTs"].ToString() + " (Full Time)";
         lblEmail.Text = Session["acadUserEm"].ToString();
         lblContact.Text = Session["acadUserTl"].ToString();
         lblIC.Text = Session["acadUserIC"].ToString();
@@ -72,7 +89,7 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         lblNextKin.Text = Session["acadUserNextOfKin"].ToString();
         lblEmergency.Text = Session["acadUserEmergencyContact"].ToString();
         lblAddress.Text = Session["acadUserAddress"].ToString();
-        lblNextKinAddress.Text = Session["acadUserAddress"].ToString();
+        lblNextKinAddress.Text = Session["acadUserKinAddress"].ToString();
         lblPassportNo.Text = Session["acadUserPassport"].ToString();
         lblPassportExDate.Text = Session["acadUserPassportEx"].ToString();
         lblCGPA.Text = Session["acadUserCGPA"].ToString();

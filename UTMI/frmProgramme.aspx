@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a href="frmProgramme.aspx"><span class="fa fa-list"></span>List of Programmes</a></li>
+            <li class="active"><a><span class="fa fa-list"></span> List of Programmes</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -38,6 +38,13 @@
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource1" EmptyDataText="No record found" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ProgId">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:TemplateField HeaderText="No.">
+                <ItemTemplate>
+                    <%#Container.DataItemIndex +1 %>.
+                </ItemTemplate>
+                <HeaderStyle HorizontalAlign="Center" Width="5%" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="3%" />
+            </asp:TemplateField>
             <%--<asp:BoundField DataField="ProgId" HeaderText="ProgId" SortExpression="ProgId" InsertVisible="False" ReadOnly="True" />--%>
             <asp:BoundField DataField="Types" HeaderText="Types" SortExpression="Types" />
             <asp:BoundField DataField="ProgName" HeaderText="ProgName" SortExpression="ProgName" />
@@ -53,8 +60,8 @@
              <ItemStyle Width="3%" />
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>'
-                        OnClick="UpdateProg">
-                        <span class="fa fa-pencil"></span></asp:LinkButton>
+                        OnClick="ViewProg">
+                        <span class="fa fa-search"></span></asp:LinkButton>
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
@@ -84,6 +91,13 @@
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ProgId" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Visible="False" EmptyDataText="No record found">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:TemplateField HeaderText="No.">
+                <ItemTemplate>
+                    <%#Container.DataItemIndex +1 %>.
+                </ItemTemplate>
+                <HeaderStyle HorizontalAlign="Center" Width="5%" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="3%" />
+            </asp:TemplateField>
             <%--<asp:BoundField DataField="ProgId" HeaderText="ProgId" InsertVisible="False" ReadOnly="True" SortExpression="ProgId" />--%>
             <asp:BoundField DataField="Types" HeaderText="Types" SortExpression="Types" />
             <asp:BoundField DataField="ProgName" HeaderText="ProgName" SortExpression="ProgName" />
@@ -94,6 +108,28 @@
             <asp:BoundField DataField="Deadline" HeaderText="Deadline" SortExpression="Deadline" />
             <%--<asp:BoundField DataField="IntakeSession" HeaderText="IntakeSession" SortExpression="IntakeSession" />--%>
             <asp:BoundField DataField="OpenTo" HeaderText="OpenTo" SortExpression="OpenTo" />
+            <asp:TemplateField HeaderText="">
+                <HeaderStyle Width="3%" />
+             <ItemStyle Width="3%" />
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>'
+                        OnClick="ViewProg">
+                        <span class="fa fa-search"></span></asp:LinkButton>
+                </ItemTemplate>
+                <HeaderStyle HorizontalAlign="Center" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="">
+                <HeaderStyle Width="3%" />
+             <ItemStyle Width="3%" />
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ProgId") %>'
+                        OnClick="DeleteProg" OnClientClick="return confirm('Are you sure to delete this programme?');">
+                        <span class="fa fa-trash"></span></asp:LinkButton>
+                </ItemTemplate>
+                <HeaderStyle HorizontalAlign="Center" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />

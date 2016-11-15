@@ -17,7 +17,7 @@ public partial class UTMI_frmAddNewProgramme : System.Web.UI.Page
             SqlCommand cmdSelect;
             SqlDataReader drSelect;
             //id = Session["pengguna"].ToString();
-            int id = 1;
+            int id = 2;
 
             con.Open();  // Open Connection with database
 
@@ -26,13 +26,17 @@ public partial class UTMI_frmAddNewProgramme : System.Web.UI.Page
             drSelect = cmdSelect.ExecuteReader();
             drSelect.Read();
             
+            DateTime startDate = Convert.ToDateTime(drSelect["StartDate"].ToString());
+            DateTime endDate = Convert.ToDateTime(drSelect["EndDate"].ToString());
+            DateTime deadLine = Convert.ToDateTime(drSelect["Deadline"].ToString());
+
             ddlTypes.Text = drSelect["Types"].ToString();
             txtProgName.Text = drSelect["ProgName"].ToString();
             txtUniversity.Text = drSelect["University"].ToString();
             ddlCountry.SelectedValue = drSelect["Country"].ToString();
-            txtStartDate.Text = drSelect["StartDate"].ToString();
-            txtEndDate.Text = drSelect["EndDate"].ToString();
-            txtDeadline.Text = drSelect["Deadline"].ToString();
+            txtStartDate.Text = startDate.ToShortDateString();
+            txtEndDate.Text = endDate.ToShortDateString();
+            txtDeadline.Text = deadLine.ToShortDateString();
             txtIntakeSession.Text = drSelect["IntakeSession"].ToString();
             cblOpenTo.SelectedValue = drSelect["OpenTo"].ToString();
 

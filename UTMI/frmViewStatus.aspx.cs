@@ -1,9 +1,35 @@
 ﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
 
 public partial class UTMI_frmViewStudent : System.Web.UI.Page
 {
+    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
+        String strSelect;
+        SqlCommand cmdSelect;
+        SqlDataReader drSelect;
+        //id = Session["pengguna"].ToString();
+        int id = 1;
+
+        con.Open();  // Open Connection with database
+
+        strSelect = "SELECT SystemDate, SystemStatus, SvId, SvDate, SvStatus, TdaId, TdaDate, TdaStatus, TdaComment, UtmiArId, UtmiArDate, UtmiArStatus, UtmiDId, UtmiDDate, UtmiDStatus, TncaaId, TncaaDate, TncaaStatus from Verification where VerId='" + id + "'";
+        cmdSelect = new SqlCommand(strSelect, con);
+        drSelect = cmdSelect.ExecuteReader();
+        drSelect.Read();
+
+        DateTime systemDate = Convert.ToDateTime(drSelect["SystemDate"].ToString());
+        DateTime svDate = Convert.ToDateTime(drSelect["SvDate"].ToString());
+        DateTime tdaDate = Convert.ToDateTime(drSelect["TdaDate"].ToString());
+        DateTime utmiarDate = Convert.ToDateTime(drSelect["UtmiArDate"].ToString());
+        DateTime utmidDate = Convert.ToDateTime(drSelect["UtmiDDate"].ToString());
+        DateTime tncaaDate = Convert.ToDateTime(drSelect["TncaaDate"].ToString());
+        //DateTime today = DateTime.Now;
+        //int x = Convert.ToInt32((today - systemDate).TotalDays);
+        //lblDays.Text = x.ToString();
+
         Session["acadUserSs"] = "201620171";
         Session["acadUserNm"] = "MOHAMAD ASYRAF BIN OSMAN";
         Session["acadUserPr"] = "Bachelor Of Computer Science (Software Engineering)";
@@ -23,22 +49,22 @@ public partial class UTMI_frmViewStudent : System.Web.UI.Page
         Session["acadProgEndDate"] = "30-06-2017";
         Session["acadProgAAComment"] = "Good.";
         Session["acadProgTDAComment"] = "Excellent.";
-        Session["acadProgSystemDate"] = "1/11/2016";
-        Session["acadProgSvDate"] = "3/11/2016";
-        Session["acadProgTdaDate"] = "6/11/2016";
-        Session["acadProgUtmiArDate"] = "8/11/2016";
-        Session["acadProgUtmiDDate"] = "10/11/2016";
-        Session["acadProgTncaaDate"] = "12/11/2016";
+        Session["acadProgSystemDate"] = systemDate.ToShortDateString();
+        Session["acadProgSvDate"] = svDate.ToShortDateString();
+        Session["acadProgTdaDate"] = tdaDate.ToShortDateString();
+        Session["acadProgUtmiArDate"] = utmiarDate.ToShortDateString();
+        Session["acadProgUtmiDDate"] = utmidDate.ToShortDateString();
+        Session["acadProgTncaaDate"] = tncaaDate.ToShortDateString();
         Session["acadProgUtmiAr"] = "Siti Rahimah Mohd Yusop";
         Session["acadProgUtmiD"] = "Prof Dr Nor Haniza Sarmin";
         Session["acadProgTncaa"] = "Prof Dr Rose Alinda Alias";
 
-        Session["statusSystem"] = "Saved";
-        Session["statusAa"] = "Reviewed";
-        Session["statusTda"] = "Recommended";
-        Session["statusUtmiAr"] = "In Process";
-        Session["statusUtmiD"] = "Revert";
-        Session["statusTncaa"] = "Not Approved";
+        Session["statusSystem"] = drSelect["SystemStatus"].ToString();
+        Session["statusAa"] = drSelect["SvStatus"].ToString();
+        Session["statusTda"] = drSelect["TdaStatus"].ToString();
+        Session["statusUtmiAr"] = drSelect["UtmiArStatus"].ToString();
+        Session["statusUtmiD"] = drSelect["UtmiDStatus"].ToString();
+        Session["statusTncaa"] = drSelect["TncaaStatus"].ToString();
 
         if (!IsPostBack)
         {
@@ -65,89 +91,89 @@ public partial class UTMI_frmViewStudent : System.Web.UI.Page
         lblStartDate.Text = Session["acadProgStartDate"].ToString();
         lblEndDate.Text = Session["acadProgEndDate"].ToString();
 
-        if (Session["statusSystem"].ToString() == "Saved")
+        if (Session["statusSystem"].ToString() == "1")
         {
             lblStatusSystem.Text = "<span class=\"label label-success\">Saved</span>";
         }
         lblSystemDate.Text = Session["acadProgSystemDate"].ToString();
 
-        if (Session["statusAa"].ToString() == "In Process")
+        if (Session["statusAa"].ToString() == "0")
         {
             lblStatusAA.Text = "<span class=\"label label-warning\">In Process</span>";
         }
-        if (Session["statusAa"].ToString() == "Reviewed")
+        if (Session["statusAa"].ToString() == "3")
         {
             lblStatusAA.Text = "<span class=\"label label-success\">Reviewed</span>";
         }
-        if (Session["statusAa"].ToString() == "Revert")
+        if (Session["statusAa"].ToString() == "2")
         {
             lblStatusAA.Text = "<span class=\"label label-primary\">Need to Modify</span>";
         }
         lblAAName.Text = Session["acadUserSv"].ToString();
         lblAADate.Text = Session["acadProgSvDate"].ToString();
 
-        if (Session["statusTda"].ToString() == "In Process")
+        if (Session["statusTda"].ToString() == "0")
         {
             lblStatusTDA.Text = "<span class=\"label label-warning\">In Process</span>";
         }
-        if (Session["statusTda"].ToString() == "Recommended")
+        if (Session["statusTda"].ToString() == "4")
         {
             lblStatusTDA.Text = "<span class=\"label label-success\">Recommended</span>";
         }
-        if (Session["statusTda"].ToString() == "Not Recommended")
+        if (Session["statusTda"].ToString() == "5")
         {
             lblStatusTDA.Text = "<span class=\"label label-danger\">Not Recommended</span>";
         }
-        if (Session["statusTda"].ToString() == "Revert")
+        if (Session["statusTda"].ToString() == "2")
         {
             lblStatusTDA.Text = "<span class=\"label label-primary\">Need to Modify</span>";
         }
         lblTDAName.Text = Session["acadUserTda"].ToString();
         lblTDADate.Text = Session["acadProgTdaDate"].ToString();
 
-        if (Session["statusUtmiAr"].ToString() == "In Process")
+        if (Session["statusUtmiAr"].ToString() == "0")
         {
             lblStatusUTMIAR.Text = "<span class=\"label label-warning\">In Process</span>";
         }
-        if (Session["statusUtmiAr"].ToString() == "Reviewed")
+        if (Session["statusUtmiAr"].ToString() == "3")
         {
             lblStatusUTMIAR.Text = "<span class=\"label label-success\">Reviewed</span>";
         }
-        if (Session["statusUtmiAr"].ToString() == "Revert")
+        if (Session["statusUtmiAr"].ToString() == "2")
         {
             lblStatusUTMIAR.Text = "<span class=\"label label-primary\">Need to Modify</span>";
         }
         lblUTMIARName.Text = Session["acadProgUtmiAr"].ToString();
         lblUTMIARDate.Text = Session["acadProgUtmiArDate"].ToString();
 
-        if (Session["statusUtmiD"].ToString() == "In Process")
+        if (Session["statusUtmiD"].ToString() == "0")
         {
             lblStatusUTMID.Text = "<span class=\"label label-warning\">In Process</span>";
         }
-        if (Session["statusUtmiD"].ToString() == "Recommended")
+        if (Session["statusUtmiD"].ToString() == "4")
         {
             lblStatusUTMID.Text = "<span class=\"label label-success\">Recommended</span>";
         }
-        if (Session["statusUtmiD"].ToString() == "Not Recommended")
+        if (Session["statusUtmiD"].ToString() == "5")
         {
             lblStatusUTMID.Text = "<span class=\"label label-danger\">Not Recommended</span>";
         }
-        if (Session["statusUtmiD"].ToString() == "Revert")
+        if (Session["statusUtmiD"].ToString() == "2")
         {
             lblStatusUTMID.Text = "<span class=\"label label-primary\">Need to Modify</span>";
         }
         lblUTMIDName.Text = Session["acadProgUtmiD"].ToString();
         lblUTMIDDate.Text = Session["acadProgUtmiDDate"].ToString();
 
-        if (Session["statusTncaa"].ToString() == "In Process")
+        if (Session["statusTncaa"].ToString() == "0")
         {
             lblStatusTNCAA.Text = "<span class=\"label label-warning\">In Process</span>";
         }
-        if (Session["statusTncaa"].ToString() == "Approved")
+        if (Session["statusTncaa"].ToString() == "6")
         {
             lblStatusTNCAA.Text = "<span class=\"label label-success\">Approved</span>";
         }
-        if (Session["statusTncaa"].ToString() == "Not Approved")
+        if (Session["statusTncaa"].ToString() == "7")
         {
             lblStatusTNCAA.Text = "<span class=\"label label-danger\">Not Approved</span>";
         }
