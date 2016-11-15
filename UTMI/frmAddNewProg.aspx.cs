@@ -5,7 +5,7 @@ using System.Web.UI;
 
 public partial class UTMI_frmAddNewProgramme : System.Web.UI.Page
 {
-    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -15,15 +15,15 @@ public partial class UTMI_frmAddNewProgramme : System.Web.UI.Page
     {
         {
             // Declaration
-            String strInsertProgramme;
+            string strInsertProgramme;
             SqlCommand cmdInsertProgramme;
 
             con.Open();  // Open Connection with database
 
-            strInsertProgramme = "insert into Programme (Types, ProgrammeName, University, Country, StartDate, EndDate, Deadline, IntakeSession, OpenTo) values(@Types, @ProgrammeName, @University, @Country, @StartDate, @EndDate, @Deadline, @IntakeSession, @OpenTo)";
+            strInsertProgramme = "insert into Programme (Types, ProgName, University, Country, StartDate, EndDate, Deadline, IntakeSession, OpenTo) values(@Types, @ProgName, @University, @Country, @StartDate, @EndDate, @Deadline, @IntakeSession, @OpenTo)";
             cmdInsertProgramme = new SqlCommand(strInsertProgramme, con);
             cmdInsertProgramme.Parameters.AddWithValue("@Types", ddlTypes.Text);
-            cmdInsertProgramme.Parameters.AddWithValue("@ProgrammeName", txtProgName.Text);
+            cmdInsertProgramme.Parameters.AddWithValue("@ProgName", txtProgName.Text);
             cmdInsertProgramme.Parameters.AddWithValue("@University", txtUniversity.Text);
             cmdInsertProgramme.Parameters.AddWithValue("@Country", ddlCountry.SelectedValue);
             cmdInsertProgramme.Parameters.AddWithValue("@StartDate", DateTime.Parse(txtStartDate.Text));

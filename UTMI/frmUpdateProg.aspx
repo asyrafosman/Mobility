@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmAddNewProgramme.aspx.cs" Inherits="UTMI_frmAddNewProgramme" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmUpdateProg.aspx.cs" Inherits="UTMI_frmAddNewProgramme" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-plus-circle"></span>Add Activity</a></li>
+            <li class="active"><a><span class="fa fa-pencil"></span> Update Activity</a></li>
         </ul>
     </div>
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Add New Programme</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Update Programme</asp:Label>
             </td>
         </tr>
     </table>
