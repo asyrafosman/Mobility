@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-bar-chart"></span> Statistic</a></li>
+            <li class="active"><a><span class="fa fa-bar-chart"></span>&nbsp;Statistic</a></li>
         </ul>
     </div>
     <br />

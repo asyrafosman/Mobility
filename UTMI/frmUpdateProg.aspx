@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-pencil"></span> Update Programme</a></li>
+            <li class="active"><a><span class="fa fa-pencil"></span>&nbsp;Update Programme</a></li>
         </ul>
     </div>
     <table style="float: right">

@@ -11,4 +11,14 @@ public partial class UGStudent_Default : System.Web.UI.Page
     {
 
     }
+
+    protected void chckSponsor_CheckedChanged(object sender, EventArgs e)
+    {
+        Panel1.Visible = chckSponsor.Checked;
+    }
+
+    protected void chckUTM_CheckedChanged(object sender, EventArgs e)
+    {
+        Panel2.Visible = chckUTM.Checked;
+    }
 }

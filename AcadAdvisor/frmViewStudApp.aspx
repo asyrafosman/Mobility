@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudent.aspx.cs" Inherits="UTMI_frmViewStudent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="AcadAdvisor_frmViewStudApp" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-user"></span>Applicant Details</a></li>
+            <li class="active"><a><span class="fa fa-user"></span>&nbsp;Applicant Details</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -91,62 +91,33 @@
                         </div>
                     </div>
                 </div>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-pdf-o" style="color:maroon"></i> View Full Application Form</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-pdf-o" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
             </div>
         </div>
         <div class="statfiller">
         </div>
     </div>
     <br />
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
     <table style="width: 100%">
         <tr>
             <td style="width: 150px">
-                <asp:Label ID="lblTxtAA" runat="server" Text="Academic Advisor" Font-Bold="True"></asp:Label>
-            </td>
-            <td style="width: 1px">:</td>
-            <td>
-                <asp:Label ID="lblAAComment" runat="server" Text=""></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 150px">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>
-                <asp:Label ID="lblAAName" runat="server" Font-Bold="True"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 150px">
-                <asp:Label ID="lblTxtTDAComment" runat="server" Text="Deputy Dean Academic" Font-Bold="True"></asp:Label>
-            </td>
-            <td style="width: 1px">:</td>
-            <td>
-                <asp:Label ID="lblTDAComment" runat="server" Text=""></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 150px">&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>
-                <asp:Label ID="lblTDAName" runat="server" Font-Bold="True"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 150px">
                 <asp:Label ID="lblTxtComment" runat="server" Text="Comment" Font-Bold="True"></asp:Label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a comment" ForeColor="Red" ControlToValidate="txtComment">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="lblComment" runat="server" Style="width: 100%"></asp:TextBox>
+                <asp:TextBox ID="txtComment" runat="server" Style="width: 100%"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="3" style="text-align: center">
-                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" />
+                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" OnClick="btnRevert_Click" />
                 &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-akad btn-sm" />
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-akad btn-sm" OnClick="btnSubmit_Click" />
             </td>
         </tr>
     </table>
     <br />
 </asp:Content>
+

@@ -11,4 +11,9 @@ public partial class UGStudent_Default : System.Web.UI.Page
     {
 
     }
+
+    protected void chckDeclaration_CheckedChanged(object sender, EventArgs e)
+    {
+        btnSubmit.Visible = chckDeclaration.Checked;
+    }
 }

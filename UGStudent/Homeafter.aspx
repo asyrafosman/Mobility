@@ -1,10 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UGStudent/UGMasterPage.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="UGStudent_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UGStudent/UGMasterPage.master" AutoEventWireup="true" CodeFile="Homeafter.aspx.cs" Inherits="UGStudent_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active" style="text-align: center"><a href="Home.aspx">&nbsp;Home</a></li>
+             <li class="active" style="text-align: center"><a href="Homeafter.aspx">&nbsp;Home</a></li>
             <li></li>
+            <li class="inactive" style="text-align: center"><a href="inbox.aspx">&nbsp;Inbox</a></li>
+            <li></li>
+            <li class="inactive" style="text-align: center"><a href="Activity.aspx">&nbsp;Activity Logs</a></li>
         </ul>
     </div>
     <table style="width: 100%;">
@@ -35,7 +38,7 @@
                         <td style="width: 28px; text-align: center">&nbsp;</td>
                         <td style="background-color: #800000; width: 154px; text-align: center;">
                             <span class="fa-inverse" style="font-size: x-large"><strong>SE</strong></span><br />
-                            <asp:Button ID="Button2" runat="server" Text="Apply" PostBackUrl="~/UGStudent/frmProgramme.aspx" />
+                            <asp:Button ID="Button2" runat="server" Text="Apply" PostBackUrl="~/UGStudent/SE.aspx" />
                         </td>
                         <td style="width: 293px; text-align: center"><span style="color: rgb(85, 85, 85); font-family: Arial, Helvetica, Tahoma, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">Study Abroad/ Student Exchange program is a program which will allow you to spend one or two semesters at universities abroad and take courses in a regular semester with credit transfer opportunity. Students are encouraged to study at universities partners to all over the world.</span></td>
                     </tr>

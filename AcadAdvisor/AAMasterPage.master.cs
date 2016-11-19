@@ -1,44 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Data.OracleClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 
 public partial class Student_UGMasterPage : System.Web.UI.MasterPage
 {
-    OracleConnection oraCon = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
+    private OracleConnection oraCon = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "AIR KELAPA BIN KELABU ASAP";
-        Session["acadUserPr"] = "Bachelor Of Computer Science (Database Systems)";
-        Session["acadUserFn"] = "Computing";
-        Session["acadUserMt"] = "A14CS0999";
-        Session["acadUserBs"] = "6";
-        Session["acadUserNs"] = "8";
-        Session["acadUserSv"] = "Dr. Gigi Sweetiee";
-        Session["acadUserTs"] = "Taught Course";
-        Session["acadUserEm"] = "kaakasim@live.utm.my";
-        Session["acadUserTl"] = "017-754943283";
+        Session["acadUserNm"] = "PM DR. RADZIAH MOHAMAD";
+        Session["acadUserEm"] = "radziahm@utm.my";
+        Session["acadUserTl"] = "07-5538802";
+        Session["acadUserPos"] = "Profesor Madya (Ds54)";
+        Session["acadUserPHD"] = "10-AUG-2005";
+        Session["acadUserNoStaff"] = "8534";
+        Session["acadUserFac"] = "FC";
 
-
-
-		if (!IsPostBack)
-		{
-			string sesisem = Session["acadUserSs"].ToString();
-			showProfile();
-            checkDebt("");
-            showAchievement("", "");
-            showActivities("");
-			lblLoggedInUser.Text = Session["acadUserNm"].ToString();
-		}
+        if (!IsPostBack)
+        {
+            string sesisem = Session["acadUserSs"].ToString();
+            showProfile();
+            showAchievement();
+            lblLoggedInUser.Text = Session["acadUserNm"].ToString();
+        }
     }
+
     protected void AC_Click(object sender, ImageClickEventArgs e)
     {
         Server.Transfer("frmAcadCalendar.aspx", false);
@@ -130,60 +117,44 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
     }
 
     /**
-      * Function  : showProfile() 
+      * Function  : showProfile()
       * Remarks   : To Show Student's Profile
       * Date      : 31/10/2016
       * Developer : Mohd Azman
       **/
+
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
         lblName.Text = Session["acadUserNm"].ToString();
-        lblProgramme.Text = Session["acadUserPr"].ToString();
-        lblFaculty.Text = Session["acadUserFn"].ToString();
-        lblMatric.Text = Session["acadUserMt"].ToString();
-        lblBilSemester.Text = Session["acadUserBs"].ToString() + " / " + Session["acadUserNs"].ToString();
-        lblAA.Text = Session["acadUserSv"].ToString();
-        lblToS.Text = Session["acadUserTs"].ToString() + " (Full Time)";
         lblEmail.Text = Session["acadUserEm"].ToString();
-        lblPhone.Text = Session["acadUserTl"].ToString();
+        lblTel.Text = Session["acadUserTl"].ToString();
+        lblNoStaff.Text = Session["acadUserNoStaff"].ToString();
+        lblPos.Text = Session["acadUserPos"].ToString();
+        lblFac.Text = Session["acadUserFac"].ToString();
+        lblPHDGrad.Text = Session["acadUserPHD"].ToString();
     }
 
     /**
-       * Function  : checkDebt() 
+       * Function  : checkDebt()
        * Remarks   : To Show Student's Debt
        * Date      : 31/10/2016
        * Developer : Mohd Azman
        **/
-    protected void checkDebt(string nokp)
-    {
-        pnlDebt.Visible = true;
-        lblDebt.Text = "RM 200.50";
-    }
+
 
     /**
-       * Function  : showAchievement() 
+       * Function  : showAchievement()
        * Remarks   : To Show Student's Num of Achievement
        * Date      : 31/10/2016
        * Developer : Mohd Azman
        **/
-    protected void showAchievement(string sesisem, string nokp)
+
+    protected void showAchievement()
     {
-	    lblResult.Text = "3.80";
-    }
-
-    /**
-       * Function  : showActivities() 
-       * Remarks   : To Show Student's Num of Activities
-       * Date      : 31/10/2016
-       * Developer : Mohd Azman
-       **/
-    protected void showActivities(string matrik)
-    {
-        lblActivity.Text = "20";
-    }
-
-
- 
-
+        lblTotal.Text = "51";
+        lblPHD.Text = "5";
+        lblMaster.Text = "20";
+        lblUG.Text = "26";
+    } 
 }

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-user"></span>Applicant Status</a></li>
+            <li class="active"><a><span class="fa fa-user"></span>&nbsp;Applicant Status</a></li>
         </ul>
     </div>
     <table style="float: right">

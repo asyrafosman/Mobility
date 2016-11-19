@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a href="frmOutInbox.aspx"><span class="fa fa-inbox"></span> Inbox</a></li>
-            <li><a href="frmOutInProcess.aspx"><span class="fa fa-play"></span> In Process</a></li>
-            <li><a href="frmOutCompleted.aspx"><span class="fa fa-check"></span> Completed</a></li>
-            <li><a href="frmOutRejected.aspx"><span class="fa fa-times"></span> Rejected</a></li>
+            <li class="active"><a href="Dashboard.aspx"><span class="fa fa-inbox"></span>&nbsp;Inbox</a></li>
+            <li><a href="frmInProcess.aspx"><span class="fa fa-play"></span>&nbsp;In Process</a></li>
+            <li><a href="frmCompleted.aspx"><span class="fa fa-check"></span>&nbsp;Completed</a></li>
+            <li><a href="frmRejected.aspx"><span class="fa fa-times"></span>&nbsp;Rejected</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -28,8 +28,8 @@
         </tr>
     </table>
     <br>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound]"></asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Style="width: 100%">
+    <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound]"></asp:SqlDataSource>--%>
+    <%--<asp:GridView ID="GridView1" runat="server" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Style="width: 100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="applicationId" HeaderText="Application ID" ReadOnly="True" SortExpression="applicationId" />
@@ -50,13 +50,13 @@
         <SortedAscendingHeaderStyle BackColor="#4D0000" />
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound] WHERE ([studentName] LIKE '%' + @studentName + '%')">
+    </asp:GridView>--%>
+    <%--<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound] WHERE ([studentName] LIKE '%' + @studentName + '%')">
         <SelectParameters>
             <asp:ControlParameter ControlID="txtSearch" Name="studentName" PropertyName="Text" Type="String" />
         </SelectParameters>
-    </asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Visible="False" Style="width: 100%">
+    </asp:SqlDataSource>--%>
+    <%--<asp:GridView ID="GridView2" runat="server" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Visible="False" Style="width: 100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="applicationId" HeaderText="Application ID" ReadOnly="True" SortExpression="applicationId" />
@@ -77,5 +77,5 @@
         <SortedAscendingHeaderStyle BackColor="#4D0000" />
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
-    </asp:GridView>
+    </asp:GridView>--%>
 </asp:Content>

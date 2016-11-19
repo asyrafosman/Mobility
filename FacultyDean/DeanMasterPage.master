@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="UGMasterPage.master.cs"
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="DeanMasterPage.master.cs"
     Inherits="Student_UGMasterPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
@@ -14,8 +14,7 @@
     <script src="../Styles/js/jquery.easing.1.3.js" type="text/javascript"></script>
     <script src="../Styles/js/jquery.timeline.min.js" type="text/javascript"></script>
     <style type="text/css">
-        .style158i
-        {
+        .style158i {
             vertical-align: top;
         }
     </style>
@@ -23,25 +22,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <div id="menu" class="menu-bg">
         <ul class="left">
-            <li class="home"><a href="" class="icon-home"></a><span style="visibility: hidden;">
-                ---</span></li>
+            <li class="home"><a href="Dashboard.aspx" class="icon-home"></a><span style="visibility: hidden;">---</span></li>
             <li><a>
-                <asp:Label ID="Label2" runat="server" Text="Student Info" CssClass="textMenu"></asp:Label></a>
+                <asp:Label ID="Label2" runat="server" Text="List of Students" CssClass="textMenu"></asp:Label></a>
                 <ul>
-                    <li><a href=""><span class="fa fa-user"></span>Personal Info</a></li>
-                    <li><a href=""><span class="fa fa-graduation-cap"></span>Academic Info</a></li>
-                    <li><a href=""><span class="fa fa-dollar"></span>Financial</a></li>
+                    <li><a href="">Postgraduate Students</a></li>
                 </ul>
             </li>
             <li><a>
-                <asp:Label ID="Label1" runat="server" Text="Activity" CssClass="textMenu"></asp:Label></a>
+                <asp:Label ID="Label1" runat="server" Text="Key-In Marks" CssClass="textMenu"></asp:Label></a>
                 <ul>
-                    <li><a href=""><span class="fa fa-list"></span>Internal Activity</a></li>
-                    <li><a href=""><span class="fa fa-pencil-square-o"></span>External Activity</a></li>
+                    <li><a href="">Student UG</a></li>
+                    <li><a href="">Student PG - Taught Course</a></li>
+                    <li><a href="">Student PG - Research & Mixed Mode</a></li>
                 </ul>
             </li>
             <li><a>
-                <asp:Label ID="Label4c" runat="server" Text="Mobility" CssClass="textMenu"></asp:Label></a>
+                <asp:Label ID="Label4c" runat="server" Text="Society" CssClass="textMenu" Visible="false"></asp:Label></a>
                 <ul id="ulSociety" runat="server">
                 </ul>
             </li>
@@ -71,45 +68,32 @@
                             <div class="row">
                                 <div class="name-row">
                                     <asp:Label ID="lblName" runat="server" Font-Bold="True" Font-Size="Large" Text=""></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblProgramme" runat="server" Font-Bold="True" ForeColor="#AC0000"
-                                        Text=""></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblFaculty" runat="server" Font-Bold="True" ForeColor="#AD0000" Text=""></asp:Label>
-                                    <p class="filler">
-                                        &nbsp;</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6" style="margin-left: -10px">
-                                    <asp:Label ID="lblTxtMatric" runat="server" Font-Bold="True" Text="Matric No.:"></asp:Label>&nbsp
-                                    <asp:Label ID="lblMatric" runat="server" Text=""></asp:Label>
-                                    <div class="xsfiller">
-                                    </div>
-                                    <asp:Label ID="lblTxtBilSemester" runat="server" Font-Bold="True" Text="	Semester/Norm:"></asp:Label>&nbsp
-                                    <asp:Label ID="lblBilSemester" runat="server" Text=""></asp:Label>
-                                    <div class="xsfiller">
-                                    </div>
-                                    <asp:Label ID="lblTextAA" runat="server" Font-Bold="True" Text="AA:"></asp:Label>&nbsp
-                                    <asp:Label ID="lblAA" runat="server" Text=""></asp:Label>
-                                    <br />
-                                    <div class="statfiller">
-                                    </div>
+                                <div class="col-md-6 spadding-info">
+                                    <img title="Staff No." alt="Staff No." class="style152" src="../Styles/images/icon-regsys/Staff No.png" />:
+                                    <asp:Label ID="lblNoStaff" runat="server" Text=""></asp:Label>
+                                    <p class="xsfiller"></p>
+
+                                    <img title="Position" alt="Position" class="style152" src="../Styles/images/icon-regsys/Position.png" />:
+                                    <asp:Label ID="lblPos" runat="server" Text=""></asp:Label>
+                                    <p class="xsfiller"></p>
+
+                                    <img title="Contact No." alt="Contact No" class="style152" src="../Styles/images/icon-regsys/Tel No.png" />:
+                                    <asp:Label ID="lblTel" runat="server" Text=""></asp:Label>
                                 </div>
-                                <div class="col-md-6" style="margin-left: -10px">
-                                    <asp:Label ID="lblTxtToS" runat="server" Font-Bold="True" Text="Type of Study:"></asp:Label>&nbsp
-                                    <asp:Label ID="lblToS" runat="server" Text=""></asp:Label>
-                                    <div class="xsfiller">
-                                    </div>
-                                    <asp:Label ID="lblTxtEmail" runat="server" Font-Bold="True" Text="E-mail:"></asp:Label>&nbsp
+                                <div class="col-md-6 spadding-info">
+                                    <img title="Faculty" alt="Faculty" class="style152" src="../Styles/images/icon-regsys/Faculty.png" />:
+                                    <asp:Label ID="lblFac" runat="server" Text=""></asp:Label>
+                                    <p class="xsfiller"></p>
+
+                                    <img title="PHD Graduation Date" alt="PHD Graduation Date" class="style152" src="../Styles/images/icon-regsys/PHD%20Grad.%20Date.png" />:
+                                    <asp:Label ID="lblPHDGrad" runat="server" Text=""></asp:Label>
+                                    <p class="xsfiller"></p>
+
+                                    <img title="Email" alt="Email" class="style152" src="../Styles/images/icon-regsys/Email.png">:
                                     <asp:Label ID="lblEmail" runat="server" Text=""></asp:Label>
-                                    <div class="xsfiller">
-                                    </div>
-                                    <asp:Label ID="lblTxtPhone" runat="server" Font-Bold="True" Text="Phone:"></asp:Label>&nbsp
-                                    <asp:Label ID="lblPhone" runat="server" Text=""></asp:Label>
-                                    <br />
-                                    <div class="statfiller">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -120,31 +104,24 @@
             </div>
             <div class="col-md-3 spadding">
                 <div class="row stat-row">
-                    <p align="center" style="margin-top: 3px;">
-                        <strong>Achievement
-                            <asp:Label ID="lblSession" runat="server"></asp:Label></strong></p>
-                    <div>
-                        <asp:Label ID="lblResult" runat="server" Text="" Font-Bold="True" Font-Size="XX-Large"
-                            CssClass="cnt-sum"></asp:Label>
-                        <p align="center">
-                            CGPA
-                        </p>
+                    <p style="margin-top: 3px;" align="center"><strong>Students Graduated</strong></p>
+                    <div class="col-md-6">
+                        <asp:Label ID="lblTotal" class="cnt-sum" style="font-size:XX-Large;font-weight:bold;" runat="server" Text=""></asp:Label>
+                        <p align="center"> Total </p>
+                    </div>
+                    <div class="col-md-6">
+                        <asp:Label ID="lblPHD" class="cnt-sum" style="font-size:XX-Large;font-weight:bold;" runat="server" Text=""></asp:Label>
+                        <p align="center"> PhD </p>
                     </div>
                 </div>
                 <div class="row stat-row">
                     <div class="col-md-6">
-                        <asp:Label ID="lblActivity" runat="server" Text="0" Font-Bold="True" Font-Size="XX-Large"
-                            CssClass="cnt-sum"></asp:Label>
-                        <p align="center">
-                            Activity
-                        </p>
+                        <asp:Label ID="lblMaster" class="cnt-sum" style="font-size:XX-Large;font-weight:bold;" runat="server" Text=""></asp:Label>
+                        <p align="center"> Master</p>
                     </div>
                     <div class="col-md-6">
-                        <asp:Label ID="lblAward" runat="server" Text="0" Font-Bold="True" Font-Size="XX-Large"
-                            CssClass="cnt-sum"></asp:Label>
-                        <p align="center">
-                            Award
-                        </p>
+                        <asp:Label ID="lblUG" class="cnt-sum" style="font-size:XX-Large;font-weight:bold;" runat="server" Text=""></asp:Label>
+                        <p align="center"> Undergraduate </p>
                     </div>
                 </div>
             </div>
@@ -160,30 +137,11 @@
                     </asp:ContentPlaceHolder>
                 </div>
                 <div class="col-md-3 spadding">
-                    <!-- BEGIN DISPLAY DEBT -->
-                    <asp:Panel ID="pnlDebt" runat="server">
-                        <div class="divide-s">
-                        </div>
-                        <table style="width: 100%; height: 8px;">
-                            <tr>
-                                <td>
-                                    <asp:HyperLink ID="HyperLinkD" runat="server" ImageUrl="~/Styles/images/Warning.gif"
-                                        NavigateUrl="#" ToolTip="Click Here" Style="width: 25px; height: 22px;"></asp:HyperLink>
-                                </td>
-                                <td>
-                                    <asp:Label ID="lblTextDebt" runat="server" Text="Outstanding Balance of" ForeColor="Black"
-                                        CssClass="labeldebt" Font-Bold="False" Text-align="right"></asp:Label>&nbsp;<br />
-                                    <asp:Label ID="lblDebt" runat="server" Text="RM 00.00" Text-align="right" Font-Bold="True"
-                                        ForeColor="Red"></asp:Label>
-                                </td>
-                            </tr>
-                        </table>
-                    </asp:Panel>
-                    <!-- END DISPLAY DEBT -->
                     <div class="divide-s">
                     </div>
                     <p>
-                        <strong>Services</strong></p>
+                        <strong>Services</strong>
+                    </p>
                     <div class="res-row">
                         <div class="row">
                             <div class="col-md-4">
@@ -240,39 +198,9 @@
                         <div class="divide-xs">
                         </div>
                         <p>
-                            <strong>Quick Links</strong></p>
+                            <strong>Quick Links</strong>
+                        </p>
                         <div class="row">
-                            <div class="col-md-4">
-                                <asp:ImageButton ID="btnside7" runat="server" ToolTip="Hostel" ImageUrl="~/Styles/images/hostel.png"
-                                    onmouseover="this.src='../Styles/images/hostel_hover.png'" onmouseout="this.src='../Styles/images/hostel.png'"
-                                    CssClass="side-icon" OnClick="HO_Click" OnClientClick="target='blank'" />
-                            </div>
-                            <div class="col-md-4">
-                                <asp:ImageButton ID="btnside8" runat="server" ToolTip="Industrial Training System"
-                                    ImageUrl="~/Styles/images/its.png" onmouseover="this.src='../Styles/images/its_hover.png'"
-                                    onmouseout="this.src='../Styles/images/its.png'" CssClass="side-icon" OnClick="ITS_Click"
-                                    OnClientClick="target='blank'" />
-                            </div>
-                            <div class="col-md-4">
-                                <asp:ImageButton ID="btnside9" runat="server" ToolTip="Financial Assistant" ImageUrl="~/Styles/images/financial_assistance.png"
-                                    onmouseover="this.src='../Styles/images/financial_assistance_hover.png'" onmouseout="this.src='../Styles/images/financial_assistance.png'"
-                                    CssClass="side-icon" />
-                            </div>
-                            <div class="col-md-4">
-                                <asp:ImageButton ID="btnside10" runat="server" ToolTip="Award" ImageUrl="~/Styles/images/award.png"
-                                    onmouseover="this.src='../Styles/images/award_hover.png'" onmouseout="this.src='../Styles/images/award.png'"
-                                    CssClass="side-icon" OnClick="AW_Click" OnClientClick="target='blank'" />
-                            </div>
-                            <div class="col-md-4">
-                                <asp:ImageButton ID="btnside11" runat="server" ToolTip="Registration Slip" ImageUrl="~/Styles/images/registration_slip.png"
-                                    onmouseover="this.src='../Styles/images/registration_slip_hover.png'" onmouseout="this.src='../Styles/images/registration_slip.png'"
-                                    CssClass="side-icon" OnClick="RE_Click" />
-                            </div>
-                            <div class="col-md-4">
-                                <asp:ImageButton ID="btnside12" runat="server" ToolTip="Co-curricular Registration"
-                                    ImageUrl="~/Styles/images/co-q.png" onmouseover="this.src='../Styles/images/co-q_hover.png'"
-                                    onmouseout="this.src='../Styles/images/co-q.png'" CssClass="side-icon" OnClick="CQ_Click" />
-                            </div>
                             <div class="col-md-4">
                                 <asp:ImageButton ID="btnside13" runat="server" ToolTip="e-Learning" ImageUrl="~/Styles/images/elearning.png"
                                     onmouseover="this.src='../Styles/images/elearning_hover.png'" onmouseout="this.src='../Styles/images/elearning.png'"
@@ -285,27 +213,41 @@
                                     OnClientClick="target='blank'" />
                             </div>
                             <div class="col-md-4">
-                                <asp:ImageButton ID="btnside15" runat="server" ToolTip="E-Portfolio" ImageUrl="~/Styles/images/folio.png"
-                                    onmouseover="this.src='../Styles/images/folio_hover.png'" onmouseout="this.src='../Styles/images/folio.png'"
-                                    CssClass="side-icon" OnClick="EPO_Click" OnClientClick="target='blank'" />
+                                <asp:ImageButton ID="ImageButton2" runat="server" ToolTip="LPPT"
+                                    ImageUrl="~/Styles/images/lppt.png" onmouseover="this.src='../Styles/images/lppt_hover.png'"
+                                    onmouseout="this.src='../Styles/images/lppt.png'" CssClass="side-icon" OnClick="EP_Click"
+                                    OnClientClick="target='blank'" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <asp:ImageButton ID="ImageButton5" runat="server" ToolTip="Teaching Excellent System"
+                                    ImageUrl="~/Styles/images/tes.png" onmouseover="this.src='../Styles/images/tes_hover.png'"
+                                    onmouseout="this.src='../Styles/images/tes.png'" CssClass="side-icon" OnClick="EP_Click"
+                                    OnClientClick="target='blank'" />
+                            </div>
+                            <div class="col-md-6">
+                                <asp:ImageButton ID="ImageButton6" runat="server" ToolTip="Outcome Base Learning"
+                                    ImageUrl="~/Styles/images/obe.png" onmouseover="this.src='../Styles/images/obe_hover.png'"
+                                    onmouseout="this.src='../Styles/images/obe.png'" CssClass="side-icon" OnClick="EP_Click"
+                                    OnClientClick="target='blank'" />
                             </div>
                         </div>
                     </div>
                     <div class="divide-s">
                     </div>
                     <p>
-                        <strong>Contact Us</strong></p>
+                        <strong>Contact Us</strong>
+                    </p>
                     <div class="res-row">
                         <p style="font-size: 11px">
-                            <strong>Any inquiry, directly contact us :</strong></p>
+                            <strong>Any inquiry, directly contact us :</strong>
+                        </p>
                         <p style="font-size: 11px">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#ContAmd" style="color: Black; padding: 3px 10px 3px 10px">
-                                    AMD</a></li>
-                                <li><a data-toggle="tab" href="#ContactSps" style="color: Black; padding: 3px 10px 3px 10px">
-                                    SPS</a></li>
-                                <li><a data-toggle="tab" href="#ContactIsc" style="color: Black; padding: 3px 10px 3px 10px">
-                                    ISC</a></li>
+                                <li class="active"><a data-toggle="tab" href="#ContAmd" style="color: Black; padding: 3px 10px 3px 10px">AMD</a></li>
+                                <li><a data-toggle="tab" href="#ContactSps" style="color: Black; padding: 3px 10px 3px 10px">SPS</a></li>
+                                <li><a data-toggle="tab" href="#ContactIsc" style="color: Black; padding: 3px 10px 3px 10px">ISC</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div id="ContAmd" class="tab-pane fade in active">
@@ -315,7 +257,8 @@
                                         Universiti Teknologi Malaysia<br />
                                         UTM Johor Bahru,<br />
                                         81310 Johor<br />
-                                        Malaysia.</p>
+                                        Malaysia.
+                                    </p>
                                     <p style="font-size: 11px">
                                         Phone : (6)07 – 5530463<br />
                                         Fax : (6)07 – 5581791<br />
@@ -328,7 +271,8 @@
                                         F54, Universiti Teknologi Malaysia<br />
                                         UTM Johor Bahru,<br />
                                         81310 Johor<br />
-                                        Malaysia.</p>
+                                        Malaysia.
+                                    </p>
                                     <p style="font-size: 11px">
                                         Phone : (6)07 – 5537790 /
                                         <br />
@@ -346,7 +290,8 @@
                                         Block S19,Universiti Teknologi Malaysia<br />
                                         UTM Johor Bahru,<br />
                                         81310 Johor<br />
-                                        Malaysia.</p>
+                                        Malaysia.
+                                    </p>
                                     <p style="font-size: 11px">
                                         Phone :
                                         <br />
@@ -367,12 +312,12 @@
                 </div>
             </div>
             <script type="text/javascript">
-            $(window).load(function() {
-	            // light
-	            $('.tl').timeline({
-		            startItem : '26/06/2016',
-	            });
-            });	
+                $(window).load(function () {
+                    // light
+                    $('.tl').timeline({
+                        startItem: '26/06/2016',
+                    });
+                });
             </script>
         </div>
     </div>
