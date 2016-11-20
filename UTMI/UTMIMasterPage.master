@@ -77,6 +77,19 @@
                                 CGPA
                             </p>
                         </div>--%>
+                         <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                                <div class="list-group">
+                                    <button type="button" class="list-group-item"><span class="badge">34</span>Global Outreach Programme</button>
+                                    <button type="button" class="list-group-item"><span class="badge">78</span>International Invitation Programme</button>
+                                    <button type="button" class="list-group-item"><span class="badge">28</span>Research Internship Abroad</button>
+                                    <button type="button" class="list-group-item"><span class="badge">66</span>Study Abroad/Student Exchange</button>
+                                    <button type="button" class="list-group-item"><span class="badge">87</span>Summer School</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                        </div>
                     </div>
                     <div class="divide-s">
                     </div>

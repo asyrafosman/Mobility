@@ -98,6 +98,6 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         lblContingency.Text = Session["acadFinancialContigency"].ToString();
         int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
         lblTotalProposed.Text = total.ToString();
-        lblTotalAllocated.Text = Session["acadFinancialTotalAllocated"].ToString();
+        //lblTotalAllocated.Text = Session["acadFinancialTotalAllocated"].ToString();
     }
 }

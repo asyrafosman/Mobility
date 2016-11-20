@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="frmViewForm.aspx.cs" Inherits="UTMI_frmViewForm" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="frmViewForm.aspx.cs" Inherits="UTMI_frmViewForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <style type="text/css">
@@ -278,102 +278,93 @@
                 </td>
             </tr>
             <tr>
-                <td style="background-color: #FFFBD6" valign="top" colspan="6">
-                    <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-6">
-                            <table style="width: 100%">
-                                <tr>
-                                    <td style="color: #FFFFFF; background-color: #990000;" class="auto-style4">
-                                        <asp:Label ID="lblTxtNo" runat="server" Text="No." Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
-                                        <asp:Label ID="lblTxtExpenses" runat="server" Text="Expenses Type" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
-                                        <asp:Label ID="lblTxtProposed" runat="server" Text="Amount Proposed" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
-                                        <asp:Label ID="lblTxtAllocated" runat="server" Text="Amount Allocated" Font-Bold="True"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style4" style="background-color: #FFFBD6">
-                                        <asp:Label ID="lblTxt1" runat="server" Text="1" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="background-color: #FFFBD6" class="auto-style1">
-                                        <asp:Label ID="lblTxtFee" runat="server" Text="Program Fee" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">RM
-                                        <asp:Label ID="lblFee" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style4" style="background-color: #FFFBD6">
-                                        <asp:Label ID="lblTxt2" runat="server" Text="2" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="background-color: #FFFBD6" class="auto-style1">
-                                        <asp:Label ID="lblTxtTransportation" runat="server" Text="Transportation" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">RM
-                                        <asp:Label ID="lblTransportation" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style4" style="background-color: #FFFBD6">
-                                        <asp:Label ID="lblTxt3" runat="server" Text="3" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="background-color: #FFFBD6" class="auto-style1">
-                                        <asp:Label ID="lblTxtAccommodation" runat="server" Text="Accommodation" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">RM
-                                        <asp:Label ID="lblAccommodation" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style4" style="background-color: #FFFBD6">
-                                        <asp:Label ID="lblTxt4" runat="server" Text="4" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="background-color: #FFFBD6" class="auto-style1">
-                                        <asp:Label ID="lblTxtMeal" runat="server" Text="Meal" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">RM
-                                        <asp:Label ID="lblMeal" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style4" style="background-color: #FFFBD6">
-                                        <asp:Label ID="lblTxt5" runat="server" Text="5" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td style="background-color: #FFFBD6" class="auto-style1">
-                                        <asp:Label ID="lblTxtContingency" runat="server" Text="Contingency" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">RM
-                                        <asp:Label ID="lblContingency" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style5" style="background-color: #FFFBD6">&nbsp;</td>
-                                    <td align="right" class="auto-style1" style="background-color: #FFFBD6">
-                                        <asp:Label ID="lblTxtTotal" runat="server" Text="Total" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
-                                        <asp:Label ID="lblTotalProposed" runat="server" Font-Bold="True"></asp:Label>
-                                    </td>
-                                    <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
-                                        <asp:Label ID="lblTotalAllocated" runat="server" Font-Bold="True"></asp:Label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-sm-5"></div>
-                    </div>
+                <td class="auto-style1" style="background-color: #FFFBD6" valign="top">
+                    &nbsp;</td>
+                <td style="background-color: #FFFBD6;" valign="top">&nbsp;</td>
+                <td valign="top" style="background-color: #FFFBD6">
+                    <table style="width: 100%">
+                        <tr>
+                            <td style="color: #FFFFFF; background-color: #990000;" class="auto-style4">
+                                <asp:Label ID="lblTxtNo" runat="server" Text="No." Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
+                                <asp:Label ID="lblTxtExpenses" runat="server" Text="Expenses Type" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
+                                <asp:Label ID="lblTxtProposed" runat="server" Text="Amount Proposed" Font-Bold="True"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" style="background-color: #FFFBD6">
+                                <asp:Label ID="lblTxt1" runat="server" Text="1" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="background-color: #FFFBD6" class="auto-style1">
+                                <asp:Label ID="lblTxtFee" runat="server" Text="Program Fee" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td class="auto-style1" style="background-color: #FFFBD6">RM
+                                <asp:Label ID="lblFee" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" style="background-color: #FFFBD6">
+                                <asp:Label ID="lblTxt2" runat="server" Text="2" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="background-color: #FFFBD6" class="auto-style1">
+                                <asp:Label ID="lblTxtTransportation" runat="server" Text="Transportation" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td class="auto-style1" style="background-color: #FFFBD6">RM
+                                <asp:Label ID="lblTransportation" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" style="background-color: #FFFBD6">
+                                <asp:Label ID="lblTxt3" runat="server" Text="3" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="background-color: #FFFBD6" class="auto-style1">
+                                <asp:Label ID="lblTxtAccommodation" runat="server" Text="Accommodation" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td class="auto-style1" style="background-color: #FFFBD6">RM
+                                <asp:Label ID="lblAccommodation" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" style="background-color: #FFFBD6">
+                                <asp:Label ID="lblTxt4" runat="server" Text="4" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="background-color: #FFFBD6" class="auto-style1">
+                                <asp:Label ID="lblTxtMeal" runat="server" Text="Meal" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td class="auto-style1" style="background-color: #FFFBD6">RM
+                                <asp:Label ID="lblMeal" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" style="background-color: #FFFBD6">
+                                <asp:Label ID="lblTxt5" runat="server" Text="5" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="background-color: #FFFBD6" class="auto-style1">
+                                <asp:Label ID="lblTxtContingency" runat="server" Text="Contingency" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td class="auto-style1" style="background-color: #FFFBD6">RM
+                                <asp:Label ID="lblContingency" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style5" style="background-color: #FFFBD6">&nbsp;</td>
+                            <td align="right" class="auto-style1" style="background-color: #FFFBD6">
+                                <asp:Label ID="lblTxtTotal" runat="server" Text="Total" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
+                                <asp:Label ID="lblTotalProposed" runat="server" Font-Bold="True"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
+                <td class="auto-style1" valign="top" style="background-color: #FFFBD6">
+                    &nbsp;</td>
+                <td style="background-color: #FFFBD6;" valign="top">&nbsp;</td>
+                <td valign="top" style="background-color: #FFFBD6">
+                    &nbsp;</td>
             </tr>
         </table>
         <br />

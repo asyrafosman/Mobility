@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FacultyDean/DeanMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="FacultyDean_frmViewStudApp" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/FacultyDean/DeanMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="FacultyDean_frmViewStudApp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-pdf-o" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-text" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
             </div>
         </div>
         <div class="statfiller">
@@ -115,6 +115,79 @@
             <td>
                 <asp:Label ID="lblAAName" runat="server" Font-Bold="True"></asp:Label>
             </td>
+        </tr>
+        <tr>
+            <td style="width: 150px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="3" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label3" runat="server" Text="UTM"></asp:Label>
+                        </td>
+                        <td colspan="4" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label4" runat="server" Text="Host University"></asp:Label>
+                        </td>
+                        <td colspan="2" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label5" runat="server" Text="Subject Code"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label6" runat="server" Text="Subject Name"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label7" runat="server" Text="Credit Hour"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label8" runat="server" Text="Subject Code"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label9" runat="server" Text="Subject Name"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label10" runat="server" Text="Credit Hour"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label11" runat="server" Text="Attachment"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label12" runat="server" Text="Approve"></asp:Label>
+                        </td>
+                        <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                            <asp:Label ID="Label13" runat="server" Text="Disapprove"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #FFFBD6">&nbsp;</td>
+                        <td style="background-color: #FFFBD6">&nbsp;</td>
+                        <td style="background-color: #FFFBD6">&nbsp;</td>
+                        <td style="background-color: #FFFBD6">&nbsp;</td>
+                        <td style="background-color: #FFFBD6">&nbsp;</td>
+                        <td style="background-color: #FFFBD6">&nbsp;</td>
+                        <td style="background-color: #FFFBD6">
+                            <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" NavigateUrl="" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-paperclip" style="color:maroon"></i>&nbsp;</asp:HyperLink>
+                        </td>
+                        <td style="background-color: #FFFBD6">
+                            <asp:RadioButton ID="Approve" runat="server" GroupName="Subject1" />
+                        </td>
+                        <td style="background-color: #FFFBD6">
+                            <asp:RadioButton ID="Disapprove" runat="server" GroupName="Subject1" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 150px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="width: 150px">

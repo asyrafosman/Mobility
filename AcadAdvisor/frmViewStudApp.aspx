@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="AcadAdvisor_frmViewStudApp" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="AcadAdvisor_frmViewStudApp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-pdf-o" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-text" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
             </div>
         </div>
         <div class="statfiller">

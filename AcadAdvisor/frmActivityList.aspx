@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityList.aspx.cs" Inherits="AcadAdvisor_frmListStudAct" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityList.aspx.cs" Inherits="AcadAdvisor_frmListStudAct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">

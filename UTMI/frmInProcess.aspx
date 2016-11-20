@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmInProcess.aspx.cs" Inherits="UTMI_InProcess" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmInProcess.aspx.cs" Inherits="UTMI_InProcess" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
@@ -28,4 +28,25 @@
         </tr>
     </table>
     <br>
+    <table style="width: 100%">
+        <tr>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">No</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Student Name</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Programme Type</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">University</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Start Date</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">End Date</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="background-color: #FFFBD6">1.</td>
+            <td style="background-color: #FFFBD6">Mohamad Asyraf bin Osman</td>
+            <td style="background-color: #FFFBD6">Student Exchange</td>
+            <td style="background-color: #FFFBD6">Seoul National University</td>
+            <td style="background-color: #FFFBD6">01-03-2017</td>
+            <td style="background-color: #FFFBD6">30-06-2017</td>
+            <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>' OnClick="ViewStatus">
+                <span class="fa fa-info-circle"></span></asp:LinkButton></td>
+        </tr>
+    </table>
 </asp:Content>

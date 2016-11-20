@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="UTMI_frmViewStudent" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="UTMI_frmViewStudent" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
@@ -91,13 +91,14 @@
                         </div>
                     </div>
                 </div>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-pdf-o" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-text" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
             </div>
         </div>
         <div class="statfiller">
         </div>
     </div>
     <br />
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
     <table style="width: 100%">
         <tr>
             <td style="width: 150px">
@@ -132,12 +133,118 @@
             </td>
         </tr>
         <tr>
+            <td style="width: 150px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="color: #FFFFFF; background-color: #990000;" class="auto-style4">
+                            <asp:Label ID="lblTxtNo" runat="server" Text="No." Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
+                            <asp:Label ID="lblTxtExpenses" runat="server" Text="Expenses Type" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
+                            <asp:Label ID="lblTxtProposed" runat="server" Text="Amount Proposed" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="color: #FFFFFF; background-color: #990000;" class="auto-style1">
+                            <asp:Label ID="lblTxtAllocated" runat="server" Text="Amount Allocated" Font-Bold="True"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblTxt1" runat="server" Text="1" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="background-color: #FFFBD6" class="auto-style1">
+                            <asp:Label ID="lblTxtFee" runat="server" Text="Program Fee" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                            <asp:Label ID="lblFee" runat="server" Text=""></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblTxt2" runat="server" Text="2" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="background-color: #FFFBD6" class="auto-style1">
+                            <asp:Label ID="lblTxtTransportation" runat="server" Text="Transportation" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                            <asp:Label ID="lblTransportation" runat="server" Text=""></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblTxt3" runat="server" Text="3" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="background-color: #FFFBD6" class="auto-style1">
+                            <asp:Label ID="lblTxtAccommodation" runat="server" Text="Accommodation" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                            <asp:Label ID="lblAccommodation" runat="server" Text=""></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblTxt4" runat="server" Text="4" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="background-color: #FFFBD6" class="auto-style1">
+                            <asp:Label ID="lblTxtMeal" runat="server" Text="Meal" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                            <asp:Label ID="lblMeal" runat="server" Text=""></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblTxt5" runat="server" Text="5" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="background-color: #FFFBD6" class="auto-style1">
+                            <asp:Label ID="lblTxtContingency" runat="server" Text="Contingency" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                            <asp:Label ID="lblContingency" runat="server" Text=""></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style5" style="background-color: #FFFBD6">&nbsp;</td>
+                        <td align="right" class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblTxtTotal" runat="server" Text="Total" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
+                            <asp:Label ID="lblTotalProposed" runat="server" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter an ammount" ForeColor="Red" ControlToValidate="txtTotalAllocated">*</asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtTotalAllocated" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 150px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td style="width: 150px">
                 <asp:Label ID="lblTxtComment" runat="server" Text="Comment" Font-Bold="True"></asp:Label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a comment" ForeColor="Red" ControlToValidate="txtComment">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="lblComment" runat="server" Style="width: 100%"></asp:TextBox>
+                <asp:TextBox ID="txtComment" runat="server" Style="width: 100%"></asp:TextBox>
             </td>
         </tr>
         <tr>

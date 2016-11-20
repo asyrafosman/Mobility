@@ -24,6 +24,13 @@ public partial class UTMI_frmViewStudent : System.Web.UI.Page
         Session["acadProgAAComment"] = "Good.";
         Session["acadProgTDAComment"] = "Excellent.";
 
+        Session["acadFinancialFee"] = "3000";
+        Session["acadFinancialTransportation"] = "2000";
+        Session["acadFinancialAccommodation"] = "1000";
+        Session["acadFinancialMeal"] = "2000";
+        Session["acadFinancialContigency"] = "1500";
+        Session["acadFinancialTotalAllocated"] = "3000";
+
         if (!IsPostBack)
         {
             string sesisem = Session["acadUserSs"].ToString();
@@ -53,5 +60,13 @@ public partial class UTMI_frmViewStudent : System.Web.UI.Page
         lblAAComment.Text = Session["acadProgAAComment"].ToString();
         lblTDAName.Text = Session["acadUserTda"].ToString();
         lblTDAComment.Text = Session["acadProgTDAComment"].ToString();
+
+        lblFee.Text = Session["acadFinancialFee"].ToString();
+        lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
+        lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();
+        lblMeal.Text = Session["acadFinancialMeal"].ToString();
+        lblContingency.Text = Session["acadFinancialContigency"].ToString();
+        int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
+        lblTotalProposed.Text = total.ToString();
     }
 }

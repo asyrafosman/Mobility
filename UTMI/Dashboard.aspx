@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="UTMI_Dashboard" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMI/UTMIMasterPage.master" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="UTMI_Dashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" runat="Server">
     <div id="cssmenu2">
@@ -17,16 +17,6 @@
         </tr>
     </table>
     <br>
-    <br>
-    <table align="center">
-        <tr>
-            <td>
-                <asp:Label ID="lblSearch" runat="server" Text="Student Name: "></asp:Label>
-                <asp:TextBox ID="txtSearch" runat="server" placeholder="- Student Name -"></asp:TextBox>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click1" />
-            </td>
-        </tr>
-    </table>
     <br>
     <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Outbound]"></asp:SqlDataSource>--%>
     <%--<asp:GridView ID="GridView1" runat="server" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="applicationId" AllowPaging="True" AllowSorting="True" EmptyDataText="No record found" Style="width: 100%">
@@ -78,4 +68,25 @@
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>--%>
+    <table style="width: 100%">
+        <tr>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">No</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Student Name</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Programme Type</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">University</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Start Date</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">End Date</td>
+            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="background-color: #FFFBD6">1.</td>
+            <td style="background-color: #FFFBD6">Mohamad Asyraf bin Osman</td>
+            <td style="background-color: #FFFBD6">Student Exchange</td>
+            <td style="background-color: #FFFBD6">Seoul National University</td>
+            <td style="background-color: #FFFBD6">01-03-2017</td>
+            <td style="background-color: #FFFBD6">30-06-2017</td>
+            <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>' OnClick="ViewStudApp">
+                <span class="fa fa-search"></span></asp:LinkButton></td>
+        </tr>
+    </table>
 </asp:Content>
