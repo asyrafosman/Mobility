@@ -38,7 +38,7 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         Session["acadUserBs"] = "5";
         Session["acadUserNs"] = "8";
         Session["acadUserSv"] = "Dr. Radziah Binti Mohamad";
-        Session["acadUserTda"] = "Prof. Dr. Habibollah Bin Harun";
+        Session["acadUserDean"] = "Prof. Dr. Abd. Samad bin Haji Ismail";
         Session["acadUserTs"] = "Taught Course";
         Session["acadUserEm"] = "masyraf96@live.utm.my";
         Session["acadUserTl"] = "0172364838";
@@ -48,10 +48,10 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         Session["acadProgStartDate"] = "01-03-2017";
         Session["acadProgEndDate"] = "30-06-2017";
         Session["acadProgAAComment"] = "Good.";
-        Session["acadProgTDAComment"] = "Excellent.";
+        Session["acadProgDeanComment"] = "Excellent.";
         Session["acadProgSystemDate"] = systemDate.ToShortDateString();
         Session["acadProgSvDate"] = svDate.ToShortDateString();
-        Session["acadProgTdaDate"] = tdaDate.ToShortDateString();
+        Session["acadProgDeanDate"] = tdaDate.ToShortDateString();
         Session["acadProgUtmiArDate"] = utmiarDate.ToShortDateString();
         Session["acadProgUtmiDDate"] = utmidDate.ToShortDateString();
         Session["acadProgTncaaDate"] = tncaaDate.ToShortDateString();
@@ -61,7 +61,7 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
 
         Session["statusSystem"] = drSelect["SystemStatus"].ToString();
         Session["statusAa"] = drSelect["SvStatus"].ToString();
-        Session["statusTda"] = drSelect["TdaStatus"].ToString();
+        Session["statusDean"] = drSelect["TdaStatus"].ToString();
         Session["statusUtmiAr"] = drSelect["UtmiArStatus"].ToString();
         Session["statusUtmiD"] = drSelect["UtmiDStatus"].ToString();
         Session["statusTncaa"] = drSelect["TncaaStatus"].ToString();
@@ -112,24 +112,24 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         lblAAName.Text = Session["acadUserSv"].ToString();
         lblAADate.Text = Session["acadProgSvDate"].ToString();
 
-        if (Session["statusTda"].ToString() == "0")
+        if (Session["statusDean"].ToString() == "0")
         {
-            lblStatusTDA.Text = "<span class=\"label label-warning\">In Process</span>";
+            lblStatusDean.Text = "<span class=\"label label-warning\">In Process</span>";
         }
-        if (Session["statusTda"].ToString() == "4")
+        if (Session["statusDean"].ToString() == "4")
         {
-            lblStatusTDA.Text = "<span class=\"label label-success\">Recommended</span>";
+            lblStatusDean.Text = "<span class=\"label label-success\">Recommended</span>";
         }
-        if (Session["statusTda"].ToString() == "5")
+        if (Session["statusDean"].ToString() == "5")
         {
-            lblStatusTDA.Text = "<span class=\"label label-danger\">Not Recommended</span>";
+            lblStatusDean.Text = "<span class=\"label label-danger\">Not Recommended</span>";
         }
-        if (Session["statusTda"].ToString() == "2")
+        if (Session["statusDean"].ToString() == "2")
         {
-            lblStatusTDA.Text = "<span class=\"label label-primary\">Need to Modify</span>";
+            lblStatusDean.Text = "<span class=\"label label-primary\">Need to Modify</span>";
         }
-        lblTDAName.Text = Session["acadUserTda"].ToString();
-        lblTDADate.Text = Session["acadProgTdaDate"].ToString();
+        lblDeanName.Text = Session["acadUserDean"].ToString();
+        lblDeanDate.Text = Session["acadProgDeanDate"].ToString();
 
         if (Session["statusUtmiAr"].ToString() == "0")
         {

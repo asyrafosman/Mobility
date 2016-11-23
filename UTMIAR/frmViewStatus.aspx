@@ -117,7 +117,7 @@
                 <asp:Label ID="lblTxtAA" runat="server" Text="Academic Advisor" Font-Bold="True"></asp:Label>
             </td>
             <td style="color: #FFFFFF; background-color: #990000; text-align: center;">
-                <asp:Label ID="lblTxtTda" runat="server" Text="Deputy Dean Academic" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblTxtDean" runat="server" Text="Dean" Font-Bold="True"></asp:Label>
             </td>
             <td style="color: #FFFFFF; background-color: #990000; text-align: center;">
                 <asp:Label ID="lblTxtUtmiAR" runat="server" Text="UTMI Assistant Registrar" Font-Bold="True"></asp:Label>
@@ -137,7 +137,7 @@
                 <asp:Label ID="lblStatusAA" runat="server" Text=""></asp:Label>
             </td>
             <td style="background-color: #FFFBD6; text-align: center;">
-                <asp:Label ID="lblStatusTDA" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblStatusDean" runat="server" Text=""></asp:Label>
             </td>
             <td style="background-color: #FFFBD6; text-align: center;">
                 <%--<span class="label label-warning">In Process</span>--%>
@@ -157,7 +157,7 @@
                 <asp:Label ID="lblAAName" runat="server" Font-Bold="True"></asp:Label>
             </td>
             <td style="background-color: #FFFBD6; text-align: center;">
-                <asp:Label ID="lblTDAName" runat="server" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblDeanName" runat="server" Font-Bold="True"></asp:Label>
             </td>
             <td style="background-color: #FFFBD6; text-align: center;">
                 <asp:Label ID="lblUTMIARName" runat="server" Font-Bold="True"></asp:Label>
@@ -177,7 +177,7 @@
                 <asp:Label ID="lblAADate" runat="server" Text=""></asp:Label>
             </td>
             <td style="background-color: #FFFBD6; text-align: center;">
-                <asp:Label ID="lblTDADate" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblDeanDate" runat="server" Text=""></asp:Label>
             </td>
             <td style="background-color: #FFFBD6; text-align: center;">
                 <asp:Label ID="lblUTMIARDate" runat="server" Text=""></asp:Label>

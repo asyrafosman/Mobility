@@ -17,7 +17,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         Session["acadUserBs"] = "5";
         Session["acadUserNs"] = "8";
         Session["acadUserSv"] = "Dr. Radziah Binti Mohamad";
-        Session["acadUserTda"] = "Prof. Dr. Habibollah Bin Harun";
+        Session["acadUserDean"] = "Prof. Dr. Abd. Samad bin Haji Ismail";
         Session["acadUserTs"] = "Taught Course";
         Session["acadUserEm"] = "masyraf96@live.utm.my";
         Session["acadUserTl"] = "0172364838";
@@ -27,7 +27,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         Session["acadProgStartDate"] = "01-03-2017";
         Session["acadProgEndDate"] = "30-06-2017";
         Session["acadProgAAComment"] = "Good.";
-        Session["acadProgTDAComment"] = "Excellent.";
+        Session["acadProgDeanComment"] = "Excellent.";
 
         Session["acadFinancialFee"] = "3000";
         Session["acadFinancialTransportation"] = "2000";
@@ -63,8 +63,8 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
 
         lblAAName.Text = Session["acadUserSv"].ToString();
         lblAAComment.Text = Session["acadProgAAComment"].ToString();
-        lblTDAName.Text = Session["acadUserTda"].ToString();
-        lblTDAComment.Text = Session["acadProgTDAComment"].ToString();
+        lblDeanName.Text = Session["acadUserDean"].ToString();
+        lblDeanComment.Text = Session["acadProgDeanComment"].ToString();
 
         lblFee.Text = Session["acadFinancialFee"].ToString();
         lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
@@ -73,5 +73,15 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         lblContingency.Text = Session["acadFinancialContigency"].ToString();
         int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
         lblTotalProposed.Text = total.ToString();
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Dashboard.aspx");
+    }
+
+    protected void btnRevert_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Dashboard.aspx");
     }
 }

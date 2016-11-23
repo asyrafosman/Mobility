@@ -16,4 +16,10 @@ public partial class UTMIAR_frmStudReport : System.Web.UI.Page
         //GridView1.Visible = false;
         //GridView2.Visible = true;
     }
+    protected void ViewStudentReport(object sender, EventArgs e)
+    {
+        string id = (sender as LinkButton).CommandArgument;
+
+        Response.Redirect("frmReportDetails.aspx");
+    }
 }

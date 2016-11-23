@@ -11,6 +11,7 @@ public partial class AcadAdvisor_frmActivityDetails : System.Web.UI.Page
     {
         lblDate.Text = "01/03/2017";
         lblTitle.Text = "New Day in A New Environment";
+        imgActivity.ImageUrl = "../Styles/images/no-image-available.png";
         lblDetails.Text = "Assalamualaikum dan hai!";
     }
 }

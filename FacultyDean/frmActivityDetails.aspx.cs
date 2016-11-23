@@ -9,6 +9,9 @@ public partial class FacultyDean_frmActivityDetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        lblDate.Text = "01/03/2017";
+        lblTitle.Text = "New Day in A New Environment";
+        imgActivity.ImageUrl = "../Styles/images/no-image-available.png";
+        lblDetails.Text = "Assalamualaikum dan hai!";
     }
 }

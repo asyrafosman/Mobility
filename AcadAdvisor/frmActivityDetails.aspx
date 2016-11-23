@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Image ID="Image1" runat="server" />
+                <asp:Image ID="imgActivity" runat="server" />
             </td>
         </tr>
         <tr>

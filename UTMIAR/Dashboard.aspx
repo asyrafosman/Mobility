@@ -100,7 +100,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View</asp:LinkButton>
+                <span class="fa fa-search"></span>&nbsp;View Application</asp:LinkButton>
             </td>
         </tr>
     </table>

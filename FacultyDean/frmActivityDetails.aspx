@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FacultyDean/DeanMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityDetails.aspx.cs" Inherits="FacultyDean_frmActivityDetails" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/FacultyDean/DeanMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityDetails.aspx.cs" Inherits="FacultyDean_frmActivityDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Image ID="Image1" runat="server" />
+                <asp:Image ID="imgActivity" runat="server" />
             </td>
         </tr>
         <tr>

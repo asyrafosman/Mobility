@@ -118,18 +118,18 @@
         </tr>
         <tr>
             <td style="width: 150px">
-                <asp:Label ID="lblTxtTDAComment" runat="server" Text="Deputy Dean Academic" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblTxtDeanComment" runat="server" Text="Dean" Font-Bold="True"></asp:Label>
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:Label ID="lblTDAComment" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblDeanComment" runat="server" Text=""></asp:Label>
             </td>
         </tr>
         <tr>
             <td style="width: 150px">&nbsp;</td>
             <td>&nbsp;</td>
             <td>
-                <asp:Label ID="lblTDAName" runat="server" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblDeanName" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -249,9 +249,9 @@
         </tr>
         <tr>
             <td colspan="3" style="text-align: center">
-                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" />
+                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" OnClick="btnRevert_Click" />
                 &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-akad btn-sm" />
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-akad btn-sm" OnClick="btnSubmit_Click" />
             </td>
         </tr>
     </table>

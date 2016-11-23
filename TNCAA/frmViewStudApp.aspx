@@ -116,7 +116,6 @@
                 <asp:Label ID="lblAAName" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
-
         <tr>
              <td style="width: 160px">
                 <asp:Label ID="lblTxtDean" runat="server" Text="Dean" Font-Bold="True"></asp:Label>
@@ -125,7 +124,6 @@
             <td>
                 <asp:Label ID="lblDeanComment" runat="server" Text=""></asp:Label>
             </td>
-
         </tr>
          <tr>
             <td style="width: 160px">&nbsp;</td>
@@ -134,7 +132,6 @@
                 <asp:Label ID="lblDeanName" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
-
         <tr>
              <td style="width: 160px">
                 <asp:Label ID="lblTxtUTMIar" runat="server" Text="UTMI Assistant Registrar" Font-Bold="True"></asp:Label>
@@ -170,16 +167,12 @@
                 <asp:Label ID="lblUTMIDName" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
-
-
-        
         <tr>
             <td style="width: 160px">&nbsp;</td>
             <td>&nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
-       
         <tr>
             <td colspan="3">
                 <table style="width: 100%">

@@ -17,7 +17,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         Session["acadUserBs"] = "5";
         Session["acadUserNs"] = "8";
         Session["acadUserSv"] = "Dr. Radziah Binti Mohamad";
-        Session["acadUserTda"] = "Prof. Dr. Habibollah Bin Harun";
+        Session["acadUserDean"] = "Prof. Dr. Abd. Samad bin Haji Ismail";
         Session["acadUserTs"] = "Taught Course";
         Session["acadUserEm"] = "masyraf96@live.utm.my";
         Session["acadUserTl"] = "0172364838";
@@ -27,7 +27,18 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         Session["acadProgStartDate"] = "01-03-2017";
         Session["acadProgEndDate"] = "30-06-2017";
         Session["acadProgAAComment"] = "Good.";
-        Session["acadProgTDAComment"] = "Excellent.";
+        Session["acadProgDeanComment"] = "Excellent.";
+        Session["acadProgUtmiaaComment"] = "Superb.";
+        Session["acadProgUtmidComment"] = "The best.";
+        Session["acadUserUtmiar"] = "Siti Rahimah Mohd Yusop";
+        Session["acadUserUtmid"] = "Prof Dr Nor Haniza Sarmin";
+
+        Session["acadFinancialFee"] = "3000";
+        Session["acadFinancialTransportation"] = "2000";
+        Session["acadFinancialAccommodation"] = "1000";
+        Session["acadFinancialMeal"] = "2000";
+        Session["acadFinancialContigency"] = "1500";
+        Session["acadFinancialTotalAllocated"] = "3000";
 
         if (!IsPostBack)
         {
@@ -56,16 +67,29 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
 
         lblAAName.Text = Session["acadUserSv"].ToString();
         lblAAComment.Text = Session["acadProgAAComment"].ToString();
+        lblDeanName.Text = Session["acadUserDean"].ToString();
+        lblDeanComment.Text = Session["acadProgDeanComment"].ToString();
+        lblUTMIARName.Text = Session["acadUserUtmiar"].ToString();
+        lblUTMIARComment.Text = Session["acadProgUtmiaaComment"].ToString();
+        lblUTMIDName.Text = Session["acadUserUtmid"].ToString();
+        lblUTMIDComment.Text = Session["acadProgUtmidComment"].ToString();
+
+        lblFee.Text = Session["acadFinancialFee"].ToString();
+        lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
+        lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();
+        lblMeal.Text = Session["acadFinancialMeal"].ToString();
+        lblContingency.Text = Session["acadFinancialContigency"].ToString();
+        int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
+        lblTotalProposed.Text = total.ToString();
+        lblTotalFunded.Text = "5000";
     }
 
-   
-
-    protected void btnDisapprove_Click(object sender, EventArgs e)
+    protected void btnApprove_Click(object sender, EventArgs e)
     {
         Response.Redirect("Dashboard.aspx");
     }
 
-    protected void btnApprove_Click(object sender, EventArgs e)
+    protected void btnDisapprove_Click(object sender, EventArgs e)
     {
         Response.Redirect("Dashboard.aspx");
     }

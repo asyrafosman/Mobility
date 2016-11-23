@@ -35,10 +35,24 @@
             <td style="background-color: #FFFBD6">Seoul National University</td>
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
-            <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>' OnClick="ViewStudApp">
+            <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("AppId") %>' OnClick="ViewStudApp">
                 <span class="fa fa-search"></span></asp:LinkButton></td>
         </tr>
     </table>
     <br />
+    <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
+        <tr>
+            <td colspan="4">
+                <strong>Legends:</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+                <asp:LinkButton ID="LinkButton2" runat="server">
+                <span class="fa fa-search"></span>&nbsp;View Application</asp:LinkButton>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
 
