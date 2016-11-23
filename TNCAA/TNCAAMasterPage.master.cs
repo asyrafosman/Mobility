@@ -9,9 +9,9 @@ public partial class Student_UGMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "PROF. DR. ABD. SAMAD BIN HAJI ISMAIL";
-        Session["acadUserEm"] = "abdsamadm@utm.my";
-        Session["acadUserTl"] = "07-5532000";
+        Session["acadUserNm"] = "PROF. DR. ROSE ALINDA ALIAS";
+        Session["acadUserEm"] = "dvcai@utm.my";
+        Session["acadUserTl"] = "07-5530328";
         Session["acadUserPos"] = "Profesor (VK7)";
         Session["acadUserPHD"] = "10-AUG-1990";
         Session["acadUserNoStaff"] = "2828";

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmStudMobility.aspx.cs" Inherits="AcadAdvisor_frmStudMobility" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FacultyDean/DeanMasterPage.master" AutoEventWireup="true" CodeFile="frmStudMobility.aspx.cs" Inherits="FacultyDean_frmStudMobility" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
@@ -39,6 +39,5 @@
                 <span class="fa fa-search"></span></asp:LinkButton></td>
         </tr>
     </table>
-    <br />
 </asp:Content>
 

@@ -12,7 +12,7 @@
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outboun <span class="fa fa-arrow-right"></span>&nbsp;In Process</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;In Process</asp:Label>
             </td>
         </tr>
     </table>
@@ -47,6 +47,21 @@
             <td style="background-color: #FFFBD6">30-06-2017</td>
             <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>' OnClick="ViewStatus">
                 <span class="fa fa-info-circle"></span></asp:LinkButton></td>
+        </tr>
+    </table>
+    <br />
+    <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
+        <tr>
+            <td colspan="4">
+                <strong>Legends:</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+                <asp:LinkButton ID="LinkButton2" runat="server">
+                <span class="fa fa-info-circle"></span>&nbsp;Status Info</asp:LinkButton>
+            </td>
         </tr>
     </table>
 </asp:Content>

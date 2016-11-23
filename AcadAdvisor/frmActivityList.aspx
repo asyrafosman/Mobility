@@ -97,8 +97,64 @@
         </div>
     </div>
     <br />
+
+                <table style="width: 100%">
+                    <tr>
+                        <td style="color: #FFFFFF; background-color: #990000;" class="auto-style4" colspan="3">
+                            <asp:Label ID="lblTxtSecA" runat="server" Text="STUDENT INFO" Font-Bold="True"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt1" runat="server" Text="Current Phone Number" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewPhone" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt2" runat="server" Text="Current Address" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewAddress" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt3" runat="server" Text="Emergency Contact Name" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewConName" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt4" runat="server" Text="Emergency Contact Relation" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewConRelation" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt5" runat="server" Text="Emergency Contact Phone Number" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewConPhone" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    </table>
+
+    <br />
+    <asp:Label ID="Label2" runat="server" Text="List of Student Activity:" Font-Bold="True"></asp:Label>
     <ul style="font-size: small">
-        <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True"><i class="fa fa-caret-right" style="color:maroon"></i>&nbsp;01/03/2017</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AcadAdvisor/frmActivityDetails.aspx" Font-Bold="True"><i class="fa fa-caret-right" style="color:maroon"></i>&nbsp;01/03/2017</asp:HyperLink>
     </ul>
 </asp:Content>
 

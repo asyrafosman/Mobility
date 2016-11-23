@@ -146,4 +146,22 @@
             <asp:ControlParameter ControlID="txtSearch" Name="ProgName" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <br />
+    <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
+        <tr>
+            <td colspan="4">
+                <strong>Legends:</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+                <asp:LinkButton ID="LinkButton3" runat="server">
+                <span class="fa fa-search"></span>&nbsp;View Programme</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                <asp:LinkButton ID="LinkButton4" runat="server">
+                <span class="fa fa-trash"></span>&nbsp;Delete Programme</asp:LinkButton>
+            </td>
+        </tr>
+    </table>
 </asp:Content>

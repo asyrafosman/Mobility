@@ -1,15 +1,15 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmViewStudApp.aspx.cs" Inherits="AcadAdvisor_frmViewStudApp" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FacultyDean/DeanMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityList.aspx.cs" Inherits="FacultyDean_frmActivityList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-user"></span>&nbsp;Applicant Details</a></li>
+            <li class="active"><a><span class="fa fa-plane"></span>&nbsp;Activity List</a></li>
         </ul>
     </div>
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Details</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Student Mobility <span class="fa fa-arrow-right"></span>&nbsp;Activity List</asp:Label>
             </td>
         </tr>
     </table>
@@ -91,33 +91,70 @@
                         </div>
                     </div>
                 </div>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AcadAdvisor/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-text" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
             </div>
         </div>
         <div class="statfiller">
         </div>
     </div>
     <br />
-    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
-    <table style="width: 100%">
-        <tr>
-            <td style="width: 150px">
-                <asp:Label ID="lblTxtComment" runat="server" Text="Comment" Font-Bold="True"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a comment" ForeColor="Red" ControlToValidate="txtComment">*</asp:RequiredFieldValidator>
-            </td>
-            <td style="width: 1px">:</td>
-            <td>
-                <asp:TextBox ID="txtComment" runat="server" Style="width: 100%"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" style="text-align: center">
-                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" OnClick="btnRevert_Click" />
-                &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-akad btn-sm" OnClick="btnSubmit_Click" />
-            </td>
-        </tr>
-    </table>
+
+                <table style="width: 100%">
+                    <tr>
+                        <td style="color: #FFFFFF; background-color: #990000;" class="auto-style4" colspan="3">
+                            <asp:Label ID="lblTxtSecA" runat="server" Text="STUDENT INFO" Font-Bold="True"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt1" runat="server" Text="Current Phone Number" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewPhone" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt2" runat="server" Text="Current Address" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewAddress" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt3" runat="server" Text="Emergency Contact Name" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewConName" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt4" runat="server" Text="Emergency Contact Relation" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewConRelation" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style4" style="background-color: #FFFBD6; width: 230px;">
+                            <asp:Label ID="lblTxt5" runat="server" Text="Emergency Contact Phone Number" Font-Bold="True"></asp:Label>
+                        </td>
+                        <td style="width: 1px; background-color: #FFFBD6;">:</td>
+                        <td class="auto-style1" style="background-color: #FFFBD6">
+                            <asp:Label ID="lblNewConPhone" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    </table>
+
     <br />
+    <asp:Label ID="Label2" runat="server" Text="List of Student Activity:" Font-Bold="True"></asp:Label>
+    <ul style="font-size: small">
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/FacultyDean/frmActivityDetails.aspx" Font-Bold="True"><i class="fa fa-caret-right" style="color:maroon"></i>&nbsp;01/03/2017</asp:HyperLink>
+    </ul>
 </asp:Content>
 

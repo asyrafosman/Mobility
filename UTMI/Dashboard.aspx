@@ -89,4 +89,19 @@
                 <span class="fa fa-search"></span></asp:LinkButton></td>
         </tr>
     </table>
+    <br />
+    <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
+        <tr>
+            <td colspan="4">
+                <strong>Legends:</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+                <asp:LinkButton ID="LinkButton2" runat="server">
+                <span class="fa fa-search"></span>&nbsp;View</asp:LinkButton>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
