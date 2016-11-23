@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/AcadAdvisor/AAMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityList.aspx.cs" Inherits="AcadAdvisor_frmListStudAct" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityList.aspx.cs" Inherits="UTMIAR_frmActivityList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
@@ -9,7 +9,7 @@
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Student Mobility <span class="fa fa-arrow-right"></span>&nbsp;Activity List</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Student Activity <span class="fa fa-arrow-right"></span>&nbsp;Activity List</asp:Label>
             </td>
         </tr>
     </table>
@@ -152,7 +152,7 @@
     <br />
     <asp:Label ID="Label2" runat="server" Text="List of Student Activity:" Font-Bold="True"></asp:Label>
     <ul style="font-size: small">
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AcadAdvisor/frmActivityDetails.aspx" Font-Bold="True"><i class="fa fa-caret-right" style="color:maroon"></i>&nbsp;01/03/2017</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMIAR/frmActivityDetails.aspx" Font-Bold="True"><i class="fa fa-caret-right" style="color:maroon"></i>&nbsp;01/03/2017</asp:HyperLink>
     </ul>
 </asp:Content>
 
