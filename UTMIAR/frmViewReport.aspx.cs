@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Configuration;
-using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
-public partial class UTMI_frmViewForm : System.Web.UI.Page
+public partial class UTMIAR_frmViewReport : System.Web.UI.Page
 {
-    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
@@ -60,44 +61,13 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
     {
         //imgPhoto.InnerHtml = "<img src=\"../Styles/images/PhotoStudent.ashx.jpeg\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
         lblName.Text = Session["acadUserNm"].ToString();
-        lblProgramme.Text = Session["acadUserPr"].ToString();
         lblFaculty.Text = Session["acadUserFn"].ToString();
         lblMatric.Text = Session["acadUserMt"].ToString();
-        lblSemesterNorm.Text = Session["acadUserBs"].ToString() + " / " + Session["acadUserNs"].ToString();
-        //lblAA.Text = Session["acadUserSv"].ToString();
-        //lblToS.Text = Session["acadUserTs"].ToString() + " (Full Time)";
-        lblEmail.Text = Session["acadUserEm"].ToString();
-        lblContact.Text = Session["acadUserTl"].ToString();
-        lblIC.Text = Session["acadUserIC"].ToString();
         lblDoB.Text = Session["acadUserDoB"].ToString();
-        lblReligion.Text = Session["acadUserReligion"].ToString();
-        lblRace.Text = Session["acadUserRace"].ToString();
-        lblCitizenship.Text = Session["acadUserCitizenship"].ToString();
-        lblNextKin.Text = Session["acadUserNextOfKin"].ToString();
-        lblEmergency.Text = Session["acadUserEmergencyContact"].ToString();
-        lblAddress.Text = Session["acadUserAddress"].ToString();
-        lblNextKinAddress.Text = Session["acadUserAddress"].ToString();
-        lblPassportNo.Text = Session["acadUserPassport"].ToString();
-        lblPassportExDate.Text = Session["acadUserPassportEx"].ToString();
-        lblCGPA.Text = Session["acadUserCGPA"].ToString();
-        lblStatus.Text = Session["acadUserStatus"].ToString();
-        lblGraduation.Text = Session["acadUserGraduation"].ToString();
-        lblField.Text = Session["acadUserField"].ToString();
 
         lblProgType.Text = Session["acadProgType"].ToString();
         lblProgName.Text = Session["acadProgName"].ToString();
-        lblUniversity.Text = Session["acadProgUniversity"].ToString();
-        lblCountry.Text = Session["acadProgCountry"].ToString();
-        lblStartDate.Text = Session["acadProgStartDate"].ToString();
-        lblEndDate.Text = Session["acadProgEndDate"].ToString();
+        lblDestination.Text = Session["acadProgUniversity"].ToString();
 
-        lblFee.Text = Session["acadFinancialFee"].ToString();
-        lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
-        lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();
-        lblMeal.Text = Session["acadFinancialMeal"].ToString();
-        lblContingency.Text = Session["acadFinancialContigency"].ToString();
-        int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
-        lblTotalProposed.Text = total.ToString();
-        //lblTotalAllocated.Text = Session["acadFinancialTotalAllocated"].ToString();
     }
 }

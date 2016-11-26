@@ -67,11 +67,11 @@ public partial class UTMIAR_frmViewForm : System.Web.UI.Page
         if (!IsPostBack)
         {
             string sesisem = Session["acadUserSs"].ToString();
-            showProfile();
+            showForm();
         }
     }
 
-    protected void showProfile()
+    protected void showForm()
     {
         //imgPhoto.InnerHtml = "<img src=\"../Styles/images/PhotoStudent.ashx.jpeg\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
         lblName.Text = Session["acadUserNm"].ToString();
