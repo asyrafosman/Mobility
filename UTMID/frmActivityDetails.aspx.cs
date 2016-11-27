@@ -5,15 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class UTMIAR_frmStudReport : System.Web.UI.Page
+public partial class UTMID_frmActivityDetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-    }
-    protected void btnSearch_Click1(object sender, EventArgs e)
-    {
-        //GridView1.Visible = false;
-        //GridView2.Visible = true;
+        lblDate.Text = "01/03/2017";
+        lblTitle.Text = "New Day in A New Environment";
+        lblDetails.Text = "Assalamualaikum dan hai!";
     }
 }

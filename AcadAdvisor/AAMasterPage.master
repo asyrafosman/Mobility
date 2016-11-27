@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AAMasterPage.master.cs"
-    Inherits="Student_UGMasterPage" %>
+    Inherits="AA_AAMasterPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <link href="../Styles/bootsrap/bootstrap.min.css" rel="stylesheet" type="text/css" />

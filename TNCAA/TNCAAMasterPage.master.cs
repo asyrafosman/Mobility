@@ -2,7 +2,7 @@
 using System.Data.OracleClient;
 using System.Web.UI;
 
-public partial class Student_UGMasterPage : System.Web.UI.MasterPage
+public partial class TNCAA_TNCAAMasterPage : System.Web.UI.MasterPage
 {
     private OracleConnection oraCon = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
 

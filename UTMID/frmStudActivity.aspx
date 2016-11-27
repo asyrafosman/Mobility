@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="frmStudReport.aspx.cs" Inherits="UTMIAR_frmStudReport" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMID/UTMIDMasterPage.master" AutoEventWireup="true" CodeFile="frmStudActivity.aspx.cs" Inherits="UTMID_frmStudActivity" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
@@ -9,7 +9,7 @@
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Student Report <span class="fa fa-arrow-right"></span>&nbsp;Student List</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Student Activity <span class="fa fa-arrow-right"></span>&nbsp;Student List</asp:Label>
             </td>
         </tr>
     </table>
@@ -42,7 +42,8 @@
             <td style="background-color: #FFFBD6">Seoul National University</td>
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
-            <td style="background-color: #FFFBD6"><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMIAR/frmViewReport.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-search" style="color:maroon"></i>&nbsp;</asp:HyperLink></td>
+            <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("AppId") %>' OnClick="ViewActivityList">
+                <span class="fa fa-search"></span></asp:LinkButton></td>
         </tr>
     </table>
     <br />
@@ -56,7 +57,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Report Details</asp:LinkButton>
+                <span class="fa fa-search"></span>&nbsp;View Activity List</asp:LinkButton>
             </td>
         </tr>
     </table>

@@ -1,27 +1,20 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.OracleClient;
 using System.Web.UI;
 
-public partial class AA_AAMasterPage : System.Web.UI.MasterPage
+public partial class UTMID_UTMIDMasterPage : System.Web.UI.MasterPage
 {
-    private OracleConnection oraCon = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
+    private OracleConnection oraCon = new OracleConnection(ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "PM DR. RADZIAH MOHAMAD";
-        Session["acadUserEm"] = "radziahm@utm.my";
-        Session["acadUserTl"] = "07-5538802";
-        Session["acadUserPos"] = "Profesor Madya (Ds54)";
-        Session["acadUserPHD"] = "10-AUG-2005";
-        Session["acadUserNoStaff"] = "8534";
-        Session["acadUserFac"] = "FC";
+        Session["acadUserNm"] = "UTMI ASSISTANT REGISTRAR";
 
         if (!IsPostBack)
         {
             string sesisem = Session["acadUserSs"].ToString();
-            showProfile();
-            showAchievement();
             lblLoggedInUser.Text = Session["acadUserNm"].ToString();
         }
     }
@@ -115,46 +108,4 @@ public partial class AA_AAMasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("http://elearning.utm.my");
     }
-
-    /**
-      * Function  : showProfile()
-      * Remarks   : To Show Student's Profile
-      * Date      : 31/10/2016
-      * Developer : Mohd Azman
-      **/
-
-    protected void showProfile()
-    {
-        imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
-        lblEmail.Text = Session["acadUserEm"].ToString();
-        lblTel.Text = Session["acadUserTl"].ToString();
-        lblNoStaff.Text = Session["acadUserNoStaff"].ToString();
-        lblPos.Text = Session["acadUserPos"].ToString();
-        lblFac.Text = Session["acadUserFac"].ToString();
-        lblPHDGrad.Text = Session["acadUserPHD"].ToString();
-    }
-
-    /**
-       * Function  : checkDebt()
-       * Remarks   : To Show Student's Debt
-       * Date      : 31/10/2016
-       * Developer : Mohd Azman
-       **/
-
-
-    /**
-       * Function  : showAchievement()
-       * Remarks   : To Show Student's Num of Achievement
-       * Date      : 31/10/2016
-       * Developer : Mohd Azman
-       **/
-
-    protected void showAchievement()
-    {
-        lblTotal.Text = "51";
-        lblPHD.Text = "5";
-        lblMaster.Text = "20";
-        lblUG.Text = "26";
-    } 
 }

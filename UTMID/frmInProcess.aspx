@@ -1,15 +1,18 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="frmStudReport.aspx.cs" Inherits="UTMIAR_frmStudReport" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMID/UTMIDMasterPage.master" AutoEventWireup="true" CodeFile="frmInProcess.aspx.cs" Inherits="UTMID_frmInProcess" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-list"></span>&nbsp;List of Student</a></li>
+            <li><a href="Dashboard.aspx"><span class="fa fa-inbox"></span>&nbsp;Inbox</a></li>
+            <li class="active"><a href="frmInProcess.aspx"><span class="fa fa-play"></span>&nbsp;In Process</a></li>
+            <li><a href="frmCompleted.aspx"><span class="fa fa-check"></span>&nbsp;Completed</a></li>
+            <li><a href="frmRejected.aspx"><span class="fa fa-times"></span>&nbsp;Rejected</a></li>
         </ul>
     </div>
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Student Report <span class="fa fa-arrow-right"></span>&nbsp;Student List</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;In Process</asp:Label>
             </td>
         </tr>
     </table>
@@ -24,7 +27,7 @@
             </td>
         </tr>
     </table>
-    <br />
+    <br>
     <table style="width: 100%">
         <tr>
             <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">No</td>
@@ -42,7 +45,8 @@
             <td style="background-color: #FFFBD6">Seoul National University</td>
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
-            <td style="background-color: #FFFBD6"><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMIAR/frmViewReport.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-search" style="color:maroon"></i>&nbsp;</asp:HyperLink></td>
+            <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>' OnClick="ViewStatus">
+                <span class="fa fa-info-circle"></span></asp:LinkButton></td>
         </tr>
     </table>
     <br />
@@ -56,7 +60,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Report Details</asp:LinkButton>
+                <span class="fa fa-info-circle"></span>&nbsp;Status Info</asp:LinkButton>
             </td>
         </tr>
     </table>

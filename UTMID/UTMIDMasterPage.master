@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="UTMIARMasterPage.master.cs"
-    Inherits="UTMAR_UTMIARMasterPage"%>
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="UTMIDMasterPage.master.cs" Inherits="UTMID_UTMIDMasterPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <link href="../Styles/bootsrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -23,11 +22,11 @@
     <div id="menu" class="menu-bg">
         <ul class="left">
             <li class="home"><a href="Dashboard.aspx" class="icon-home"></a><span style="visibility: hidden;">---</span></li>
-            <li><a href="frmProgramme.aspx">
+            <%--<li><a href="frmProgramme.aspx">
                 <asp:Label ID="Label1" runat="server" Text="Programme" CssClass="textMenu"></asp:Label></a>
                 <ul id="ulProgramme" runat="server">
                 </ul>
-            </li>
+            </li>--%>
             <li><a href="frmStudActivity.aspx">
                 <asp:Label ID="Label2" runat="server" Text="Student Activity" CssClass="textMenu"></asp:Label></a>
                 <ul id="ulActivity" runat="server">
@@ -292,3 +291,4 @@
         </div>
     </div>
 </asp:Content>
+

@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Data.OracleClient;
 using System.Web.UI;
 
-public partial class Student_UGMasterPage : System.Web.UI.MasterPage
+public partial class UTMAR_UTMIARMasterPage : System.Web.UI.MasterPage
 {
     private OracleConnection oraCon = new OracleConnection(ConfigurationManager.ConnectionStrings["SMUTM"].ConnectionString);
 

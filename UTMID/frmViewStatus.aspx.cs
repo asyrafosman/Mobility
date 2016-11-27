@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 
-public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
+public partial class UTMID_frmViewStatus : System.Web.UI.Page
 {
     private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
