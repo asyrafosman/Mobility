@@ -266,11 +266,11 @@
         </tr>
         <tr>
             <td colspan="3" style="text-align: center">
-                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" OnClick="btnRevert_Click" />
+                <asp:LinkButton ID="btnRevert" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnRevert_Click" ><i class="fa fa-reply"></i>&nbsp;Revert</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnNotRecommend" runat="server" Text="Not Recommended" CssClass="btn btn-akad btn-sm" OnClick="btnNotRecommend_Click" />
+                <asp:LinkButton ID="btnNotRecommend" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnNotRecommend_Click"><i class="fa fa-times"></i>&nbsp;Not Recommended</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnRecommend" runat="server" Text="Recommended" CssClass="btn btn-akad btn-sm" OnClick="btnRecommend_Click" />
+                <asp:LinkButton ID="btnRecommend" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnRecommend_Click"><i class="fa fa-check"></i>&nbsp;Recommended</asp:LinkButton>
             </td>
         </tr>
     </table>

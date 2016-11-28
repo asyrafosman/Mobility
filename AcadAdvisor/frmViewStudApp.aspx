@@ -9,7 +9,7 @@
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Details</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Mobility <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Details</asp:Label>
             </td>
         </tr>
     </table>
@@ -112,9 +112,9 @@
         </tr>
         <tr>
             <td colspan="3" style="text-align: center">
-                <asp:Button ID="btnRevert" runat="server" Text="Revert" CssClass="btn btn-akad btn-sm" OnClick="btnRevert_Click" />
+                <asp:LinkButton ID="btnRevert" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnRevert_Click" ><i class="fa fa-reply"></i>&nbsp;Revert</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-akad btn-sm" OnClick="btnSubmit_Click" />
+                <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnSubmit_Click"><i class="fa fa-share"></i>&nbsp;Submit</asp:LinkButton>
             </td>
         </tr>
     </table>

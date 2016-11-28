@@ -19,7 +19,7 @@
         <tr>
             <td>
                 <asp:Label ID="lblSearch" runat="server" Text="Student Name: "></asp:Label>
-                <asp:TextBox ID="txtSearch" runat="server" placeholder="- Student Name -"></asp:TextBox>
+                <asp:TextBox ID="txtSearch" runat="server" placeholder="- Student Name -" style="width: 35%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click1" />
             </td>
         </tr>

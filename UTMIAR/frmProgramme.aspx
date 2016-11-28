@@ -15,12 +15,12 @@
     </table>
     <br>
     <br>
-    <table align="center">
+    <table style="width: 100%">
         <tr>
-            <td>
-                <asp:Label ID="lblSearch" runat="server" Text="Programme Name: "></asp:Label>
-                <asp:TextBox ID="txtSearch" runat="server" placeholder="- Programme Name -"></asp:TextBox>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click1" />
+            <td align="center">
+                <asp:Label ID="lblSearch" runat="server" Text="Student Name: "></asp:Label>
+                <asp:TextBox ID="txtSearch" runat="server" placeholder="- Programme Name -" style="width: 35%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
+                <asp:LinkButton ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click1"><i class="fa fa-search fa-lg" style="color:#FF9933"></i></asp:LinkButton>
             </td>
         </tr>
     </table>

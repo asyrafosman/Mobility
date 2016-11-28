@@ -9,7 +9,7 @@
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Details</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Mobility <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Applicant Details</asp:Label>
             </td>
         </tr>
     </table>
@@ -283,9 +283,9 @@
         </tr>
         <tr>
             <td colspan="3" style="text-align: center">
-                <asp:Button ID="btnDisapprove" runat="server" Text="Disapprove" CssClass="btn btn-akad btn-sm" OnClick="btnDisapprove_Click" />
+                <asp:LinkButton ID="btnDisapprove" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnDisapprove_Click"><i class="fa fa-times"></i>&nbsp;Disapprove</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnApprove" runat="server" Text="Approve" CssClass="btn btn-akad btn-sm" OnClick="btnApprove_Click" />
+                <asp:LinkButton ID="btnApprove" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnApprove_Click"><i class="fa fa-check"></i>&nbsp;Approve</asp:LinkButton>
             </td>
         </tr>
     </table>
