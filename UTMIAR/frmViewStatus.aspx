@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-user"></span>&nbsp;Applicant Status</a></li>
+            <li class="active"><a><span class="fa fa-user fa-lg"></span>&nbsp;Applicant Status</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-pdf-o" style="color:maroon"></i> View Full Application Form</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-pdf-o fa-lg" style="color:maroon"></i> View Full Application Form</asp:HyperLink>
             </div>
         </div>
         <div class="statfiller">

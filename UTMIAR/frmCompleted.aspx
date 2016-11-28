@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li><a href="Dashboard.aspx"><span class="fa fa-inbox"></span>&nbsp;Inbox</a></li>
-            <li><a href="frmInProcess.aspx"><span class="fa fa-play"></span>&nbsp;In Process</a></li>
-            <li class="active"><a href="frmCompleted.aspx"><span class="fa fa-check"></span>&nbsp;Completed</a></li>
-            <li><a href="frmRejected.aspx"><span class="fa fa-times"></span>&nbsp;Rejected</a></li>
+            <li><a href="Dashboard.aspx"><span class="fa fa-inbox fa-lg"></span>&nbsp;Inbox</a></li>
+            <li><a href="frmInProcess.aspx"><span class="fa fa-play fa-lg"></span>&nbsp;In Process</a></li>
+            <li class="active"><a href="frmCompleted.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Completed</a></li>
+            <li><a href="frmRejected.aspx"><span class="fa fa-times fa-lg"></span>&nbsp;Rejected</a></li>
         </ul>
     </div>
     <table style="float: right">

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-list"></span>&nbsp;List of Programmes</a></li>
+            <li class="active"><a><span class="fa fa-list fa-lg"></span>&nbsp;List of Programmes</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -61,7 +61,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>'
                         OnClick="ViewProg">
-                        <span class="fa fa-search"></span></asp:LinkButton>
+                        <span class="fa fa-search fa-lg"></span></asp:LinkButton>
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
@@ -72,7 +72,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ProgId") %>'
                         OnClick="DeleteProg" OnClientClick="return confirm('Are you sure to delete this programme?');">
-                        <span class="fa fa-trash"></span></asp:LinkButton>
+                        <span class="fa fa-trash fa-lg"></span></asp:LinkButton>
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
@@ -114,7 +114,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>'
                         OnClick="ViewProg">
-                        <span class="fa fa-search"></span></asp:LinkButton>
+                        <span class="fa fa-search fa-lg"></span></asp:LinkButton>
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
@@ -125,7 +125,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ProgId") %>'
                         OnClick="DeleteProg" OnClientClick="return confirm('Are you sure to delete this programme?');">
-                        <span class="fa fa-trash"></span></asp:LinkButton>
+                        <span class="fa fa-trash fa-lg"></span></asp:LinkButton>
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
@@ -157,10 +157,10 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton3" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Programme</asp:LinkButton>
+                <span class="fa fa-search fa-lg"></span>&nbsp;View Programme</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="LinkButton4" runat="server">
-                <span class="fa fa-trash"></span>&nbsp;Delete Programme</asp:LinkButton>
+                <span class="fa fa-trash fa-lg"></span>&nbsp;Delete Programme</asp:LinkButton>
             </td>
         </tr>
     </table>

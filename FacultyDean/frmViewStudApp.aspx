@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-user"></span>&nbsp;Applicant Details</a></li>
+            <li class="active"><a><span class="fa fa-user fa-lg"></span>&nbsp;Applicant Details</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/FacultyDean/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-text" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/FacultyDean/frmViewForm.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-file-text fa-lg" style="color:maroon"></i>&nbsp;View Full Application Form</asp:HyperLink>
             </div>
         </div>
         <div class="statfiller">
@@ -171,7 +171,7 @@
                         <td style="background-color: #FFFBD6">&nbsp;</td>
                         <td style="background-color: #FFFBD6">&nbsp;</td>
                         <td style="background-color: #FFFBD6">
-                            <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" NavigateUrl="" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-paperclip" style="color:maroon"></i>&nbsp;</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" NavigateUrl="" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-paperclip fa-lg" style="color:maroon"></i>&nbsp;</asp:HyperLink>
                         </td>
                         <td style="background-color: #FFFBD6">
                             <asp:RadioButton ID="Approve" runat="server" GroupName="Subject1" />

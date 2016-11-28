@@ -14,7 +14,7 @@
             <li><a href="Advisor.aspx">
                 <img alt="" class="tab-icon" src="../Styles/images/NavBtn/Active/ic_account_circle_black_24dp.png">&nbsp;Academic
                 Advisor</a></li>
-            <li><a href="frmStudMobility.aspx"><span class="fa fa-plane"></span>&nbsp;Student Mobility</a></li>
+            <li><a href="frmStudMobility.aspx"><span class="fa fa-plane fa-lg"></span>&nbsp;Student Mobility</a></li>
         </ul>
     </div>
     <br />
@@ -36,7 +36,7 @@
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
             <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("AppId") %>' OnClick="ViewStudApp">
-                <span class="fa fa-search"></span></asp:LinkButton></td>
+                <span class="fa fa-search fa-lg"></span></asp:LinkButton></td>
         </tr>
     </table>
     <br />
@@ -50,7 +50,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Application</asp:LinkButton>
+                <span class="fa fa-search fa-lg"></span>&nbsp;View Application</asp:LinkButton>
             </td>
         </tr>
     </table>

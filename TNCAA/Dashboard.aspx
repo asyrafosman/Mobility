@@ -28,7 +28,7 @@
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
             <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("AppId") %>' OnClick="ViewStudApp">
-                <span class="fa fa-search"></span></asp:LinkButton></td>
+                <span class="fa fa-search fa-lg"></span></asp:LinkButton></td>
         </tr>
     </table>
     <br />
@@ -42,7 +42,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Application</asp:LinkButton>
+                <span class="fa fa-search fa-lg"></span>&nbsp;View Application</asp:LinkButton>
             </td>
         </tr>
     </table>

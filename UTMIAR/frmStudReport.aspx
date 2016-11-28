@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-list"></span>&nbsp;List of Student</a></li>
+            <li class="active"><a><span class="fa fa-list fa-lg"></span>&nbsp;List of Student</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -42,7 +42,7 @@
             <td style="background-color: #FFFBD6">Seoul National University</td>
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
-            <td style="background-color: #FFFBD6"><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMIAR/frmViewReport.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-search" style="color:maroon"></i>&nbsp;</asp:HyperLink></td>
+            <td style="background-color: #FFFBD6"><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMIAR/frmViewReport.aspx" Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-search fa-lg" style="color:maroon"></i>&nbsp;</asp:HyperLink></td>
         </tr>
     </table>
     <br />
@@ -56,7 +56,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Report Details</asp:LinkButton>
+                <span class="fa fa-search fa-lg"></span>&nbsp;View Report Details</asp:LinkButton>
             </td>
         </tr>
     </table>

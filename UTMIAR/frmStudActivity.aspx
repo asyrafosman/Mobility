@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-list"></span>&nbsp;List of Student</a></li>
+            <li class="active"><a><span class="fa fa-list fa-lg"></span>&nbsp;List of Student</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -43,7 +43,7 @@
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
             <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("AppId") %>' OnClick="ViewActivityList">
-                <span class="fa fa-search"></span></asp:LinkButton></td>
+                <span class="fa fa-search fa-lg"></span></asp:LinkButton></td>
         </tr>
     </table>
     <br />
@@ -57,7 +57,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Activity List</asp:LinkButton>
+                <span class="fa fa-search fa-lg"></span>&nbsp;View Activity List</asp:LinkButton>
             </td>
         </tr>
     </table>

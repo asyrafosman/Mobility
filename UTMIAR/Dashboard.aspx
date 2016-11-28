@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a href="Dashboard.aspx"><span class="fa fa-inbox"></span>&nbsp;Inbox</a></li>
-            <li><a href="frmInProcess.aspx"><span class="fa fa-play"></span>&nbsp;In Process</a></li>
-            <li><a href="frmCompleted.aspx"><span class="fa fa-check"></span>&nbsp;Completed</a></li>
-            <li><a href="frmRejected.aspx"><span class="fa fa-times"></span>&nbsp;Rejected</a></li>
+            <li class="active"><a href="Dashboard.aspx"><span class="fa fa-inbox fa-lg"></span>&nbsp;Inbox</a></li>
+            <li><a href="frmInProcess.aspx"><span class="fa fa-play fa-lg"></span>&nbsp;In Process</a></li>
+            <li><a href="frmCompleted.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Completed</a></li>
+            <li><a href="frmRejected.aspx"><span class="fa fa-times fa-lg"></span>&nbsp;Rejected</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -86,7 +86,7 @@
             <td style="background-color: #FFFBD6">01-03-2017</td>
             <td style="background-color: #FFFBD6">30-06-2017</td>
             <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>' OnClick="ViewStudApp">
-                <span class="fa fa-search"></span></asp:LinkButton></td>
+                <span class="fa fa-search fa-lg"></span></asp:LinkButton></td>
         </tr>
     </table>
     <br />
@@ -100,7 +100,7 @@
             <td>
                 &nbsp;
                 <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search"></span>&nbsp;View Application</asp:LinkButton>
+                <span class="fa fa-search fa-lg"></span>&nbsp;View Application</asp:LinkButton>
             </td>
         </tr>
     </table>
