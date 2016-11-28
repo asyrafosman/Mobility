@@ -109,11 +109,18 @@
                 <asp:Label ID="lblAAComment" runat="server" Text=""></asp:Label>
             </td>
         </tr>
-         <tr>
+        <tr>
             <td style="width: 160px">&nbsp;</td>
             <td>&nbsp;</td>
             <td>
                 <asp:Label ID="lblAAName" runat="server" Font-Bold="True"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 160px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="lblAADate" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -125,11 +132,18 @@
                 <asp:Label ID="lblDeanComment" runat="server" Text=""></asp:Label>
             </td>
         </tr>
-         <tr>
+        <tr>
             <td style="width: 160px">&nbsp;</td>
             <td>&nbsp;</td>
             <td>
                 <asp:Label ID="lblDeanName" runat="server" Font-Bold="True"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 160px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="lblDeanDate" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -147,6 +161,13 @@
             <td>&nbsp;</td>
             <td>
                 <asp:Label ID="lblUTMIARName" runat="server" Font-Bold="True"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 160px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="lblUTMIARDate" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
 
@@ -261,7 +282,7 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtComment" runat="server" Style="width: 100%"></asp:TextBox>
+                <asp:TextBox ID="txtComment" runat="server" Style="width: 75%"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -274,6 +295,5 @@
             </td>
         </tr>
     </table>
-    <br />
 </asp:Content>
 

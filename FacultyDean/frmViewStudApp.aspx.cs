@@ -56,6 +56,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
 
         lblAAName.Text = Session["acadUserSv"].ToString();
         lblAAComment.Text = Session["acadProgAAComment"].ToString();
+        lblAADate.Text = "11/11/2016";
     }
 
     protected void btnRevert_Click(object sender, EventArgs e)

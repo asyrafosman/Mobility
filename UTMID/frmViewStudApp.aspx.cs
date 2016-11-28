@@ -65,10 +65,13 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
 
         lblAAName.Text = Session["acadUserSv"].ToString();
         lblAAComment.Text = Session["acadProgAAComment"].ToString();
+        lblAADate.Text = "11/11/2016";
         lblDeanName.Text = Session["acadUserDean"].ToString();
         lblDeanComment.Text = Session["acadProgDeanComment"].ToString();
+        lblDeanDate.Text = "11/11/2016";
         lblUTMIARName.Text = Session["acadUserUtmiar"].ToString();
         lblUTMIARComment.Text = Session["acadProgUtmiaaComment"].ToString();
+        lblUTMIARDate.Text = "11/11/2016";
 
         lblFee.Text = Session["acadFinancialFee"].ToString();
         lblTransportation.Text = Session["acadFinancialTransportation"].ToString();

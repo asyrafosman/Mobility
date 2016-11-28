@@ -101,7 +101,7 @@
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
     <table style="width: 100%">
         <tr>
-            <td style="width: 150px">
+            <td style="width: 160px">
                 <asp:Label ID="lblTxtAA" runat="server" Text="Academic Advisor" Font-Bold="True"></asp:Label>
             </td>
             <td style="width: 1px">:</td>
@@ -110,10 +110,17 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 150px">&nbsp;</td>
+            <td style="width: 160px">&nbsp;</td>
             <td>&nbsp;</td>
             <td>
                 <asp:Label ID="lblAAName" runat="server" Font-Bold="True"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 160px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="lblAADate" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -196,7 +203,7 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtComment" runat="server" Style="width: 100%"></asp:TextBox>
+                <asp:TextBox ID="txtComment" runat="server" Style="width: 75%"></asp:TextBox>
             </td>
         </tr>
         <tr>
