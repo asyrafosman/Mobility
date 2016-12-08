@@ -316,7 +316,7 @@
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="txtStartDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <ajaxToolkit:CalendarExtender ID="txtStartDate_CalendarExtender" runat="server" BehaviorID="txtStartDate_CalendarExtender" TargetControlID="txtStartDate" />
             </td>
             <td>
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
@@ -325,7 +325,7 @@
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="Calendar2" PopupButtonID="imgPopup" runat="server" TargetControlID="txtEndDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <ajaxToolkit:CalendarExtender ID="txtEndDate_CalendarExtender" runat="server" BehaviorID="txtEndDate_CalendarExtender" TargetControlID="txtEndDate" />
             </td>
         </tr>
         <tr>
@@ -336,7 +336,7 @@
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtDeadline" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="Calendar3" PopupButtonID="imgPopup" runat="server" TargetControlID="txtDeadline" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <ajaxToolkit:CalendarExtender ID="txtDeadline_CalendarExtender" runat="server" BehaviorID="txtDeadline_CalendarExtender" TargetControlID="txtDeadline" />
             </td>
             <td>
                 <asp:Label ID="lblOpenTo" runat="server" Text="Open To"></asp:Label>

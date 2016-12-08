@@ -18,7 +18,7 @@
     <table style="width: 100%">
         <tr>
             <td align="center">
-                <asp:Label ID="lblSearch" runat="server" Text="Student Name: "></asp:Label>
+                <asp:Label ID="lblSearch" runat="server" Text="Programme Name: "></asp:Label>
                 <asp:TextBox ID="txtSearch" runat="server" placeholder="- Programme Name -" style="width: 35%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
                 <asp:LinkButton ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click1"><i class="fa fa-search fa-lg" style="color:#FF9933"></i></asp:LinkButton>
             </td>
@@ -27,56 +27,27 @@
     <table style="float: right">
         <tr>
             <td>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMI/frmAddNewProg.aspx"><i class="fa fa-plus-circle fa-lg" style="color:maroon"></i> Add New Programme</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UTMIAR/frmAddNewProg.aspx"><i class="fa fa-plus-circle fa-lg" style="color:maroon"></i> Add New Programme</asp:HyperLink>
             </td>
         </tr>
     </table>
     <br>
     <br>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:UTMMobility %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Programme]">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM &quot;PROGRAMME&quot;" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>">
     </asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource1" EmptyDataText="No record found" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ProgId">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource1" EmptyDataText="No record found" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" Width="100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:TemplateField HeaderText="No.">
-                <ItemTemplate>
-                    <%#Container.DataItemIndex +1 %>.
-                </ItemTemplate>
-                <HeaderStyle HorizontalAlign="Center" Width="5%" />
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="3%" />
-            </asp:TemplateField>
-            <%--<asp:BoundField DataField="ProgId" HeaderText="ProgId" SortExpression="ProgId" InsertVisible="False" ReadOnly="True" />--%>
-            <asp:BoundField DataField="Types" HeaderText="Types" SortExpression="Types" />
-            <asp:BoundField DataField="ProgName" HeaderText="ProgName" SortExpression="ProgName" />
-            <asp:BoundField DataField="University" HeaderText="University" SortExpression="University" />
-            <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
-            <%--<asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />--%>
-            <%--<asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />--%>
-            <asp:BoundField DataField="Deadline" HeaderText="Deadline" SortExpression="Deadline" />
-            <%--<asp:BoundField DataField="IntakeSession" HeaderText="IntakeSession" SortExpression="IntakeSession" />--%>
-            <asp:BoundField DataField="OpenTo" HeaderText="OpenTo" SortExpression="OpenTo" />
-            <asp:TemplateField HeaderText="">
-                <HeaderStyle Width="3%" />
-             <ItemStyle Width="3%" />
-                <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>'
-                        OnClick="ViewProg">
-                        <span class="fa fa-search fa-lg"></span></asp:LinkButton>
-                </ItemTemplate>
-                <HeaderStyle HorizontalAlign="Center" />
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="">
-                <HeaderStyle Width="3%" />
-             <ItemStyle Width="3%" />
-                <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ProgId") %>'
-                        OnClick="DeleteProg" OnClientClick="return confirm('Are you sure to delete this programme?');">
-                        <span class="fa fa-trash fa-lg"></span></asp:LinkButton>
-                </ItemTemplate>
-                <HeaderStyle HorizontalAlign="Center" />
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
-            </asp:TemplateField>
+            <%--<asp:BoundField DataField="PROGID" HeaderText="PROGID" SortExpression="PROGID" />--%>
+            <asp:BoundField DataField="TYPES" HeaderText="TYPES" SortExpression="TYPES" />
+            <asp:BoundField DataField="PROGNAME" HeaderText="PROGNAME" SortExpression="PROGNAME" />
+            <asp:BoundField DataField="UNIVERSITY" HeaderText="UNIVERSITY" SortExpression="UNIVERSITY" />
+            <asp:BoundField DataField="COUNTRY" HeaderText="COUNTRY" SortExpression="COUNTRY" />
+            <%--<asp:BoundField DataField="STARTDATE" HeaderText="STARTDATE" SortExpression="STARTDATE" />--%>
+            <%--<asp:BoundField DataField="ENDDATE" HeaderText="ENDDATE" SortExpression="ENDDATE" />--%>
+            <asp:BoundField DataField="DEADLINE" HeaderText="DEADLINE" SortExpression="DEADLINE" />
+            <%--<asp:BoundField DataField="INTAKESESSION" HeaderText="INTAKESESSION" SortExpression="INTAKESESSION" />--%>
+            <%--<asp:BoundField DataField="OPENTO" HeaderText="OPENTO" SortExpression="OPENTO" />--%>
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />

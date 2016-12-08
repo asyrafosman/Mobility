@@ -1,18 +1,18 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="frmInProcess.aspx.cs" Inherits="UTMIAR_frmInProcess" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="frmAccepted.aspx.cs" Inherits="UTMIAR_frmAccepted" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
             <li><a href="Dashboard.aspx"><span class="fa fa-inbox fa-lg"></span>&nbsp;Inbox</a></li>
-            <li class="active"><a href="frmInProcess.aspx"><span class="fa fa-play fa-lg"></span>&nbsp;In Process</a></li>
-            <li><a href="frmAccepted.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Accepted</a></li>
+            <li><a href="frmInProcess.aspx"><span class="fa fa-play fa-lg"></span>&nbsp;In Process</a></li>
+            <li class="active"><a href="frmAccepted.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Accepted</a></li>
             <li><a href="frmRejected.aspx"><span class="fa fa-times fa-lg"></span>&nbsp;Rejected</a></li>
         </ul>
     </div>
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;In Process</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Completed</asp:Label>
             </td>
         </tr>
     </table>
@@ -29,9 +29,9 @@
     </table>
     <asp:Label ID="lblTxtSearchResult" runat="server" Text="Total Record Found: "></asp:Label>
     <asp:Label ID="lblResult" runat="server" Text=""></asp:Label>
-    <br>
+    <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_DASHBOARD&quot;"></asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" EmptyDataText="No record found" ForeColor="#333333" GridLines="None" Style="width: 100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:TemplateField HeaderText="No.">
@@ -52,7 +52,7 @@
             <asp:BoundField DataField="PROG_UNIVERSITY" HeaderText="University" SortExpression="PROG_UNIVERSITY" />
             <asp:BoundField DataField="PROG_STARTDATE" HeaderText="Start Date" SortExpression="PROG_STARTDATE" />
             <asp:BoundField DataField="PROG_ENDDATE" HeaderText="End Date" SortExpression="PROG_ENDDATE" />
-            <asp:HyperLinkField DataNavigateUrlFormatString="frmViewStatus.aspx?AppId={0}" DataTextField="" HeaderText="" NavigateUrl="frmViewStatus.aspx" DataNavigateUrlFields="AppId" />
+            <asp:HyperLinkField DataNavigateUrlFields="AppId" DataNavigateUrlFormatString="frmViewStatus.aspx?AppId={0}" DataTextField="" HeaderText="" NavigateUrl="frmViewStatus.aspx" />
             <%--<asp:TemplateField HeaderText="">
                 <HeaderStyle Width="3%" />
              <ItemStyle Width="3%" />
@@ -80,7 +80,7 @@
             <asp:ControlParameter ControlID="txtSearch" Name="STUD_NAME" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found" Visible="False">
+    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" EmptyDataText="No record found" ForeColor="#333333" GridLines="None" Style="width: 100%" Visible="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:TemplateField HeaderText="No.">
@@ -101,7 +101,7 @@
             <asp:BoundField DataField="PROG_UNIVERSITY" HeaderText="University" SortExpression="PROG_UNIVERSITY" />
             <asp:BoundField DataField="PROG_STARTDATE" HeaderText="Start Date" SortExpression="PROG_STARTDATE" />
             <asp:BoundField DataField="PROG_ENDDATE" HeaderText="End Date" SortExpression="PROG_ENDDATE" />
-            <asp:HyperLinkField DataNavigateUrlFormatString="frmViewStatus.aspx?AppId={0}" DataTextField="" HeaderText="" NavigateUrl="frmViewStatus.aspx" DataNavigateUrlFields="AppId"></asp:HyperLinkField>
+            <asp:HyperLinkField DataNavigateUrlFields="AppId" DataNavigateUrlFormatString="frmViewStatus.aspx?AppId={0}" DataTextField="" HeaderText="" NavigateUrl="frmViewStatus.aspx" />
             <%--<asp:TemplateField HeaderText="">
                 <HeaderStyle Width="3%" />
              <ItemStyle Width="3%" />
@@ -125,19 +125,5 @@
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
     <br />
-    <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
-        <tr>
-            <td colspan="4">
-                <strong>Legends:</strong>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;
-                <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-info-circle fa-lg"></span>&nbsp;Status Info</asp:LinkButton>
-            </td>
-        </tr>
-    </table>
-</asp:Content>
+    </asp:Content>
 

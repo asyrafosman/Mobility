@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="frmAddNewProg.aspx.cs" Inherits="UTMIAR_frmAddNewProg" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
@@ -37,11 +36,11 @@
             <td>
                 <asp:DropDownList ID="ddlTypes" runat="server">
                     <asp:ListItem Value="none">- Please Choose -</asp:ListItem>
-                    <asp:ListItem>Global Outreach Programme</asp:ListItem>
-                    <asp:ListItem>International Invitation Programme</asp:ListItem>
-                    <asp:ListItem>Research Internship Abroad</asp:ListItem>
-                    <asp:ListItem>Study Abroad/Student Exchange</asp:ListItem>
-                    <asp:ListItem>Summer School</asp:ListItem>
+                    <asp:ListItem Value="GOP">Global Outreach Programme</asp:ListItem>
+                    <asp:ListItem Value="IIP">International Invitation Programme</asp:ListItem>
+                    <asp:ListItem Value="RI">Research Internship Abroad</asp:ListItem>
+                    <asp:ListItem Value="SE">Study Abroad/Student Exchange</asp:ListItem>
+                    <asp:ListItem Value="SS">Summer School</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td>
@@ -317,7 +316,7 @@
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="txtStartDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <ajaxToolkit:CalendarExtender ID="txtStartDate_CalendarExtender" runat="server" BehaviorID="txtStartDate_CalendarExtender" TargetControlID="txtStartDate" Format="dd/MM/yyyy" />
             </td>
             <td>
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
@@ -326,18 +325,18 @@
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="Calendar2" PopupButtonID="imgPopup" runat="server" TargetControlID="txtEndDate" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <ajaxToolkit:CalendarExtender ID="txtEndDate_CalendarExtender" runat="server" BehaviorID="txtEndDate_CalendarExtender" TargetControlID="txtEndDate" Format="dd/MM/yyyy" />
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="lblDeadline" runat="server" Text="Deadline"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a Application Deadline" ForeColor="Red" ControlToValidate="txtDeadline">*</asp:RequiredFieldValidator>
+                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a Application Deadline" ForeColor="Red" ControlToValidate="txtDeadline">*</asp:RequiredFieldValidator>--%>
             </td>
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtDeadline" runat="server"></asp:TextBox>
-                <cc1:CalendarExtender ID="Calendar3" PopupButtonID="imgPopup" runat="server" TargetControlID="txtDeadline" Format="dd/MM/yyyy"></cc1:CalendarExtender>
+                <ajaxToolkit:CalendarExtender ID="txtDeadline_CalendarExtender" runat="server" BehaviorID="txtDeadline_CalendarExtender" TargetControlID="txtDeadline" Format="dd/MM/yyyy" />
             </td>
             <td>
                 <asp:Label ID="lblOpenTo" runat="server" Text="Open To"></asp:Label>
