@@ -1,103 +1,116 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="UTMIAR_Dashboard" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/Admin.master" AutoEventWireup="true" CodeFile="Dashboard.aspx.cs" Inherits="UTMIAR_Dashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
-    <div id="cssmenu2">
-        <ul style="font-size: small">
-            <li class="active"><a href="Dashboard.aspx"><span class="fa fa-inbox fa-lg"></span>&nbsp;Inbox</a></li>
-            <li><a href="frmInProcess.aspx"><span class="fa fa-play fa-lg"></span>&nbsp;In Process</a></li>
-            <li><a href="frmAccepted.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Accepted</a></li>
-            <li><a href="frmRejected.aspx"><span class="fa fa-times fa-lg"></span>&nbsp;Rejected</a></li>
-        </ul>
+    <div class="filler"></div>
+    <h1 class="admin-header">UTMACAD ADMINISTRATION</h1>
+    <div class="divide-s"></div>
+    <div class="row admin-dshbd" style="background-color: #FDFFE8">
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnProfile" id="MainContent_btnProfile" class="admin-icon" src="../Styles/images/Icon/admin/viva.jpg" type="image"><br>
+                VIVA</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnHostel" id="MainContent_btnHostel" class="admin-icon" src="../Styles/images/Icon/admin/hostel.png" onclick="target='blank';" type="image"><br>
+                HOSTEL</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnRegCourse" id="MainContent_btnRegCourse" class="admin-icon" src="../Styles/images/Icon/admin/regcourse.png" onclick="target='_blank';" type="image"><br>
+                COURSE REGISTRATION</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnGsms" id="MainContent_btnGsms" class="admin-icon" src="../Styles/images/Icon/admin/gsms.png" onclick="target='_blank';" type="image"><br>
+                GSMS</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnTranc" id="MainContent_btnTranc" class="admin-icon" src="../Styles/images/Icon/admin/transcript.png" type="image"><br>
+                TRANSCRIPT</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnAcadDir" id="MainContent_btnAcadDir" class="admin-icon" src="../Styles/images/Icon/admin/acaddir.png" type="image"><br>
+                ACADEMIC DIRECTORY</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnPub" id="MainContent_btnPub" class="admin-icon" src="../Styles/images/Icon/admin/publication.png" type="image"><br>
+                PUBLICATION</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnAct" id="MainContent_btnAct" class="admin-icon" src="../Styles/images/Icon/admin/activity.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$btnAct&quot;, &quot;&quot;, false, &quot;&quot;, &quot;Activity/Dashboard.aspx&quot;, false, false))" type="image"><br>
+                ACTIVITY</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnAcadWork" id="MainContent_btnAcadWork" class="admin-icon" src="../Styles/images/Icon/admin/workshop.png" type="image"><br>
+                ACADEMIC WORKSHOP</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnAttend" id="MainContent_btnAttend" class="admin-icon" src="../Styles/images/Icon/admin/attendance.png" type="image"><br>
+                ATTENDANCE RECORD</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnTES" id="MainContent_btnTES" class="admin-icon" src="../Styles/images/Icon/admin/TESlogo.png" type="image"><br>
+                TEACHING EXCELLENT SYSTEM</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnAward" id="MainContent_btnAward" class="admin-icon" src="../Styles/images/Icon/admin/award.png" type="image"><br>
+                AWARD</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btniCGPA" id="MainContent_btniCGPA" class="admin-icon" src="../Styles/images/Icon/admin/icgpa.png" type="image"><br>
+                iCGPA</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnDocMg" id="MainContent_btnDocMg" class="admin-icon" src="../Styles/images/Icon/admin/dms.png" type="image"><br>
+                DOCUMENT MANAGEMENT</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnOBE" id="MainContent_btnOBE" class="admin-icon" src="../Styles/images/Icon/admin/obe.png" type="image"><br>
+                OUTCOME BASE LEARNING</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnUserCntr" id="MainContent_btnUserCntr" class="admin-icon" src="../Styles/images/Icon/admin/usercentral.png" onclick="target='_blank';" type="image"><br>
+                USER CENTRAL ID</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnJOC" id="MainContent_btnJOC" class="admin-icon" src="../Styles/images/Icon/admin/joboncampus.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$btnJOC&quot;, &quot;&quot;, false, &quot;&quot;, &quot;JoC/Dashboard.aspx&quot;, false, false))" type="image"><br>
+                JOB ON CAMPUS</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnims" id="MainContent_btnims" class="admin-icon" src="../Styles/images/Icon/admin/ims.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$btnims&quot;, &quot;&quot;, false, &quot;&quot;, &quot;IMS/Dashboard.aspx&quot;, false, false))" type="image"><br>
+                IMMIGRATION MANAGEMENT SYSTEM</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnSelenggara" id="MainContent_btnSelenggara" class="admin-icon" src="../Styles/images/Icon/admin/selenggara.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$btnSelenggara&quot;, &quot;&quot;, false, &quot;&quot;, &quot;Selenggara2/Dashboard.aspx&quot;, false, false))" type="image"><br>
+                SELENGGARA</p>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <input name="ctl00$MainContent$btnSoftwareCentre" id="MainContent_btnSoftwareCentre" class="admin-icon" src="../Styles/images/Icon/admin/softwarecentre.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$btnSoftwareCentre&quot;, &quot;&quot;, false, &quot;&quot;, &quot;SoftwareCentre/DashboardSoftware.aspx&quot;, false, false))" type="image"><br>
+                SOFTWARE CENTRE</p>
+        </div>
+         <div class="col-md-2 col-sm-4 col-xs-6 admin-icon-block">
+            <p class="admin-label">
+                <asp:ImageButton ID="btnside1" runat="server" ToolTip="Academic Calendar" ImageUrl="~/Styles/images/Icon/admin/mobility.png"
+                                    CssClass="admin-icon" OnClick="MOBILITY_Click" />
+                MOBILITY</p>
+        </div>
     </div>
-    <table style="float: right">
-        <tr>
-            <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Inbox</asp:Label>
-            </td>
-        </tr>
-    </table>
-    <br>
-    <br>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" SelectCommand="SELECT * FROM &quot;APP_DASHBOARD&quot;" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>">
-    </asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:TemplateField HeaderText="No.">
-                <ItemTemplate>
-                    <%#Container.DataItemIndex +1 %>.
-                </ItemTemplate>
-                <HeaderStyle HorizontalAlign="Center" Width="5%" />
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="3%" />
-            </asp:TemplateField>
-            <%--<asp:BoundField DataField="APP_APPID" HeaderText="APP_APPID" SortExpression="APP_APPID" />--%>
-            <%--<asp:BoundField DataField="APP_MATRIC" HeaderText="APP_MATRIC" SortExpression="APP_MATRIC" />--%>
-            <%--<asp:BoundField DataField="APP_STATUS" HeaderText="APP_STATUS" SortExpression="APP_STATUS" />--%>
-            <%--<asp:BoundField DataField="STUD_MATRIC" HeaderText="STUD_MATRIC" SortExpression="STUD_MATRIC" />--%>
-            <asp:BoundField DataField="STUD_NAME" HeaderText="Student Name" SortExpression="STUD_NAME" />
-            <%--<asp:BoundField DataField="PROG_PROGID" HeaderText="PROG_PROGID" SortExpression="PROG_PROGID" />--%>
-            <%--<asp:BoundField DataField="PROG_APPID" HeaderText="PROG_APPID" SortExpression="PROG_APPID" />--%>
-            <asp:BoundField DataField="PROG_TYPES" HeaderText="Programme Type" SortExpression="PROG_TYPES" />
-            <asp:BoundField DataField="PROG_UNIVERSITY" HeaderText="University" SortExpression="PROG_UNIVERSITY" />
-            <asp:BoundField DataField="PROG_STARTDATE" HeaderText="Start Date" SortExpression="PROG_STARTDATE" />
-            <asp:BoundField DataField="PROG_ENDDATE" HeaderText="End Date" SortExpression="PROG_ENDDATE" />
-            <asp:TemplateField HeaderText="">
-                <HeaderStyle Width="3%" />
-             <ItemStyle Width="3%" />
-                <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("APP_APPID") %>'
-                        OnClick="ViewStudApp">
-                        <span class="fa fa-search fa-lg"></span></asp:LinkButton>
-                </ItemTemplate>
-                <HeaderStyle HorizontalAlign="Center" />
-                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
-            </asp:TemplateField>
-        </Columns>
-        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-        <SortedAscendingCellStyle BackColor="#FDF5AC" />
-        <SortedAscendingHeaderStyle BackColor="#4D0000" />
-        <SortedDescendingCellStyle BackColor="#FCF6C0" />
-        <SortedDescendingHeaderStyle BackColor="#820000" />
-    </asp:GridView>
-    <%--<table style="width: 100%">
-        <tr>
-            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">No</td>
-            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Student Name</td>
-            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Programme Type</td>
-            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">University</td>
-            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">Start Date</td>
-            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">End Date</td>
-            <td style="background-color: #990000; color: #FFFFFF; font-weight: bold">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="background-color: #FFFBD6">1.</td>
-            <td style="background-color: #FFFBD6">Mohamad Asyraf bin Osman</td>
-            <td style="background-color: #FFFBD6">Student Exchange</td>
-            <td style="background-color: #FFFBD6">Seoul National University</td>
-            <td style="background-color: #FFFBD6">01-03-2017</td>
-            <td style="background-color: #FFFBD6">30-06-2017</td>
-            <td style="background-color: #FFFBD6"><asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>' OnClick="ViewStudApp">
-                <span class="fa fa-search fa-lg"></span></asp:LinkButton></td>
-        </tr>
-    </table>--%>
-    <br />
-    <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
-        <tr>
-            <td colspan="4">
-                <strong>Legends:</strong>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;
-                <asp:LinkButton ID="LinkButton2" runat="server">
-                <span class="fa fa-search fa-lg"></span>&nbsp;View Application</asp:LinkButton>
-            </td>
-        </tr>
-    </table>
 </asp:Content>
 

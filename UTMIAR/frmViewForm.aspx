@@ -249,7 +249,71 @@
             </tr>
             <tr>
                 <td style="background-color: #FFFBD6" colspan="6">
-                    <table style="width: 100%">
+                    <asp:Repeater ID="rptSubjects" runat="server">
+                        <HeaderTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td colspan="3" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                        <asp:Label ID="Label3" runat="server" Text="UTM"></asp:Label>
+                                    </td>
+                                    <td colspan="4" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                        <asp:Label ID="Label4" runat="server" Text="Host University"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                    <asp:Label ID="Label5" runat="server" Text="Subject Code"></asp:Label>
+                                </td>
+                                <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                    <asp:Label ID="Label6" runat="server" Text="Subject Name"></asp:Label>
+                                </td>
+                                <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                    <asp:Label ID="Label7" runat="server" Text="Credit Hour"></asp:Label>
+                                </td>
+                                <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                    <asp:Label ID="Label8" runat="server" Text="Subject Code"></asp:Label>
+                                </td>
+                                <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                    <asp:Label ID="Label9" runat="server" Text="Subject Name"></asp:Label>
+                                </td>
+                                <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                    <asp:Label ID="Label10" runat="server" Text="Credit Hour"></asp:Label>
+                                </td>
+                                <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
+                                    <asp:Label ID="Label11" runat="server" Text="Attachment"></asp:Label>
+                                </td>
+                            </tr>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lblUtmSubCode" runat="server" Text='<%# Eval("UTMSUB_SUBCODE") %>' />
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblUtmSubName" runat="server" Text='<%# Eval("UTMSUB_SUBNAME") %>' />
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblUtmSubCredit" runat="server" Text='<%# Eval("UTMSUB_SUBCREDIT") %>' />
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblHSubCode" runat="server" Text='<%# Eval("HSUB_SUBCODE") %>' />
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblHSubName" runat="server" Text='<%# Eval("HSUB_SUBNAME") %>' />
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblHSubCredit" runat="server" Text='<%# Eval("HSUB_CREDIT") %>' />
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" NavigateUrl="" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;" Text='<%# Eval("HSUB_ATTACH") %>'><i class="fa fa-paperclip fa-lg" style="color:maroon"></i>&nbsp;</asp:HyperLink>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
+                    <%--<table style="width: 100%">
                         <tr>
                             <td colspan="3" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
                                 <asp:Label ID="Label3" runat="server" Text="UTM"></asp:Label>
@@ -292,7 +356,7 @@
                                 <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" NavigateUrl="" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-paperclip" style="color:maroon"></i>&nbsp;</asp:HyperLink>
                             </td>
                         </tr>
-                    </table>
+                    </table>--%>
                 </td>
             </tr>
             <tr>
