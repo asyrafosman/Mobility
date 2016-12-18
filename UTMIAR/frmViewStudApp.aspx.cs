@@ -39,7 +39,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         Session["acadProgStartDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_STARTDATE"]);
         Session["acadProgEndDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]);
 
-        string verid = dr["VER_ID"].ToString();
+        Session["VER_ID"] = dr["VER_ID"].ToString();
         Session["acadUserSv"] = dr["VER_SVID"].ToString();
         Session["acadProgAAComment"] = dr["VER_SVCOMMENT"].ToString();
         Session["acadProgAADate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_SVDATE"]);
