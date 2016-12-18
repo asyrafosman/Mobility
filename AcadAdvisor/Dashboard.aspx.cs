@@ -13,8 +13,8 @@ public partial class AcadAdvisor_Dashboard : System.Web.UI.Page
     }
     protected void ViewStudApp(object sender, EventArgs e)
     {
-        string id = (sender as LinkButton).CommandArgument;
-
+        string APP_APPID = (sender as LinkButton).CommandArgument;
+        Session.Add("APP_APPID", APP_APPID);
         Response.Redirect("frmViewStudApp.aspx");
     }
 }

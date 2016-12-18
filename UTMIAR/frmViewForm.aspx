@@ -313,50 +313,6 @@
                             </table>
                         </FooterTemplate>
                     </asp:Repeater>
-                    <%--<table style="width: 100%">
-                        <tr>
-                            <td colspan="3" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label3" runat="server" Text="UTM"></asp:Label>
-                            </td>
-                            <td colspan="4" style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label4" runat="server" Text="Host University"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label5" runat="server" Text="Subject Code"></asp:Label>
-                            </td>
-                            <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label6" runat="server" Text="Subject Name"></asp:Label>
-                            </td>
-                            <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label7" runat="server" Text="Credit Hour"></asp:Label>
-                            </td>
-                            <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label8" runat="server" Text="Subject Code"></asp:Label>
-                            </td>
-                            <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label9" runat="server" Text="Subject Name"></asp:Label>
-                            </td>
-                            <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label10" runat="server" Text="Credit Hour"></asp:Label>
-                            </td>
-                            <td style="background-color: #990000; font-weight: bold; color: #FFFFFF;">
-                                <asp:Label ID="Label11" runat="server" Text="Attachment"></asp:Label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: #FFFBD6">&nbsp;</td>
-                            <td style="background-color: #FFFBD6">&nbsp;</td>
-                            <td style="background-color: #FFFBD6">&nbsp;</td>
-                            <td style="background-color: #FFFBD6">&nbsp;</td>
-                            <td style="background-color: #FFFBD6">&nbsp;</td>
-                            <td style="background-color: #FFFBD6">&nbsp;</td>
-                            <td style="background-color: #FFFBD6">
-                                <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" NavigateUrl="" onclick="window.open (this.href, 'popupwindow', 'width=1300,height=700, scrollbars, resizable'); return false;"><i class="fa fa-paperclip" style="color:maroon"></i>&nbsp;</asp:HyperLink>
-                            </td>
-                        </tr>
-                    </table>--%>
                 </td>
             </tr>
             <tr>

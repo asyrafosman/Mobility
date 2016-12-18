@@ -22,7 +22,7 @@ public partial class UTMIAR_frmViewForm : System.Web.UI.Page
         dr.Read();
         Session["acadUserMt"] = dr["APP_MATRIC"].ToString();
         Session["acadUserNm"] = dr["STUD_NAME"].ToString();
-        Session["acadUserDoB"] = dr["STUD_DOB"].ToString();
+        Session["acadUserDoB"] = String.Format("{0:dd-MMM-yyyy}", dr["STUD_DOB"]);
         Session["acadUserIC"] = dr["STUD_IC"].ToString();
         Session["acadUserTl"] = dr["STUD_CONTACT"].ToString();
         Session["acadUserEm"] = dr["STUD_EMAIL"].ToString();
