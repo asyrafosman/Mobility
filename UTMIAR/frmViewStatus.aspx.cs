@@ -46,7 +46,7 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         Session["acadProgDeanDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_TDADATE"]);
         Session["acadProgUtmiArDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIARDATE"]);
         Session["acadProgUtmiDDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIDDATE"]);
-        Session["acadProgTncaaDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIDDATE"]);
+        Session["acadProgTncaaDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_TNCAADATE"]);
 
         Session["acadUserSv"] = dr["VER_SVID"].ToString();
         Session["acadUserDean"] = dr["VER_TDAID"].ToString();
