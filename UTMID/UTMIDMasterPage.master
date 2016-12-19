@@ -27,6 +27,11 @@
                 <ul id="ulProgramme" runat="server">
                 </ul>
             </li>--%>
+            <li><a href="frmInbox.aspx">
+                <asp:Label ID="Label6" runat="server" Text="Application" CssClass="textMenu"></asp:Label></a>
+                <ul id="ul1" runat="server">
+                </ul>
+            </li>
             <li><a href="frmStudActivity.aspx">
                 <asp:Label ID="Label2" runat="server" Text="Student Activity" CssClass="textMenu"></asp:Label></a>
                 <ul id="ulActivity" runat="server">

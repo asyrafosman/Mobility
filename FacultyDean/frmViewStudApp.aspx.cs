@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Net;
 
 public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
 {
@@ -93,6 +94,27 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
                 }
             }
         }
+    }
+    protected void DownloadFile(object sender, EventArgs e)
+    {
+        con.Open();
+        try
+        {
+            string fileExtension = (sender as LinkButton).CommandArgument;
+            string file = Server.MapPath(fileExtension);
+            WebClient User = new WebClient();
+            Byte[] FileBuffer = User.DownloadData(file);
+            if (FileBuffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                Response.BinaryWrite(FileBuffer);
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+        con.Close();
     }
 
     protected void btnRevert_Click(object sender, EventArgs e)

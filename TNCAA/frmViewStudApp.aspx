@@ -225,7 +225,7 @@
                         <td style="background-color: #FFFBD6" class="auto-style1">
                             <asp:Label ID="lblTxtFee" runat="server" Text="Program Fee" Font-Bold="True"></asp:Label>
                         </td>
-                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                        <td class="auto-style1" style="background-color: #FFFBD6">
                             <asp:Label ID="lblFee" runat="server" Text=""></asp:Label>
                         </td>
                         <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
@@ -237,7 +237,7 @@
                         <td style="background-color: #FFFBD6" class="auto-style1">
                             <asp:Label ID="lblTxtTransportation" runat="server" Text="Transportation" Font-Bold="True"></asp:Label>
                         </td>
-                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                        <td class="auto-style1" style="background-color: #FFFBD6">
                             <asp:Label ID="lblTransportation" runat="server" Text=""></asp:Label>
                         </td>
                         <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
@@ -249,7 +249,7 @@
                         <td style="background-color: #FFFBD6" class="auto-style1">
                             <asp:Label ID="lblTxtAccommodation" runat="server" Text="Accommodation" Font-Bold="True"></asp:Label>
                         </td>
-                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                        <td class="auto-style1" style="background-color: #FFFBD6">
                             <asp:Label ID="lblAccommodation" runat="server" Text=""></asp:Label>
                         </td>
                         <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
@@ -261,7 +261,7 @@
                         <td style="background-color: #FFFBD6" class="auto-style1">
                             <asp:Label ID="lblTxtMeal" runat="server" Text="Meal" Font-Bold="True"></asp:Label>
                         </td>
-                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                        <td class="auto-style1" style="background-color: #FFFBD6">
                             <asp:Label ID="lblMeal" runat="server" Text=""></asp:Label>
                         </td>
                         <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
@@ -273,7 +273,7 @@
                         <td style="background-color: #FFFBD6" class="auto-style1">
                             <asp:Label ID="lblTxtContingency" runat="server" Text="Contingency" Font-Bold="True"></asp:Label>
                         </td>
-                        <td class="auto-style1" style="background-color: #FFFBD6">RM
+                        <td class="auto-style1" style="background-color: #FFFBD6">
                             <asp:Label ID="lblContingency" runat="server" Text=""></asp:Label>
                         </td>
                         <td class="auto-style1" style="background-color: #FFFBD6">&nbsp;</td>
@@ -283,10 +283,10 @@
                         <td align="right" class="auto-style1" style="background-color: #FFFBD6">
                             <asp:Label ID="lblTxtTotal" runat="server" Text="Total" Font-Bold="True"></asp:Label>
                         </td>
-                        <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
+                        <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">
                             <asp:Label ID="lblTotalProposed" runat="server" Font-Bold="True"></asp:Label>
                         </td>
-                        <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
+                        <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">
                             <asp:Label ID="lblTotalFunded" runat="server" Font-Bold="True"></asp:Label>
                         </td>
                     </tr>

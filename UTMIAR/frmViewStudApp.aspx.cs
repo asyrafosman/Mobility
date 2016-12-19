@@ -64,7 +64,8 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
+        string name = Session["acadUserNm"].ToString();
+        lblName.Text = name.ToUpper();
         lblProgramme.Text = Session["acadUserPr"].ToString();
         lblFaculty.Text = Session["acadUserFn"].ToString();
         lblMatric.Text = Session["acadUserMt"].ToString();
@@ -86,20 +87,20 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         lblDeanComment.Text = Session["acadProgDeanComment"].ToString();
         lblDeanDate.Text = Session["acadProgDeanDate"].ToString();
 
-        lblFee.Text = Session["acadFinancialFee"].ToString();
-        lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
-        lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();
-        lblMeal.Text = Session["acadFinancialMeal"].ToString();
-        lblContingency.Text = Session["acadFinancialContigency"].ToString();
-        int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
-        lblTotalProposed.Text = total.ToString();
+        lblFee.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialFee"].ToString()));
+        lblTransportation.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialTransportation"].ToString()));
+        lblAccommodation.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialAccommodation"].ToString()));
+        lblMeal.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialMeal"].ToString()));
+        lblContingency.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialContigency"].ToString()));
+        int total = int.Parse(Session["acadFinancialFee"].ToString()) + int.Parse(Session["acadFinancialTransportation"].ToString()) + int.Parse(Session["acadFinancialAccommodation"].ToString()) + int.Parse(Session["acadFinancialMeal"].ToString()) + int.Parse(Session["acadFinancialContigency"].ToString());
+        lblTotalProposed.Text = string.Format("{0:RM #,#.##}", total);
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         string APP_APPID = Session["APP_APPID"].ToString();
         string VER_ID = Session["VER_ID"].ToString();
-        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UTMIARID, UTMIARDATE = :UTMIARDATE, UTMIARSTATUS = :UTMIARSTATUS, UTMIARCOMMENT = :UTMIARCOMMENT, UTMIDSTATUS = :UTMIDSTATUS WHERE APPID = :APPID AND VERID = :VERID";
+        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UTMIARID, UTMIARDATE = :UTMIARDATE, UTMIARSTATUS = :UTMIARSTATUS, UTMIARCOMMENT = :UTMIARCOMMENT, UTMIARFUND = :UTMIARFUND, UTMIDSTATUS = :UTMIDSTATUS WHERE APPID = :APPID AND VERID = :VERID";
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
@@ -107,6 +108,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Add(new OracleParameter("UTMIARDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "3"));
         cmd.Parameters.Add(new OracleParameter("UTMIARCOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("UTMIARFUND", txtTotalAllocated.Text));
         cmd.Parameters.Add(new OracleParameter("UTMIDSTATUS", "0"));
         cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
         cmd.Parameters.Add(new OracleParameter("VERID", VER_ID));
@@ -121,7 +123,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
     {
         string APP_APPID = Session["APP_APPID"].ToString();
         string VER_ID = Session["VER_ID"].ToString();
-        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UTMIARID, UTMIARDATE = :UTMIARDATE, UTMIARSTATUS = :UTMIARSTATUS, UTMIARCOMMENT = :UTMIARCOMMENT WHERE APPID = :APPID AND VERID = :VERID";
+        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UTMIARID, UTMIARDATE = :UTMIARDATE, UTMIARSTATUS = :UTMIARSTATUS, UTMIARCOMMENT = :UTMIARCOMMENT, UTMIARFUND = :UTMIARFUND, UTMIDSTATUS = :UTMIDSTATUS WHERE APPID = :APPID AND VERID = :VERID";
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
@@ -129,6 +131,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Add(new OracleParameter("UTMIARDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "2"));
         cmd.Parameters.Add(new OracleParameter("UTMIARCOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("UTMIARFUND", txtTotalAllocated.Text));
         cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
         cmd.Parameters.Add(new OracleParameter("VERID", VER_ID));
         cmd.Connection = con;

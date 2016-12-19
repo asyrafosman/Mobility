@@ -99,14 +99,14 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         lblUTMIDComment.Text = Session["acadProgUtmiDComment"].ToString();
         lblUTMIDDate.Text = Session["acadProgUtmiDDate"].ToString();
 
-        lblFee.Text = Session["acadFinancialFee"].ToString();
-        lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
-        lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();
-        lblMeal.Text = Session["acadFinancialMeal"].ToString();
-        lblContingency.Text = Session["acadFinancialContigency"].ToString();
-        int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
-        lblTotalProposed.Text = total.ToString();
-        lblTotalFunded.Text = Session["acadFinancialFunded"].ToString();
+        lblFee.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialFee"].ToString()));
+        lblTransportation.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialTransportation"].ToString()));
+        lblAccommodation.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialAccommodation"].ToString()));
+        lblMeal.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialMeal"].ToString()));
+        lblContingency.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialContigency"].ToString()));
+        int total = int.Parse(Session["acadFinancialFee"].ToString()) + int.Parse(Session["acadFinancialTransportation"].ToString()) + int.Parse(Session["acadFinancialAccommodation"].ToString()) + int.Parse(Session["acadFinancialMeal"].ToString()) + int.Parse(Session["acadFinancialContigency"].ToString());
+        lblTotalProposed.Text = string.Format("{0:RM #,#.##}", total);
+        lblTotalFunded.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialFunded"].ToString()));
     }
 
     protected void btnApprove_Click(object sender, EventArgs e)

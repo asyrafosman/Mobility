@@ -8,7 +8,7 @@
         </ul>
     </div>
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" SelectCommand="SELECT * FROM &quot;APP_DASHBOARD&quot;" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" SelectCommand="SELECT * FROM &quot;INBOX_TNCAA&quot;" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>">
     </asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found">
         <AlternatingRowStyle BackColor="White" />

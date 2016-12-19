@@ -93,14 +93,14 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
         lblUTMIARComment.Text = Session["acadProgUtmiArComment"].ToString();
         lblUTMIARDate.Text = Session["acadProgUtmiArDate"].ToString();
 
-        lblFee.Text = Session["acadFinancialFee"].ToString();
-        lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
-        lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();
-        lblMeal.Text = Session["acadFinancialMeal"].ToString();
-        lblContingency.Text = Session["acadFinancialContigency"].ToString();
-        int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
-        lblTotalProposed.Text = total.ToString();
-        lblTotalFunded.Text = Session["acadFinancialFunded"].ToString();
+        lblFee.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialFee"].ToString()));
+        lblTransportation.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialTransportation"].ToString()));
+        lblAccommodation.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialAccommodation"].ToString()));
+        lblMeal.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialMeal"].ToString()));
+        lblContingency.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialContigency"].ToString()));
+        int total = int.Parse(Session["acadFinancialFee"].ToString()) + int.Parse(Session["acadFinancialTransportation"].ToString()) + int.Parse(Session["acadFinancialAccommodation"].ToString()) + int.Parse(Session["acadFinancialMeal"].ToString()) + int.Parse(Session["acadFinancialContigency"].ToString());
+        lblTotalProposed.Text = string.Format("{0:RM #,#.##}", total);
+        lblTotalFunded.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialFunded"].ToString()));
     }
 
     protected void btnRecommend_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
     {
         string APP_APPID = Session["APP_APPID"].ToString();
         string VER_ID = Session["VER_ID"].ToString();
-        string sqlUpdate = "UPDATE VERIFICATION SET UTMIDID = :UTMIDID, UTMIDDATE = :UTMIDDATE, UTMIDSTATUS = :UTMIDSTATUS, UTMIDCOMMENT = :UTMIDCOMMENT WHERE APPID = :APP_APPID AND VERID = :VER_ID";
+        string sqlUpdate = "UPDATE VERIFICATION SET UTMIDID = :UTMIDID, UTMIDDATE = :UTMIDDATE, UTMIDSTATUS = :UTMIDSTATUS, UTMIDCOMMENT = :UTMIDCOMMENT, UTMIARSTATUS = :UTMIARSTATUS WHERE APPID = :APP_APPID AND VERID = :VER_ID";
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
@@ -158,8 +158,9 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Add(new OracleParameter("UTMIDDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIDSTATUS", "2"));
         cmd.Parameters.Add(new OracleParameter("UTMIDCOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "0"));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
-        cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
+        cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID)); 
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();
