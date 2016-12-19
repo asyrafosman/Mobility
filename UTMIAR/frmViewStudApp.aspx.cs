@@ -64,8 +64,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        string name = Session["acadUserNm"].ToString();
-        lblName.Text = name.ToUpper();
+        lblName.Text = Session["acadUserNm"].ToString().ToUpper();
         lblProgramme.Text = Session["acadUserPr"].ToString();
         lblFaculty.Text = Session["acadUserFn"].ToString();
         lblMatric.Text = Session["acadUserMt"].ToString();

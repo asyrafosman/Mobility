@@ -18,8 +18,8 @@ public partial class UTMID_frmStudActivity : System.Web.UI.Page
     }
     protected void ViewActivityList(object sender, EventArgs e)
     {
-        string id = (sender as LinkButton).CommandArgument;
-
+        string APP_APPID = (sender as LinkButton).CommandArgument;
+        Session.Add("APP_APPID", APP_APPID);
         Response.Redirect("frmActivityList.aspx");
     }
 }

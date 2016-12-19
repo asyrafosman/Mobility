@@ -71,7 +71,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
+        lblName.Text = Session["acadUserNm"].ToString().ToUpper();
         lblProgramme.Text = Session["acadUserPr"].ToString();
         lblFaculty.Text = Session["acadUserFn"].ToString();
         lblMatric.Text = Session["acadUserMt"].ToString();

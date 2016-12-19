@@ -11,10 +11,15 @@ public partial class AcadAdvisor_frmStudMobility : System.Web.UI.Page
     {
 
     }
+    protected void btnSearch_Click1(object sender, EventArgs e)
+    {
+        //GridView1.Visible = false;
+        //GridView2.Visible = true;
+    }
     protected void ViewActivityList(object sender, EventArgs e)
     {
-        string id = (sender as LinkButton).CommandArgument;
-
+        string APP_APPID = (sender as LinkButton).CommandArgument;
+        Session.Add("APP_APPID", APP_APPID);
         Response.Redirect("frmActivityList.aspx");
     }
 }

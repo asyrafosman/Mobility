@@ -152,15 +152,13 @@
     <br />
     <asp:Label ID="Label2" runat="server" Text="List of Student Activity:" Font-Bold="True"></asp:Label>
     <br />
-    <ul>
-        <asp:Repeater runat="server" ID="ListRepeater">
-           <ItemTemplate>
-               <li>do foo &nbsp;<a href='#'><img src='<%# Eval("ImageSource") %>' /></a></li>
-           </ItemTemplate>
-        </asp:Repeater>
-    </ul>
-    <ul style="font-size: small">
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AcadAdvisor/frmActivityDetails.aspx" Font-Bold="True"><i class="fa fa-caret-right fa-lg" style="color:maroon"></i>&nbsp;01/03/2017</asp:HyperLink>
-    </ul>
+    <asp:Repeater ID="rptActivities" runat="server">
+        <HeaderTemplate><ul style="font-size: small"></HeaderTemplate>
+        <ItemTemplate>
+            <asp:LinkButton ID="LinkButton1" OnClientClick="aspnetForm.target ='_blank';" runat="server" CommandArgument='<%# Eval("ACTIVITYID") %>' OnClick="ViewStudAct" Font-Bold="True"><span class="fa fa-caret-right fa-lg" style="color:maroon"></span>&nbsp;<%# Eval("ACTIVITYDATE", "{0:dd-MMM-yyyy}") %></asp:LinkButton>
+            <br />
+        </ItemTemplate>
+        <FooterTemplate></ul></FooterTemplate>
+    </asp:Repeater>
 </asp:Content>
 

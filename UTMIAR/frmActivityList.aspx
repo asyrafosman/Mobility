@@ -152,7 +152,7 @@
     <br />
     <asp:Label ID="Label2" runat="server" Text="List of Student Activity:" Font-Bold="True"></asp:Label>
     <asp:Repeater ID="rptActivities" runat="server">
-    <HeaderTemplate><ul style="font-size: small"></HeaderTemplate>
+        <HeaderTemplate><ul style="font-size: small"></HeaderTemplate>
         <ItemTemplate>
             <asp:LinkButton ID="LinkButton1" OnClientClick="aspnetForm.target ='_blank';" runat="server" CommandArgument='<%# Eval("ACTIVITYID") %>' OnClick="ViewStudAct" Font-Bold="True"><span class="fa fa-caret-right fa-lg" style="color:maroon"></span>&nbsp;<%# Eval("ACTIVITYDATE", "{0:dd-MMM-yyyy}") %></asp:LinkButton>
             <br />

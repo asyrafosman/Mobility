@@ -1,17 +1,30 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Oracle.ManagedDataAccess.Client;
 
 public partial class FacultyDean_frmActivityDetails : System.Web.UI.Page
 {
+    OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
-        lblDate.Text = "01/03/2017";
-        lblTitle.Text = "New Day in A New Environment";
-        imgActivity.ImageUrl = "../Styles/images/no-image-available.png";
-        lblDetails.Text = "Assalamualaikum dan hai!";
+        string ACTIVITYID = Session["ACTIVITYID"].ToString();
+        string sql = "SELECT * FROM ACTIVITY WHERE ACTIVITYID = " + ACTIVITYID;
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sql;
+        cmd.Connection = con;
+        OracleDataReader dr = null;
+        dr = cmd.ExecuteReader();
+        dr.Read();
+        lblDate.Text = dr["ACTIVITYDATE"].ToString();
+        lblTitle.Text = dr["TITLE"].ToString();
+        imgActivity.ImageUrl = "../Styles/images/" + dr["IMAGE"].ToString();
+        lblDetails.Text = dr["BLOG"].ToString();
+        con.Close();
     }
 }
