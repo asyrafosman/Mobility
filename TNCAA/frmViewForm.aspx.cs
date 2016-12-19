@@ -1,33 +1,43 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Web.UI;
+using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 public partial class UTMI_frmViewForm : System.Web.UI.Page
 {
-    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
+    OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
+        string APP_APPID = Session["APP_APPID"].ToString();
+
+        string sql = "SELECT * FROM APP_FORM WHERE APP_APPID = " + APP_APPID;
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sql;
+        cmd.Connection = con;
+        OracleDataReader dr = null;
+        dr = cmd.ExecuteReader();
+        dr.Read();
+        Session["acadUserMt"] = dr["APP_MATRIC"].ToString();
+        Session["acadUserNm"] = dr["STUD_NAME"].ToString();
+        Session["acadUserDoB"] = String.Format("{0:dd-MMM-yyyy}", dr["STUD_DOB"]);
+        Session["acadUserIC"] = dr["STUD_IC"].ToString();
+        Session["acadUserTl"] = dr["STUD_CONTACT"].ToString();
+        Session["acadUserEm"] = dr["STUD_EMAIL"].ToString();
+        Session["acadUserReligion"] = dr["STUD_RELIGION"].ToString();
+        Session["acadUserCitizenship"] = dr["STUD_CITIZEN"].ToString();
+        Session["acadUserRace"] = dr["STUD_RACE"].ToString();
+        Session["acadUserAddress"] = dr["STUD_ADDRESS"].ToString();
+        Session["acadUserNextOfKin"] = dr["STUD_KIN"].ToString();
+        Session["acadUserEmergencyContact"] = dr["STUD_EMERCONT"].ToString();
+        Session["acadUserKinAddress"] = dr["STUD_KINADDRESS"].ToString();
+
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "MOHAMAD ASYRAF BIN OSMAN";
         Session["acadUserPr"] = "Bachelor Of Computer Science (Software Engineering)";
         Session["acadUserFn"] = "Computing";
-        Session["acadUserMt"] = "A14CS0053";
         Session["acadUserBs"] = "5";
         Session["acadUserNs"] = "8";
-        Session["acadUserSv"] = "Dr. Radziah Binti Mohamad";
-        Session["acadUserTda"] = "Prof. Dr. Habibollah Bin Harun";
-        Session["acadUserTs"] = "Taught Course";
-        Session["acadUserEm"] = "masyraf96@live.utm.my";
-        Session["acadUserTl"] = "0172364838";
-        Session["acadUserIC"] = "950405055261";
-        Session["acadUserDoB"] = "05-04-1995";
-        Session["acadUserReligion"] = "1-Islam";
-        Session["acadUserRace"] = "A-Melayu Semenanjung";
-        Session["acadUserCitizenship"] = "MAL-Malaysia";
-        Session["acadUserNextOfKin"] = "OSMAN BIN ABDUL LATIFF";
-        Session["acadUserEmergencyContact"] = "0123039064";
-        Session["acadUserAddress"] = "NO. 2, JALAN BBI 5, TAMAN BUKIT BERUANG INDAH, 75450, MELAKA";
         Session["acadUserPassport"] = "1234567890";
         Session["acadUserPassportEx"] = "31/12/2020";
         Session["acadUserCGPA"] = "3.98";
@@ -35,24 +45,28 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         Session["acadUserGraduation"] = "2018";
         Session["acadUserField"] = "-";
 
-        Session["acadProgType"] = "Student Exchange";
-        Session["acadProgName"] = "-";
-        Session["acadProgUniversity"] = "Seoul National University";
-        Session["acadProgCountry"] = "South Korea";
-        Session["acadProgStartDate"] = "01-03-2017";
-        Session["acadProgEndDate"] = "30-06-2017";
+        Session["acadProgType"] = dr["PROG_TYPES"].ToString();
+        Session["acadProgName"] = dr["PROG_NAME"].ToString();
+        Session["acadProgUniversity"] = dr["PROG_UNIVERSITY"].ToString();
+        Session["acadProgCountry"] = dr["PROG_COUNTRY"].ToString();
+        Session["acadProgStartDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_STARTDATE"]);
+        Session["acadProgEndDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]);
 
-        Session["acadFinancialFee"] = "3000";
-        Session["acadFinancialTransportation"] = "2000";
-        Session["acadFinancialAccommodation"] = "1000";
-        Session["acadFinancialMeal"] = "2000";
-        Session["acadFinancialContigency"] = "1500";
-        Session["acadFinancialTotalAllocated"] = "3000";
+        Session["acadFinancialSources"] = dr["FIN_SOURCES"].ToString();
+        Session["acadFinancialSponsor"] = dr["FIN_SPONNAME"].ToString();
+        Session["acadFinancialFee"] = dr["FIN_FEE"].ToString();
+        Session["acadFinancialTransportation"] = dr["FIN_TRAN"].ToString();
+        Session["acadFinancialAccommodation"] = dr["FIN_ACCO"].ToString();
+        Session["acadFinancialMeal"] = dr["FIN_MEAL"].ToString();
+        Session["acadFinancialContigency"] = dr["FIN_CONT"].ToString();
+
+        con.Close();  // Close Connection with database
 
         if (!IsPostBack)
         {
             string sesisem = Session["acadUserSs"].ToString();
             showForm();
+            BindRepeater();
         }
     }
 
@@ -91,6 +105,8 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         lblStartDate.Text = Session["acadProgStartDate"].ToString();
         lblEndDate.Text = Session["acadProgEndDate"].ToString();
 
+        lblSources.Text = Session["acadFinancialSources"].ToString();
+        lblSponsorName.Text = Session["acadFinancialSponsor"].ToString();
         lblFee.Text = Session["acadFinancialFee"].ToString();
         lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
         lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();
@@ -98,6 +114,22 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         lblContingency.Text = Session["acadFinancialContigency"].ToString();
         int total = int.Parse(lblFee.Text) + int.Parse(lblTransportation.Text) + int.Parse(lblAccommodation.Text) + int.Parse(lblMeal.Text) + int.Parse(lblContingency.Text);
         lblTotalProposed.Text = total.ToString();
-        //lblTotalAllocated.Text = Session["acadFinancialTotalAllocated"].ToString();
+    }
+    private void BindRepeater()
+    {
+        string APP_APPID = Session["APP_APPID"].ToString();
+        using (OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString))
+        {
+            using (OracleCommand cmd = new OracleCommand("SELECT * FROM APP_SUBJECT WHERE UTMSUB_APPID = " + APP_APPID, con))
+            {
+                using (OracleDataAdapter sda = new OracleDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    rptSubjects.DataSource = dt;
+                    rptSubjects.DataBind();
+                }
+            }
+        }
     }
 }
