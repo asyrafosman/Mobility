@@ -97,37 +97,44 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        DateTime today = DateTime.Today;
-        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UtmiArId, UTMIARDATE = :UtmiArDate, UTMIARSTATUS = :UtmiArStatus, UTMIARCOMMENT = :UtmiArComment, UTMIARFUND = :UtmiArFund  WHERE VERID = :verid AND APPID = :APP_APPID";
+        string APP_APPID = Session["APP_APPID"].ToString();
+        string VER_ID = Session["VER_ID"].ToString();
+        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UTMIARID, UTMIARDATE = :UTMIARDATE, UTMIARSTATUS = :UTMIARSTATUS, UTMIARCOMMENT = :UTMIARCOMMENT, UTMIDSTATUS = :UTMIDSTATUS WHERE APPID = :APPID AND VERID = :VERID";
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("UtmiArId", 1111));
-        cmd.Parameters.Add(new OracleParameter("UtmiArDate", today));
-        cmd.Parameters.Add(new OracleParameter("UtmiArStatus", 3));
-        cmd.Parameters.Add(new OracleParameter("UtmiArComment", txtComment.Text));
-        cmd.Parameters.Add(new OracleParameter("UtmiArFund", txtTotalAllocated.Text));
+        cmd.Parameters.Add(new OracleParameter("UTMIARID", "1"));
+        cmd.Parameters.Add(new OracleParameter("UTMIARDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
+        cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "3"));
+        cmd.Parameters.Add(new OracleParameter("UTMIARCOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("UTMIDSTATUS", "0"));
+        cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
+        cmd.Parameters.Add(new OracleParameter("VERID", VER_ID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();
-        Response.Redirect("Dashboard.aspx");
+        con.Close();
+        Response.Redirect("frmInbox.aspx");
     }
 
     protected void btnRevert_Click(object sender, EventArgs e)
     {
-        DateTime today = DateTime.Today;
-        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UtmiArId, UTMIARDATE = :UtmiArDate, UTMIARSTATUS = :UtmiArStatus, UTMIARCOMMENT = :UtmiArComment, UTMIARFUND = :UtmiArFund  WHERE VERID = :verid AND APPID = :APP_APPID";
+        string APP_APPID = Session["APP_APPID"].ToString();
+        string VER_ID = Session["VER_ID"].ToString();
+        string sqlUpdate = "UPDATE VERIFICATION SET UTMIARID = :UTMIARID, UTMIARDATE = :UTMIARDATE, UTMIARSTATUS = :UTMIARSTATUS, UTMIARCOMMENT = :UTMIARCOMMENT WHERE APPID = :APPID AND VERID = :VERID";
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("UtmiArId", 1111));
-        cmd.Parameters.Add(new OracleParameter("UtmiArDate", today));
-        cmd.Parameters.Add(new OracleParameter("UtmiArStatus", 2));
-        cmd.Parameters.Add(new OracleParameter("UtmiArComment", txtComment.Text));
-        cmd.Parameters.Add(new OracleParameter("UtmiArFund", txtTotalAllocated.Text));
+        cmd.Parameters.Add(new OracleParameter("UTMIARID", "1"));
+        cmd.Parameters.Add(new OracleParameter("UTMIARDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
+        cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "2"));
+        cmd.Parameters.Add(new OracleParameter("UTMIARCOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
+        cmd.Parameters.Add(new OracleParameter("VERID", VER_ID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();
-        Response.Redirect("Dashboard.aspx");
+        con.Close();
+        Response.Redirect("frmInbox.aspx");
     }
 }

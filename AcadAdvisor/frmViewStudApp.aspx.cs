@@ -70,6 +70,22 @@ public partial class AcadAdvisor_frmViewStudApp : System.Web.UI.Page
 
     protected void btnRevert_Click(object sender, EventArgs e)
     {
+        string APP_APPID = Session["APP_APPID"].ToString();
+        string VER_ID = Session["VER_ID"].ToString();
+        string sqlUpdate = "UPDATE VERIFICATION SET SVID = :ID, SVDATE = :TODAYSDATE, SVSTATUS = :SVSTATUS, SVCOMMENT = :COMMENTTEXT WHERE APPID = :APP_APPID AND VERID = :VER_ID";
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sqlUpdate;
+        cmd.Parameters.Add(new OracleParameter("ID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TODAYSDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
+        cmd.Parameters.Add(new OracleParameter("SVSTATUS", "2"));
+        cmd.Parameters.Add(new OracleParameter("COMMENTTEXT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
+        cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
+        con.Close();
         Response.Redirect("Dashboard.aspx");
     }
 
@@ -77,17 +93,17 @@ public partial class AcadAdvisor_frmViewStudApp : System.Web.UI.Page
     {
         string APP_APPID = Session["APP_APPID"].ToString();
         string VER_ID = Session["VER_ID"].ToString();
-        string sqlUpdate = "UPDATE VERIFICATION SET SVID = :ID, SVDATE = :TODAYSDATE, SVSTATUS = :SVSTATUS, SVCOMMENT = :COMMENTTEXT, TDASTATUS = :TDASTATUS WHERE APPID = :APP_APPID AND VERID = :VER_ID";
+        string sqlUpdate = "UPDATE VERIFICATION SET SVID = :SVID, SVDATE = :SVDATE, SVSTATUS = :SVSTATUS, SVCOMMENT = :SVCOMMENT, TDASTATUS = :TDASTATUS WHERE APPID = :APPID AND VERID = :VERID";
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("ID", "1"));
-        cmd.Parameters.Add(new OracleParameter("TODAYSDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
+        cmd.Parameters.Add(new OracleParameter("SVID", "1"));
+        cmd.Parameters.Add(new OracleParameter("SVDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("SVSTATUS", "3"));
-        cmd.Parameters.Add(new OracleParameter("COMMENTTEXT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("SVCOMMENT", txtComment.Text));
         cmd.Parameters.Add(new OracleParameter("TDASTATUS", "0"));
-        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
-        cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
+        cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
+        cmd.Parameters.Add(new OracleParameter("VERID", VER_ID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();

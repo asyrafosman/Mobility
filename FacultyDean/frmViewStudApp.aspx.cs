@@ -97,16 +97,65 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
 
     protected void btnRevert_Click(object sender, EventArgs e)
     {
+        string APP_APPID = Session["APP_APPID"].ToString();
+        string VER_ID = Session["VER_ID"].ToString();
+        string sqlUpdate = "UPDATE VERIFICATION SET TDAID = :TDAID, TDADATE = :TDADATE, TDASTATUS = :TDASTATUS, TDACOMMENT = :TDACOMMENT WHERE APPID = :APP_APPID AND VERID = :VER_ID";
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sqlUpdate;
+        cmd.Parameters.Add(new OracleParameter("TDAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
+        cmd.Parameters.Add(new OracleParameter("TDASTATUS", "2"));
+        cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
+        cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
+        con.Close();
         Response.Redirect("Dashboard.aspx");
     }
 
     protected void btnNotRecommend_Click(object sender, EventArgs e)
     {
+        string APP_APPID = Session["APP_APPID"].ToString();
+        string VER_ID = Session["VER_ID"].ToString();
+        string sqlUpdate = "UPDATE VERIFICATION SET TDAID = :TDAID, TDADATE = :TDADATE, TDASTATUS = :TDASTATUS, TDACOMMENT = :TDACOMMENT WHERE APPID = :APP_APPID AND VERID = :VER_ID";
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sqlUpdate;
+        cmd.Parameters.Add(new OracleParameter("TDAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
+        cmd.Parameters.Add(new OracleParameter("TDASTATUS", "5"));
+        cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
+        cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
+        con.Close();
         Response.Redirect("Dashboard.aspx");
     }
 
     protected void btnRecommend_Click(object sender, EventArgs e)
     {
+        string APP_APPID = Session["APP_APPID"].ToString();
+        string VER_ID = Session["VER_ID"].ToString();
+        string sqlUpdate = "UPDATE VERIFICATION SET TDAID = :TDAID, TDADATE = :TDADATE, TDASTATUS = :TDASTATUS, TDACOMMENT = :TDACOMMENT, UTMIARSTATUS = :UTMIARSTATUS WHERE APPID = :APP_APPID AND VERID = :VER_ID";
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sqlUpdate;
+        cmd.Parameters.Add(new OracleParameter("TDAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
+        cmd.Parameters.Add(new OracleParameter("TDASTATUS", "4"));
+        cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));
+        cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "0"));
+        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
+        cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
+        con.Close();
         Response.Redirect("Dashboard.aspx");
     }
 }

@@ -36,7 +36,7 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         Session["acadProgEndDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]);
 
         Session["statusAa"] = dr["VER_SVSTATUS"].ToString();
-        Session["statusDean"] = dr["VER_TDADATE"].ToString();
+        Session["statusDean"] = dr["VER_TDASTATUS"].ToString();
         Session["statusUtmiAr"] = dr["VER_UTMIARSTATUS"].ToString();
         Session["statusUtmiD"] = dr["VER_UTMIDSTATUS"].ToString();
         Session["statusTncaa"] = dr["VER_TNCAASTATUS"].ToString();
@@ -51,8 +51,8 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         Session["acadUserSv"] = dr["VER_SVID"].ToString();
         Session["acadUserDean"] = dr["VER_TDAID"].ToString();
         Session["acadProgUtmiAr"] = dr["VER_UTMIARID"].ToString();//"Siti Rahimah Mohd Yusop";
-        Session["acadProgUtmiD"] = dr["VER_TDAID"].ToString(); //"Prof Dr Nor Haniza Sarmin";
-        Session["acadProgTncaa"] = dr["VER_TDAID"].ToString(); //"Prof Dr Rose Alinda Alias";
+        Session["acadProgUtmiD"] = dr["VER_UTMIDID"].ToString(); //"Prof Dr Nor Haniza Sarmin";
+        Session["acadProgTncaa"] = dr["VER_TNCAAID"].ToString(); //"Prof Dr Rose Alinda Alias";
 
         con.Close();
 
