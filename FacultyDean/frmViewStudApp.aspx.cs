@@ -57,7 +57,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
 
     protected void showProfile()
     {
-        imgPhoto.InnerHtml = "<img src=\"../Styles/images/PhotoStudent.ashx.jpeg\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
+        imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
         lblName.Text = Session["acadUserNm"].ToString();
         lblProgramme.Text = Session["acadUserPr"].ToString();
         lblFaculty.Text = Session["acadUserFn"].ToString();
@@ -75,7 +75,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
 
         lblAAName.Text = Session["acadUserSv"].ToString();
         lblAAComment.Text = Session["acadProgAAComment"].ToString();
-        lblAADate.Text = "11/11/2016";
+        lblAADate.Text = Session["acadProgAADate"].ToString();
     }
     private void BindRepeater()
     {
