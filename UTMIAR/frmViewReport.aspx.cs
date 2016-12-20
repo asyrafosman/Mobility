@@ -9,32 +9,32 @@ public partial class UTMIAR_frmViewReport : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "MOHAMAD ASYRAF BIN OSMAN";
-        Session["acadUserPr"] = "Bachelor Of Computer Science (Software Engineering)";
-        Session["acadUserFn"] = "Computing";
-        Session["acadUserMt"] = "A14CS0053";
-        Session["acadUserBs"] = "5";
-        Session["acadUserNs"] = "8";
-        Session["acadUserSv"] = "Dr. Radziah Binti Mohamad";
-        Session["acadUserTda"] = "Prof. Dr. Habibollah Bin Harun";
-        Session["acadUserTs"] = "Taught Course";
-        Session["acadUserEm"] = "masyraf96@live.utm.my";
-        Session["acadUserTl"] = "0172364838";
-        Session["acadUserIC"] = "950405055261";
-        Session["acadUserDoB"] = "05-04-1995";
-        Session["acadUserReligion"] = "1-Islam";
-        Session["acadUserRace"] = "A-Melayu Semenanjung";
-        Session["acadUserCitizenship"] = "MAL-Malaysia";
-        Session["acadUserNextOfKin"] = "OSMAN BIN ABDUL LATIFF";
-        Session["acadUserEmergencyContact"] = "0123039064";
-        Session["acadUserAddress"] = "NO. 2, JALAN BBI 5, TAMAN BUKIT BERUANG INDAH, 75450, MELAKA";
-        Session["acadUserPassport"] = "1234567890";
-        Session["acadUserPassportEx"] = "31/12/2020";
-        Session["acadUserCGPA"] = "3.98";
-        Session["acadUserStatus"] = "Active";
-        Session["acadUserGraduation"] = "2018";
-        Session["acadUserField"] = "-";
+        Session["acadStudSs"] = "201620171";
+        Session["acadStudNm"] = "MOHAMAD ASYRAF BIN OSMAN";
+        Session["acadStudPr"] = "Bachelor Of Computer Science (Software Engineering)";
+        Session["acadStudFn"] = "Computing";
+        Session["acadStudMt"] = "A14CS0053";
+        Session["acadStudBs"] = "5";
+        Session["acadStudNs"] = "8";
+        Session["acadStudSv"] = "Dr. Radziah Binti Mohamad";
+        Session["acadStudTda"] = "Prof. Dr. Habibollah Bin Harun";
+        Session["acadStudTs"] = "Taught Course";
+        Session["acadStudEm"] = "masyraf96@live.utm.my";
+        Session["acadStudTl"] = "0172364838";
+        Session["acadStudIC"] = "950405055261";
+        Session["acadStudDoB"] = "05-04-1995";
+        Session["acadStudReligion"] = "1-Islam";
+        Session["acadStudRace"] = "A-Melayu Semenanjung";
+        Session["acadStudCitizenship"] = "MAL-Malaysia";
+        Session["acadStudNextOfKin"] = "OSMAN BIN ABDUL LATIFF";
+        Session["acadStudEmergencyContact"] = "0123039064";
+        Session["acadStudAddress"] = "NO. 2, JALAN BBI 5, TAMAN BUKIT BERUANG INDAH, 75450, MELAKA";
+        Session["acadStudPassport"] = "1234567890";
+        Session["acadStudPassportEx"] = "31/12/2020";
+        Session["acadStudCGPA"] = "3.98";
+        Session["acadStudStatus"] = "Active";
+        Session["acadStudGraduation"] = "2018";
+        Session["acadStudField"] = "-";
 
         Session["acadProgType"] = "Student Exchange";
         Session["acadProgName"] = "-";
@@ -52,7 +52,7 @@ public partial class UTMIAR_frmViewReport : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            string sesisem = Session["acadUserSs"].ToString();
+            string sesisem = Session["acadStudSs"].ToString();
             showForm();
         }
     }
@@ -60,10 +60,10 @@ public partial class UTMIAR_frmViewReport : System.Web.UI.Page
     protected void showForm()
     {
         //imgPhoto.InnerHtml = "<img src=\"../Styles/images/PhotoStudent.ashx.jpeg\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
-        lblFaculty.Text = Session["acadUserFn"].ToString();
-        lblMatric.Text = Session["acadUserMt"].ToString();
-        lblDoB.Text = Session["acadUserDoB"].ToString();
+        lblName.Text = Session["acadStudNm"].ToString();
+        lblFaculty.Text = Session["acadStudFn"].ToString();
+        lblMatric.Text = Session["acadStudMt"].ToString();
+        lblDoB.Text = Session["acadStudDoB"].ToString();
 
         lblProgType.Text = Session["acadProgType"].ToString();
         lblProgName.Text = Session["acadProgName"].ToString();

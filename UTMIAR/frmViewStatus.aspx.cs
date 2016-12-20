@@ -17,17 +17,17 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         OracleDataReader dr = null;
         dr = cmd.ExecuteReader();
         dr.Read();
-        Session["acadUserMt"] = dr["STUD_MATRIC"].ToString();
-        Session["acadUserNm"] = dr["STUD_NAME"].ToString();
-        Session["acadUserTl"] = dr["STUD_CONTACT"].ToString();
-        Session["acadUserEm"] = dr["STUD_EMAIL"].ToString();
+        Session["acadStudMt"] = dr["STUD_MATRIC"].ToString();
+        Session["acadStudNm"] = dr["STUD_NAME"].ToString();
+        Session["acadStudTl"] = dr["STUD_CONTACT"].ToString();
+        Session["acadStudEm"] = dr["STUD_EMAIL"].ToString();
 
-        Session["acadUserSs"] = "201620171";
-        Session["acadUserPr"] = "Bachelor Of Computer Science (Software Engineering)";
-        Session["acadUserFn"] = "Computing";
-        Session["acadUserBs"] = "5";
-        Session["acadUserNs"] = "8";
-        Session["acadUserTs"] = "Taught Course";
+        Session["acadStudSs"] = "201620171";
+        Session["acadStudPr"] = "Bachelor Of Computer Science (Software Engineering)";
+        Session["acadStudFn"] = "Computing";
+        Session["acadStudBs"] = "5";
+        Session["acadStudNs"] = "8";
+        Session["acadStudTs"] = "Taught Course";
 
         Session["acadProgType"] = dr["PROG_TYPES"].ToString();
         Session["acadProgUniversity"] = dr["PROG_UNIVERSITY"].ToString();
@@ -48,8 +48,8 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         Session["acadProgUtmiDDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIDDATE"]);
         Session["acadProgTncaaDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_TNCAADATE"]);
 
-        Session["acadUserSv"] = dr["VER_SVID"].ToString();
-        Session["acadUserDean"] = dr["VER_TDAID"].ToString();
+        Session["acadStudSv"] = dr["VER_SVID"].ToString();
+        Session["acadStudDean"] = dr["VER_TDAID"].ToString();
         Session["acadProgUtmiAr"] = dr["VER_UTMIARID"].ToString();//"Siti Rahimah Mohd Yusop";
         Session["acadProgUtmiD"] = dr["VER_UTMIDID"].ToString(); //"Prof Dr Nor Haniza Sarmin";
         Session["acadProgTncaa"] = dr["VER_TNCAAID"].ToString(); //"Prof Dr Rose Alinda Alias";
@@ -58,7 +58,7 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            string sesisem = Session["acadUserSs"].ToString();
+            string sesisem = Session["acadStudSs"].ToString();
             showProfile();
             showStatus();
         }
@@ -67,15 +67,15 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
-        lblProgramme.Text = Session["acadUserPr"].ToString();
-        lblFaculty.Text = Session["acadUserFn"].ToString();
-        lblMatric.Text = Session["acadUserMt"].ToString();
-        lblBilSemester.Text = Session["acadUserBs"].ToString() + " / " + Session["acadUserNs"].ToString();
-        lblAA.Text = Session["acadUserSv"].ToString();
-        lblToS.Text = Session["acadUserTs"].ToString() + " (Full Time)";
-        lblEmail.Text = Session["acadUserEm"].ToString();
-        lblPhone.Text = Session["acadUserTl"].ToString();
+        lblName.Text = Session["acadStudNm"].ToString();
+        lblProgramme.Text = Session["acadStudPr"].ToString();
+        lblFaculty.Text = Session["acadStudFn"].ToString();
+        lblMatric.Text = Session["acadStudMt"].ToString();
+        lblBilSemester.Text = Session["acadStudBs"].ToString() + " / " + Session["acadStudNs"].ToString();
+        lblAA.Text = Session["acadStudSv"].ToString();
+        lblToS.Text = Session["acadStudTs"].ToString() + " (Full Time)";
+        lblEmail.Text = Session["acadStudEm"].ToString();
+        lblPhone.Text = Session["acadStudTl"].ToString();
         lblProgType.Text = Session["acadProgType"].ToString();
         lblUniversity.Text = Session["acadProgUniversity"].ToString();
         lblCountry.Text = Session["acadProgCountry"].ToString();
@@ -100,7 +100,7 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         {
             lblStatusAA.Text = "<span class=\"label label-primary\">Need to Modify</span>";
         }
-        lblAAName.Text = Session["acadUserSv"].ToString();
+        lblAAName.Text = Session["acadStudSv"].ToString();
         lblAADate.Text = Session["acadProgSvDate"].ToString();
 
         if (Session["statusDean"].ToString() == "0")
@@ -119,7 +119,7 @@ public partial class UTMIAR_frmViewStatus : System.Web.UI.Page
         {
             lblStatusDean.Text = "<span class=\"label label-primary\">Need to Modify</span>";
         }
-        lblDeanName.Text = Session["acadUserDean"].ToString();
+        lblDeanName.Text = Session["acadStudDean"].ToString();
         lblDeanDate.Text = Session["acadProgDeanDate"].ToString();
 
         if (Session["statusUtmiAr"].ToString() == "0")

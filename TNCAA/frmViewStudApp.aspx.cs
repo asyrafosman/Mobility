@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Oracle.ManagedDataAccess.Client;
+using System.Net.Mail;
 
 public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
 {
@@ -21,17 +22,18 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         OracleDataReader dr = null;
         dr = cmd.ExecuteReader();
         dr.Read();
-        Session["acadUserMt"] = dr["STUD_MATRIC"].ToString();
-        Session["acadUserNm"] = dr["STUD_NAME"].ToString();
-        Session["acadUserTl"] = dr["STUD_CONTACT"].ToString();
-        Session["acadUserEm"] = dr["STUD_EMAIL"].ToString();
+        Session["acadStudMt"] = dr["STUD_MATRIC"].ToString();
+        Session["acadStudNm"] = dr["STUD_NAME"].ToString();
+        Session["acadStudTl"] = dr["STUD_CONTACT"].ToString();
+        Session["acadStudEm"] = dr["STUD_EMAIL"].ToString();
+        Session["acadStudSv"] = dr["VER_SVID"].ToString();
 
-        Session["acadUserSs"] = "201620171";
-        Session["acadUserPr"] = "Bachelor Of Computer Science (Software Engineering)";
-        Session["acadUserFn"] = "Computing";
-        Session["acadUserBs"] = "5";
-        Session["acadUserNs"] = "8";
-        Session["acadUserTs"] = "Taught Course";
+        Session["acadStudSs"] = "201620171";
+        Session["acadStudPr"] = "Bachelor Of Computer Science (Software Engineering)";
+        Session["acadStudFn"] = "Computing";
+        Session["acadStudBs"] = "5";
+        Session["acadStudNs"] = "8";
+        Session["acadStudTs"] = "Taught Course";
 
         Session["acadProgType"] = dr["PROG_TYPES"].ToString();
         Session["acadProgUniversity"] = dr["PROG_UNIVERSITY"].ToString();
@@ -40,16 +42,16 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         Session["acadProgEndDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]);
 
         Session["VER_ID"] = dr["VER_ID"].ToString();
-        Session["acadUserSv"] = dr["VER_SVID"].ToString();
+        Session["acadStudSv"] = dr["VER_SVID"].ToString();
         Session["acadProgAAComment"] = dr["VER_SVCOMMENT"].ToString();
         Session["acadProgAADate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_SVDATE"]);
-        Session["acadUserDean"] = dr["VER_TDAID"].ToString();
+        Session["acadStudDean"] = dr["VER_TDAID"].ToString();
         Session["acadProgDeanComment"] = dr["VER_TDACOMMENT"].ToString();
         Session["acadProgDeanDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_TDADATE"]);
-        Session["acadUserUtmiAr"] = dr["VER_UTMIARID"].ToString();
+        Session["acadStudUtmiAr"] = dr["VER_UTMIARID"].ToString();
         Session["acadProgUtmiArComment"] = dr["VER_UTMIARCOMMENT"].ToString();
         Session["acadProgUtmiArDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIARDATE"]);
-        Session["acadUserUtmiD"] = dr["VER_UTMIDID"].ToString();
+        Session["acadStudUtmiD"] = dr["VER_UTMIDID"].ToString();
         Session["acadProgUtmiDComment"] = dr["VER_UTMIDCOMMENT"].ToString();
         Session["acadProgUtmiDDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIDDATE"]);
 
@@ -63,7 +65,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            string sesisem = Session["acadUserSs"].ToString();
+            string sesisem = Session["acadStudSs"].ToString();
             showProfile();
         }
     }
@@ -71,31 +73,31 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString().ToUpper();
-        lblProgramme.Text = Session["acadUserPr"].ToString();
-        lblFaculty.Text = Session["acadUserFn"].ToString();
-        lblMatric.Text = Session["acadUserMt"].ToString();
-        lblBilSemester.Text = Session["acadUserBs"].ToString() + " / " + Session["acadUserNs"].ToString();
-        lblAA.Text = Session["acadUserSv"].ToString();
-        lblToS.Text = Session["acadUserTs"].ToString() + " (Full Time)";
-        lblEmail.Text = Session["acadUserEm"].ToString();
-        lblPhone.Text = Session["acadUserTl"].ToString();
+        lblName.Text = Session["acadStudNm"].ToString().ToUpper();
+        lblProgramme.Text = Session["acadStudPr"].ToString();
+        lblFaculty.Text = Session["acadStudFn"].ToString();
+        lblMatric.Text = Session["acadStudMt"].ToString();
+        lblBilSemester.Text = Session["acadStudBs"].ToString() + " / " + Session["acadStudNs"].ToString();
+        lblAA.Text = Session["acadStudSv"].ToString();
+        lblToS.Text = Session["acadStudTs"].ToString() + " (Full Time)";
+        lblEmail.Text = Session["acadStudEm"].ToString();
+        lblPhone.Text = Session["acadStudTl"].ToString();
         lblProgType.Text = Session["acadProgType"].ToString();
         lblUniversity.Text = Session["acadProgUniversity"].ToString();
         lblCountry.Text = Session["acadProgCountry"].ToString();
         lblStartDate.Text = Session["acadProgStartDate"].ToString();
         lblEndDate.Text = Session["acadProgEndDate"].ToString();
 
-        lblAAName.Text = Session["acadUserSv"].ToString();
+        lblAAName.Text = Session["acadStudSv"].ToString();
         lblAAComment.Text = Session["acadProgAAComment"].ToString();
         lblAADate.Text = Session["acadProgAADate"].ToString();
-        lblDeanName.Text = Session["acadUserDean"].ToString();
+        lblDeanName.Text = Session["acadStudDean"].ToString();
         lblDeanComment.Text = Session["acadProgDeanComment"].ToString();
         lblDeanDate.Text = Session["acadProgDeanDate"].ToString();
-        lblUTMIARName.Text = Session["acadUserUtmiAr"].ToString();
+        lblUTMIARName.Text = Session["acadStudUtmiAr"].ToString();
         lblUTMIARComment.Text = Session["acadProgUtmiArComment"].ToString();
         lblUTMIARDate.Text = Session["acadProgUtmiArDate"].ToString();
-        lblUTMIDName.Text = Session["acadUserUtmiD"].ToString();
+        lblUTMIDName.Text = Session["acadStudUtmiD"].ToString();
         lblUTMIDComment.Text = Session["acadProgUtmiDComment"].ToString();
         lblUTMIDDate.Text = Session["acadProgUtmiDDate"].ToString();
 
@@ -127,6 +129,36 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();
         con.Close();
+
+        MailMessage mail = new MailMessage();
+        mail.To.Add(Session["acadStudEm"].ToString());
+        mail.From = new MailAddress(Session["acadUserEm"].ToString(), "UTM Deputy Vice Chancellor (Academic & International)", System.Text.Encoding.UTF8);
+        mail.Subject = "Application to " + Session["acadProgUniversity"].ToString() + " for " + Session["acadProgType"].ToString() + " programme.";
+        mail.SubjectEncoding = System.Text.Encoding.UTF8;
+        mail.Body = "Assalamualaikum dan Salam Sejahtera., <br /><br />Sekian terima kasih.";
+        mail.BodyEncoding = System.Text.Encoding.UTF8;
+        mail.IsBodyHtml = true;
+        mail.Priority = MailPriority.High;
+        SmtpClient user = new SmtpClient();
+        user.Credentials = new System.Net.NetworkCredential("mesaasyraf95@gmail.com", "062327504");
+        user.Port = 587;
+        user.Host = "smtp.gmail.com";
+        user.EnableSsl = true;
+        try
+        {
+            user.Send(mail);
+        }
+        catch (Exception ex)
+        {
+            Exception ex2 = ex;
+            string errorMessage = string.Empty;
+            while (ex2 != null)
+            {
+                errorMessage += ex2.ToString();
+                ex2 = ex2.InnerException;
+            }
+        }
+
         Response.Redirect("Dashboard.aspx");
     }
 
