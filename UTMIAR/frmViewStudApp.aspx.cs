@@ -137,6 +137,14 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();
+
+        sqlUpdate = "UPDATE APPLICATION SET STATUS = :STATUS WHERE APPID = :APP_APPID";
+        cmd.CommandText = sqlUpdate;
+        cmd.Parameters.Add(new OracleParameter("STATUS", 2));
+        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
         con.Close();
         Response.Redirect("frmInbox.aspx");
     }

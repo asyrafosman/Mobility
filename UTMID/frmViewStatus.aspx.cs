@@ -1,70 +1,60 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
+using Oracle.ManagedDataAccess.Client;
 
 public partial class UTMID_frmViewStatus : System.Web.UI.Page
 {
-    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
+    OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
-        String strSelect;
-        SqlCommand cmdSelect;
-        SqlDataReader drSelect;
-        //id = Session["pengguna"].ToString();
-        int id = 1;
+        string APP_APPID = Session["APP_APPID"].ToString();
 
-        con.Open();  // Open Connection with database
-
-        strSelect = "SELECT SystemDate, SystemStatus, SvId, SvDate, SvStatus, TdaId, TdaDate, TdaStatus, TdaComment, UtmiArId, UtmiArDate, UtmiArStatus, UtmiDId, UtmiDDate, UtmiDStatus, TncaaId, TncaaDate, TncaaStatus from Verification where VerId='" + id + "'";
-        cmdSelect = new SqlCommand(strSelect, con);
-        drSelect = cmdSelect.ExecuteReader();
-        drSelect.Read();
-
-        DateTime systemDate = Convert.ToDateTime(drSelect["SystemDate"].ToString());
-        DateTime svDate = Convert.ToDateTime(drSelect["SvDate"].ToString());
-        DateTime tdaDate = Convert.ToDateTime(drSelect["TdaDate"].ToString());
-        DateTime utmiarDate = Convert.ToDateTime(drSelect["UtmiArDate"].ToString());
-        DateTime utmidDate = Convert.ToDateTime(drSelect["UtmiDDate"].ToString());
-        DateTime tncaaDate = Convert.ToDateTime(drSelect["TncaaDate"].ToString());
-        //DateTime today = DateTime.Now;
-        //int x = Convert.ToInt32((today - systemDate).TotalDays);
-        //lblDays.Text = x.ToString();
+        string sql = "SELECT * FROM STUDENT_APP WHERE APP_APPID = " + APP_APPID;
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sql;
+        cmd.Connection = con;
+        OracleDataReader dr = null;
+        dr = cmd.ExecuteReader();
+        dr.Read();
+        Session["acadStudMt"] = dr["STUD_MATRIC"].ToString();
+        Session["acadStudNm"] = dr["STUD_NAME"].ToString();
+        Session["acadStudTl"] = dr["STUD_CONTACT"].ToString();
+        Session["acadStudEm"] = dr["STUD_EMAIL"].ToString();
 
         Session["acadStudSs"] = "201620171";
-        Session["acadStudNm"] = "MOHAMAD ASYRAF BIN OSMAN";
         Session["acadStudPr"] = "Bachelor Of Computer Science (Software Engineering)";
         Session["acadStudFn"] = "Computing";
-        Session["acadStudMt"] = "A14CS0053";
         Session["acadStudBs"] = "5";
         Session["acadStudNs"] = "8";
-        Session["acadStudSv"] = "Dr. Radziah Binti Mohamad";
-        Session["acadStudDean"] = "Prof. Dr. Abd. Samad bin Haji Ismail";
         Session["acadStudTs"] = "Taught Course";
-        Session["acadStudEm"] = "masyraf96@live.utm.my";
-        Session["acadStudTl"] = "0172364838";
-        Session["acadProgType"] = "Student Exchange";
-        Session["acadProgUniversity"] = "Seoul National University";
-        Session["acadProgCountry"] = "South Korea";
-        Session["acadProgStartDate"] = "01-03-2017";
-        Session["acadProgEndDate"] = "30-06-2017";
-        Session["acadProgAAComment"] = "Good.";
-        Session["acadProgDeanComment"] = "Excellent.";
-        Session["acadProgSystemDate"] = systemDate.ToShortDateString();
-        Session["acadProgSvDate"] = svDate.ToShortDateString();
-        Session["acadProgDeanDate"] = tdaDate.ToShortDateString();
-        Session["acadProgUtmiArDate"] = utmiarDate.ToShortDateString();
-        Session["acadProgUtmiDDate"] = utmidDate.ToShortDateString();
-        Session["acadProgTncaaDate"] = tncaaDate.ToShortDateString();
-        Session["acadProgUtmiAr"] = "Siti Rahimah Mohd Yusop";
-        Session["acadProgUtmiD"] = "Prof Dr Nor Haniza Sarmin";
-        Session["acadProgTncaa"] = "Prof Dr Rose Alinda Alias";
 
-        Session["statusSystem"] = drSelect["SystemStatus"].ToString();
-        Session["statusAa"] = drSelect["SvStatus"].ToString();
-        Session["statusDean"] = drSelect["TdaStatus"].ToString();
-        Session["statusUtmiAr"] = drSelect["UtmiArStatus"].ToString();
-        Session["statusUtmiD"] = drSelect["UtmiDStatus"].ToString();
-        Session["statusTncaa"] = drSelect["TncaaStatus"].ToString();
+        Session["acadProgType"] = dr["PROG_TYPES"].ToString();
+        Session["acadProgUniversity"] = dr["PROG_UNIVERSITY"].ToString();
+        Session["acadProgCountry"] = dr["PROG_COUNTRY"].ToString();
+        Session["acadProgStartDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_STARTDATE"]);
+        Session["acadProgEndDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]);
+
+        Session["statusAa"] = dr["VER_SVSTATUS"].ToString();
+        Session["statusDean"] = dr["VER_TDASTATUS"].ToString();
+        Session["statusUtmiAr"] = dr["VER_UTMIARSTATUS"].ToString();
+        Session["statusUtmiD"] = dr["VER_UTMIDSTATUS"].ToString();
+        Session["statusTncaa"] = dr["VER_TNCAASTATUS"].ToString();
+
+        Session["acadProgSystemDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_SYSDATE"]);
+        Session["acadProgSvDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_SVDATE"]);
+        Session["acadProgDeanDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_TDADATE"]);
+        Session["acadProgUtmiArDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIARDATE"]);
+        Session["acadProgUtmiDDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_UTMIDDATE"]);
+        Session["acadProgTncaaDate"] = String.Format("{0:dd-MMM-yyyy}", dr["VER_TNCAADATE"]);
+
+        Session["acadStudSv"] = dr["VER_SVID"].ToString();
+        Session["acadStudDean"] = dr["VER_TDAID"].ToString();
+        Session["acadProgUtmiAr"] = dr["VER_UTMIARID"].ToString();//"Siti Rahimah Mohd Yusop";
+        Session["acadProgUtmiD"] = dr["VER_UTMIDID"].ToString(); //"Prof Dr Nor Haniza Sarmin";
+        Session["acadProgTncaa"] = dr["VER_TNCAAID"].ToString(); //"Prof Dr Rose Alinda Alias";
+
+        con.Close();
 
         if (!IsPostBack)
         {
@@ -76,7 +66,7 @@ public partial class UTMID_frmViewStatus : System.Web.UI.Page
 
     protected void showProfile()
     {
-        imgPhoto.InnerHtml = "<img src=\"../Styles/images/PhotoStudent.ashx.jpeg\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
+        imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
         lblName.Text = Session["acadStudNm"].ToString();
         lblProgramme.Text = Session["acadStudPr"].ToString();
         lblFaculty.Text = Session["acadStudFn"].ToString();
@@ -95,10 +85,7 @@ public partial class UTMID_frmViewStatus : System.Web.UI.Page
 
     public void showStatus()
     {
-        if (Session["statusSystem"].ToString() == "1")
-        {
-            lblStatusSystem.Text = "<span class=\"label label-success\">Saved</span>";
-        }
+        lblStatusSystem.Text = "<span class=\"label label-success\">Saved</span>";
         lblSystemDate.Text = Session["acadProgSystemDate"].ToString();
 
         if (Session["statusAa"].ToString() == "0")

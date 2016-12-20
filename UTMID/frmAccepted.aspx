@@ -1,18 +1,18 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMIAR/UTMIARMasterPage.master" AutoEventWireup="true" CodeFile="frmInProcess.aspx.cs" Inherits="UTMIAR_frmInProcess" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UTMID/UTMIDMasterPage.master" AutoEventWireup="true" CodeFile="frmAccepted.aspx.cs" Inherits="UTMID_frmAccepted" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
             <li><a href="frmInbox.aspx"><span class="fa fa-inbox fa-lg"></span>&nbsp;Inbox</a></li>
-            <li class="active"><a href="frmInProcess.aspx"><span class="fa fa-play fa-lg"></span>&nbsp;In Process</a></li>
-            <li><a href="frmAccepted.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Accepted</a></li>
+            <li><a href="frmInProcess.aspx"><span class="fa fa-play fa-lg"></span>&nbsp;In Process</a></li>
+            <li class="active"><a href="frmAccepted.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Accepted</a></li>
             <li><a href="frmRejected.aspx"><span class="fa fa-times fa-lg"></span>&nbsp;Rejected</a></li>
         </ul>
     </div>
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;In Process</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Application <span class="fa fa-arrow-right"></span>&nbsp;Outbound <span class="fa fa-arrow-right"></span>&nbsp;Completed</asp:Label>
             </td>
         </tr>
     </table>
@@ -30,7 +30,7 @@
     <asp:Label ID="lblTxtSearchResult" runat="server" Text="Total Record Found: "></asp:Label>
     <asp:Label ID="lblResult" runat="server" Text=""></asp:Label>
     <br /><br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_INPROCESS&quot;"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_ACCEPTED&quot;"></asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -74,7 +74,7 @@
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_INPROCESS&quot; WHERE (&quot;STUD_NAME&quot; LIKE '%' + ? + '%')">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_ACCEPTED&quot; WHERE (&quot;STUD_NAME&quot; LIKE '%' + ? + '%')">
         <SelectParameters>
             <asp:ControlParameter ControlID="txtSearch" Name="STUD_NAME" PropertyName="Text" Type="String" />
         </SelectParameters>
@@ -138,4 +138,6 @@
         </tr>
     </table>
 </asp:Content>
+
+
 

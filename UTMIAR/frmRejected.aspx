@@ -27,10 +27,10 @@
             </td>
         </tr>
     </table>
-    <br />
     <asp:Label ID="lblTxtSearchResult" runat="server" Text="Total Record Found: "></asp:Label>
     <asp:Label ID="lblResult" runat="server" Text=""></asp:Label>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_DASHBOARD&quot;"></asp:SqlDataSource>
+    <br /><br />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_REJECTED&quot;"></asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -50,10 +50,9 @@
             <%--<asp:BoundField DataField="PROG_APPID" HeaderText="PROG_APPID" SortExpression="PROG_APPID" />--%>
             <asp:BoundField DataField="PROG_TYPES" HeaderText="Programme Type" SortExpression="PROG_TYPES" />
             <asp:BoundField DataField="PROG_UNIVERSITY" HeaderText="University" SortExpression="PROG_UNIVERSITY" />
-            <asp:BoundField DataField="PROG_STARTDATE" HeaderText="Start Date" SortExpression="PROG_STARTDATE" />
-            <asp:BoundField DataField="PROG_ENDDATE" HeaderText="End Date" SortExpression="PROG_ENDDATE" />
-            <asp:HyperLinkField DataNavigateUrlFormatString="frmViewStatus.aspx?AppId={0}" DataTextField="" HeaderText="" NavigateUrl="frmViewStatus.aspx" DataNavigateUrlFields="AppId" />
-            <%--<asp:TemplateField HeaderText="">
+            <asp:BoundField DataField="PROG_STARTDATE" HeaderText="Start Date" SortExpression="PROG_STARTDATE" DataFormatString="{0:dd-MMM-yyyy}" />
+            <asp:BoundField DataField="PROG_ENDDATE" HeaderText="End Date" SortExpression="PROG_ENDDATE" DataFormatString="{0:dd-MMM-yyyy}" />
+            <asp:TemplateField HeaderText="">
                 <HeaderStyle Width="3%" />
              <ItemStyle Width="3%" />
                 <ItemTemplate>
@@ -63,7 +62,7 @@
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
-            </asp:TemplateField>--%>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -75,12 +74,12 @@
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_DASHBOARD&quot; WHERE (&quot;STUD_NAME&quot; LIKE '%' + ? + '%')">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_REJECTED&quot; WHERE (&quot;STUD_NAME&quot; LIKE '%' + ? + '%')">
         <SelectParameters>
             <asp:ControlParameter ControlID="txtSearch" Name="STUD_NAME" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found" Visible="False">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found" Visible="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:TemplateField HeaderText="No.">
@@ -99,10 +98,9 @@
             <%--<asp:BoundField DataField="PROG_APPID" HeaderText="PROG_APPID" SortExpression="PROG_APPID" />--%>
             <asp:BoundField DataField="PROG_TYPES" HeaderText="Programme Type" SortExpression="PROG_TYPES" />
             <asp:BoundField DataField="PROG_UNIVERSITY" HeaderText="University" SortExpression="PROG_UNIVERSITY" />
-            <asp:BoundField DataField="PROG_STARTDATE" HeaderText="Start Date" SortExpression="PROG_STARTDATE" />
-            <asp:BoundField DataField="PROG_ENDDATE" HeaderText="End Date" SortExpression="PROG_ENDDATE" />
-            <asp:HyperLinkField DataNavigateUrlFormatString="frmViewStatus.aspx?AppId={0}" DataTextField="" HeaderText="" NavigateUrl="frmViewStatus.aspx" DataNavigateUrlFields="AppId"></asp:HyperLinkField>
-            <%--<asp:TemplateField HeaderText="">
+            <asp:BoundField DataField="PROG_STARTDATE" HeaderText="Start Date" SortExpression="PROG_STARTDATE" DataFormatString="{0:dd-MMM-yyyy}" />
+            <asp:BoundField DataField="PROG_ENDDATE" HeaderText="End Date" SortExpression="PROG_ENDDATE" DataFormatString="{0:dd-MMM-yyyy}" />
+            <asp:TemplateField HeaderText="">
                 <HeaderStyle Width="3%" />
              <ItemStyle Width="3%" />
                 <ItemTemplate>
@@ -112,7 +110,7 @@
                 </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
-            </asp:TemplateField>--%>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -124,5 +122,20 @@
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
+    <br />
+    <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
+        <tr>
+            <td colspan="4">
+                <strong>Legends:</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+                <asp:LinkButton ID="LinkButton2" runat="server">
+                <span class="fa fa-info-circle fa-lg"></span>&nbsp;Status Info</asp:LinkButton>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
 

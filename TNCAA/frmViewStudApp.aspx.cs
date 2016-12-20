@@ -7,6 +7,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Oracle.ManagedDataAccess.Client;
 using System.Net.Mail;
+using iTextSharp.text;
+using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
 
 public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
 {
@@ -111,6 +115,79 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         lblTotalFunded.Text = string.Format("{0:RM #,#.##}", int.Parse(Session["acadFinancialFunded"].ToString()));
     }
 
+    protected void produceForm()
+    {
+        // Create a Document object
+        var document = new Document(PageSize.A4, 50, 50, 25, 25);
+
+        // Create a new PdfWriter object, specifying the output stream
+        var output = new FileStream(Server.MapPath("MyFirstPDF.pdf"), FileMode.Create);
+        var writer = PdfWriter.GetInstance(document, output);
+
+        // Open the Document for writing
+        document.Open();
+
+        // Read in the contents of the Receipt.htm file...
+        string contents = File.ReadAllText(Server.MapPath("~/LetterTemplate/Form.html"));
+        string APP_APPID = Session["APP_APPID"].ToString();
+
+        string sql = "SELECT * FROM APP_FORM WHERE APP_APPID = " + APP_APPID;
+        con.Open();
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = sql;
+        cmd.Connection = con;
+        OracleDataReader dr = null;
+        dr = cmd.ExecuteReader();
+        dr.Read();
+        contents = contents.Replace("[lblMatric]", dr["APP_MATRIC"].ToString());
+        contents = contents.Replace("[lblName]", dr["STUD_NAME"].ToString());
+        contents = contents.Replace("[lblDoB]", String.Format("{0:dd-MMM-yyyy}", dr["STUD_DOB"]));
+        contents = contents.Replace("[lblIC]", dr["STUD_IC"].ToString());
+        contents = contents.Replace("[lblContact]", dr["STUD_CONTACT"].ToString());
+        contents = contents.Replace("[lblEmail]", dr["STUD_EMAIL"].ToString());
+        contents = contents.Replace("[lblReligion]", dr["STUD_RELIGION"].ToString());
+        contents = contents.Replace("[lblCitizenship]", dr["STUD_CITIZEN"].ToString());
+        contents = contents.Replace("[lblRace]", dr["STUD_RACE"].ToString());
+        contents = contents.Replace("[lblAddress]", dr["STUD_ADDRESS"].ToString());
+        contents = contents.Replace("[lblNextKin]", dr["STUD_KIN"].ToString());
+        contents = contents.Replace("[lblEmergency]", dr["STUD_EMERCONT"].ToString());
+        contents = contents.Replace("[lblNextKinAddress]", dr["STUD_KINADDRESS"].ToString());
+
+        contents = contents.Replace("[lblProgramme]", "Bachelor Of Computer Science (Software Engineering)");
+        contents = contents.Replace("[lblFaculty]", "Computing");
+        contents = contents.Replace("[lblSemesterNorm]", "5/8");
+        contents = contents.Replace("[lblPassportNo]", "1234567890");
+        contents = contents.Replace("[lblPassportExDate]", "31/12/2020");
+        contents = contents.Replace("[lblCGPA]", "3.98");
+        contents = contents.Replace("[lblStatus]", "Active");
+        contents = contents.Replace("[lblGraduation]", "2018");
+        contents = contents.Replace("[lblField]", "-");
+
+        contents = contents.Replace("[lblProgType]", dr["PROG_TYPES"].ToString());
+        contents = contents.Replace("[lblProgName]", dr["PROG_NAME"].ToString());
+        contents = contents.Replace("[lblUniversity]", dr["PROG_UNIVERSITY"].ToString());
+        contents = contents.Replace("[lblCountry]", dr["PROG_COUNTRY"].ToString());
+        contents = contents.Replace("[lblStartDate]", String.Format("{0:dd-MMM-yyyy}", dr["PROG_STARTDATE"]));
+        contents = contents.Replace("[lblEndDate]", String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]));
+
+        contents = contents.Replace("[lblSources]", dr["FIN_SOURCES"].ToString());
+        contents = contents.Replace("[lblSponsorName]", dr["FIN_SPONNAME"].ToString());
+        contents = contents.Replace("[lblFee]", dr["FIN_FEE"].ToString());
+        contents = contents.Replace("[lblTransportation]", dr["FIN_TRAN"].ToString());
+        contents = contents.Replace("[lblAccommodation]", dr["FIN_ACCO"].ToString());
+        contents = contents.Replace("[lblMeal]", dr["FIN_MEAL"].ToString());
+        contents = contents.Replace("[lblContingency]", dr["FIN_CONT"].ToString());
+
+        var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(contents), null);
+
+        // Enumerate the elements, adding each one to the Document...
+        foreach (var htmlElement in parsedHtmlElements)
+            document.Add(htmlElement as IElement);
+
+        // Close the Document - this saves the document contents to the output stream
+        document.Close();
+    }
+
     protected void btnApprove_Click(object sender, EventArgs e)
     {
         string APP_APPID = Session["APP_APPID"].ToString();
@@ -122,13 +199,24 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Add(new OracleParameter("TNCAAID", "1"));
         cmd.Parameters.Add(new OracleParameter("TNCAADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("TNCAASTATUS", "6"));
+        cmd.Parameters.Add(new OracleParameter("TNCAASTATUS", "0"));
         cmd.Parameters.Add(new OracleParameter("TNCAACOMMENT", txtComment.Text));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
         cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();
+
+        sqlUpdate = "UPDATE APPLICATION SET STATUS = :STATUS WHERE APPID = :APP_APPID";
+        cmd.CommandText = sqlUpdate;
+        cmd.Parameters.Add(new OracleParameter("STATUS", 3));
+        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
         con.Close();
+
+        produceForm();
 
         MailMessage mail = new MailMessage();
         mail.To.Add(Session["acadStudEm"].ToString());
@@ -176,6 +264,14 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Add(new OracleParameter("TNCAACOMMENT", txtComment.Text));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
         cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
+
+        sqlUpdate = "UPDATE APPLICATION SET STATUS = :STATUS WHERE APPID = :APP_APPID";
+        cmd.CommandText = sqlUpdate;
+        cmd.Parameters.Add(new OracleParameter("STATUS", 4));
+        cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();

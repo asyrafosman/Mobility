@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <table class="nav-justified">
+        <tr>
+            <td class="auto-style1" colspan="2">
+                <div class="col-md-3" id="Div1" runat="server">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Styles/images/nophoto.png" Height="150px" ImageAlign="Middle" />
+                </div>
+            </td>
+            <td class="auto-style1" colspan="2"></td>
+            <td class="auto-style1" colspan="2">
+                <div class="col-md-3" id="imgPhoto" runat="server">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Styles/images/nophoto.png" Height="150px" ImageAlign="Middle" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                A. PROGRAMME DETAILS
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Program Type
+            </td>
+            <td>:</td>
+            <td>
+                [lblProgType]
+            </td>
+            <td class="auto-style1">
+                Programme Name
+            </td>
+            <td>:</td>
+            <td>
+                [lblProgName]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                University
+            </td>
+            <td>:</td>
+            <td class="auto-style1">
+                [lblUniversity]
+            </td>
+            <td class="auto-style1">
+                Country
+            </td>
+            <td>:</td>
+            <td class="auto-style1">
+                [lblCountry]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Start Date
+            </td>
+            <td>:</td>
+            <td>
+                [lblStartDate]
+            </td>
+            <td class="auto-style1">
+                End Date
+            </td>
+            <td>:</td>
+            <td>
+                [lblEndDate]
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                B. PERSONAL INFORMATION
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Name
+            </td>
+            <td>:</td>
+            <td>
+                [lblName]
+            </td>
+            <td class="auto-style1">
+                IC Number
+            </td>
+            <td>:</td>
+            <td>
+                [lblIC]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Date of Birth
+            </td>
+            <td>:</td>
+            <td>
+                [lblDoB]
+            </td>
+            <td class="auto-style1">
+                Matric. No
+            </td>
+            <td>:</td>
+            <td>
+                [lblMatric]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Contact Number
+            </td>
+            <td>:</td>
+            <td>
+                [lblContact]
+            </td>
+            <td class="auto-style1">
+                Email
+            </td>
+            <td>:</td>
+            <td>
+                [lblEmail]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Religion
+            </td>
+            <td>:</td>
+            <td>
+                [lblReligion]
+            </td>
+            <td class="auto-style1">
+                Citizenship
+            </td>
+            <td>:</td>
+            <td>
+                [lblCitizenship]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Race
+            </td>
+            <td>:</td>
+            <td>
+                [lblRace]
+            </td>
+            <td class="auto-style1">
+                Next of Kin
+            </td>
+            <td>:</td>
+            <td>
+                [lblNextKin]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td class="auto-style1">
+                Emergency Contact
+            </td>
+            <td>:</td>
+            <td>
+                [lblEmergency]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1" valign="top">
+                Home Address
+            </td>
+            <td valign="top">:</td>
+            <td valign="top">
+                [lblAddress]
+            </td>
+            <td class="auto-style1" valign="top">
+                Next of Kin’s Address
+            </td>
+            <td valign="top">:</td>
+            <td valign="top">
+                [lblNextKinAddress]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Passport Number
+            </td>
+            <td>:</td>
+            <td>
+                [lblPassportNo]
+            </td>
+            <td class="auto-style1">
+                Passport Expiry Date
+            </td>
+            <td>:</td>
+            <td>
+                [lblPassportExDate]
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                C. ACADEMIC INFORMATION
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Faculty Name
+            </td>
+            <td>:</td>
+            <td>
+                [lblFaculty]
+            </td>
+            <td class="auto-style1">
+                Semester/Norm
+            </td>
+            <td>:</td>
+            <td>
+                [lblSemesterNorm]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Programme
+            </td>
+            <td>:</td>
+            <td>
+                [lblProgramme]
+            </td>
+            <td class="auto-style1">
+                CGPA
+            </td>
+            <td>:</td>
+            <td>
+                [lblCGPA]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Field of Study
+            </td>
+            <td>:</td>
+            <td>
+                [lblField]
+            </td>
+            <td class="auto-style1">
+                Status
+            </td>
+            <td>:</td>
+            <td>
+                [lblStatus]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                Expected Graduation Year
+            </td>
+            <td>:</td>
+            <td>
+                [lblGraduation]
+            </td>
+            <td class="auto-style1">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="3">
+                            UTM
+                        </td>
+                        <td colspan="4">
+                            Host University
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Subject Code
+                        </td>
+                        <td>
+                           Subject Name
+                        </td>
+                        <td>
+                            Credit Hour
+                        </td>
+                        <td>
+                            Subject Code
+                        </td>
+                        <td>
+                            Subject Name
+                        </td>
+                        <td>
+                            Credit Hour
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <td>
+                            <asp:Label ID="lblUtmSubCode" runat="server" Text='<%# Eval("UTMSUB_SUBCODE") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblUtmSubName" runat="server" Text='<%# Eval("UTMSUB_SUBNAME") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblUtmSubCredit" runat="server" Text='<%# Eval("UTMSUB_SUBCREDIT") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblHSubCode" runat="server" Text='<%# Eval("HSUB_SUBCODE") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblHSubName" runat="server" Text='<%# Eval("HSUB_SUBNAME") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblHSubCredit" runat="server" Text='<%# Eval("HSUB_CREDIT") %>' />
+                        </td>
+                    </tr>-->
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                D. FINANCIAL DETAILS
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1" valign="top">
+                Financial Sources
+            </td>
+            <td valign="top">:</td>
+            <td valign="top">
+                [lblSources]
+            </td>
+            <td class="auto-style1" valign="top">
+                Sponsor Name
+            </td>
+            <td valign="top">:</td>
+            <td valign="top">
+                [lblSponsorName]
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style1" valign="top">&nbsp;</td>
+            <td valign="top">&nbsp;</td>
+            <td valign="top" colspan="2">
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            No.
+                        </td>
+                        <td class="auto-style1">
+                            Expenses Type
+                        </td>
+                        <td class="auto-style1">
+                            Amount Proposed
+                        </td>
+                        <td class="auto-style1">
+                            Amount Allocated
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td class="auto-style1">
+                            Program Fee
+                        </td>
+                        <td class="auto-style1">
+                            RM
+                            [lblFee]
+                        </td>
+                        <td class="auto-style1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td class="auto-style1">
+                           Transportation
+                        </td>
+                        <td class="auto-style1">
+                            RM
+                            [lblTransportation]
+                        </td>
+                        <td class="auto-style1"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                           3
+                        </td>
+                        <td class="auto-style1">
+                            Accommodation
+                        </td>
+                        <td class="auto-style1">
+                            RM
+                            [lblAccommodation]
+                        </td>
+                        <td class="auto-style1"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            4
+                        </td>
+                        <td class="auto-style1">
+                            Meal
+                        </td>
+                        <td class="auto-style1">
+                            RM
+                            [lblMeal]
+                        </td>
+                        <td class="auto-style1"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            5
+                        </td>
+                        <td class="auto-style1">
+                            Contingency
+                        </td>
+                        <td class="auto-style1">
+                            RM
+                            [lblContingency]
+                        </td>
+                        <td class="auto-style1"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td align="right" class="auto-style1">
+                            Total
+                        </td>
+                        <td class="auto-style1">
+                            RM
+                            [lblTotalProposed]
+                        </td>
+                        <td class="auto-style1">
+                            RM
+                            [lblTotalAllocated]
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td valign="top">&nbsp;</td>
+            <td valign="top">&nbsp;</td>
+        </tr>
+    </table>
+</body>
+</html>
