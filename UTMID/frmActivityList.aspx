@@ -154,7 +154,7 @@
     <asp:Repeater ID="rptActivities" runat="server">
         <HeaderTemplate><ul style="font-size: small"></HeaderTemplate>
         <ItemTemplate>
-            <asp:LinkButton ID="LinkButton1" OnClientClick="aspnetForm.target ='_blank';" runat="server" CommandArgument='<%# Eval("ACTIVITYID") %>' OnClick="ViewStudAct" Font-Bold="True"><span class="fa fa-caret-right fa-lg" style="color:maroon"></span>&nbsp;<%# Eval("ACTIVITYDATE", "{0:dd-MMM-yyyy}") %></asp:LinkButton>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ACTIVITYID", "~/UTMIAR/frmActivityDetails.aspx?ID={0}") %>' Font-Bold="True" onclick="window.open (this.href, 'popupwindow', 'width=750,height=500, scrollbars, resizable'); return false;"><i class="fa fa-caret-right fa-lg" style="color:maroon"></i>&nbsp;<%# Eval("ACTIVITYDATE", "{0:dd-MMM-yyyy}") %></asp:HyperLink>
             <br />
         </ItemTemplate>
         <FooterTemplate></ul></FooterTemplate>

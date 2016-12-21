@@ -24,8 +24,10 @@
             </td>
         </tr>
     </table>
-    <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_DASHBOARD&quot;"></asp:SqlDataSource>
+    <asp:Label ID="lblTxtSearchResult" runat="server" Text="Total Record Found: "></asp:Label>
+    <asp:Label ID="lblResult" runat="server" Text=""></asp:Label>
+    <br /><br />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_ACCEPTED&quot;"></asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -69,9 +71,9 @@
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_DASHBOARD&quot; WHERE (&quot;STUD_NAME&quot; LIKE '%' + ? + '%')">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;APP_ACCEPTED&quot; WHERE (&quot;STUD_NAME&quot; LIKE '%' + ? + '%')">
         <SelectParameters>
-            <asp:ControlParameter ControlID="txtSearch" Name="STUD_NAME" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtSearch" Name="STUD_NAME" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Style="width: 100%" EmptyDataText="No record found" Visible="False">

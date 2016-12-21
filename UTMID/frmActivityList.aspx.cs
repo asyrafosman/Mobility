@@ -51,7 +51,7 @@ public partial class UTMID_frmActivityList : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            string sesisem = Session["acadStudSv"].ToString();
+            string sesisem = Session["acadStudSs"].ToString();
             showProfile();
             BindRepeater();
         }
@@ -96,11 +96,5 @@ public partial class UTMID_frmActivityList : System.Web.UI.Page
                 }
             }
         }
-    }
-    protected void ViewStudAct(object sender, EventArgs e)
-    {
-        string ACTIVITYID = (sender as LinkButton).CommandArgument;
-        Session.Add("ACTIVITYID", ACTIVITYID);
-        Response.Redirect("frmActivityDetails.aspx");
     }
 }

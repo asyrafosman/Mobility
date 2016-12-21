@@ -121,7 +121,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         var document = new Document(PageSize.A4, 50, 50, 25, 25);
 
         // Create a new PdfWriter object, specifying the output stream
-        var output = new FileStream(Server.MapPath("MyFirstPDF.pdf"), FileMode.Create);
+        var output = new FileStream(Server.MapPath("MyPDF.pdf"), FileMode.Create);
         var writer = PdfWriter.GetInstance(document, output);
 
         // Open the Document for writing
@@ -153,6 +153,13 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         contents = contents.Replace("[lblEmergency]", dr["STUD_EMERCONT"].ToString());
         contents = contents.Replace("[lblNextKinAddress]", dr["STUD_KINADDRESS"].ToString());
 
+        contents = contents.Replace("[lblProgType]", dr["PROG_TYPES"].ToString());
+        contents = contents.Replace("[lblProgName]", dr["PROG_NAME"].ToString());
+        contents = contents.Replace("[lblUniversity]", dr["PROG_UNIVERSITY"].ToString());
+        contents = contents.Replace("[lblCountry]", dr["PROG_COUNTRY"].ToString());
+        contents = contents.Replace("[lblStartDate]", String.Format("{0:dd-MMM-yyyy}", dr["PROG_STARTDATE"]));
+        contents = contents.Replace("[lblEndDate]", String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]));
+
         contents = contents.Replace("[lblProgramme]", "Bachelor Of Computer Science (Software Engineering)");
         contents = contents.Replace("[lblFaculty]", "Computing");
         contents = contents.Replace("[lblSemesterNorm]", "5/8");
@@ -163,13 +170,6 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         contents = contents.Replace("[lblGraduation]", "2018");
         contents = contents.Replace("[lblField]", "-");
 
-        contents = contents.Replace("[lblProgType]", dr["PROG_TYPES"].ToString());
-        contents = contents.Replace("[lblProgName]", dr["PROG_NAME"].ToString());
-        contents = contents.Replace("[lblUniversity]", dr["PROG_UNIVERSITY"].ToString());
-        contents = contents.Replace("[lblCountry]", dr["PROG_COUNTRY"].ToString());
-        contents = contents.Replace("[lblStartDate]", String.Format("{0:dd-MMM-yyyy}", dr["PROG_STARTDATE"]));
-        contents = contents.Replace("[lblEndDate]", String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]));
-
         contents = contents.Replace("[lblSources]", dr["FIN_SOURCES"].ToString());
         contents = contents.Replace("[lblSponsorName]", dr["FIN_SPONNAME"].ToString());
         contents = contents.Replace("[lblFee]", dr["FIN_FEE"].ToString());
@@ -177,6 +177,34 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         contents = contents.Replace("[lblAccommodation]", dr["FIN_ACCO"].ToString());
         contents = contents.Replace("[lblMeal]", dr["FIN_MEAL"].ToString());
         contents = contents.Replace("[lblContingency]", dr["FIN_CONT"].ToString());
+
+        var subjectTable = new PdfPTable(6);
+        subjectTable.HorizontalAlignment = 0;
+        subjectTable.DefaultCell.Border = 0;
+        subjectTable.SetTotalWidth(new float[] {
+             (PageSize.A4.Rotate().Width - 20) / 6,
+             (PageSize.A4.Rotate().Width - 20) / 6,
+             (PageSize.A4.Rotate().Width - 20) / 6,
+             (PageSize.A4.Rotate().Width - 20) / 6,
+             (PageSize.A4.Rotate().Width - 20) / 6,
+             (PageSize.A4.Rotate().Width - 20) / 6
+        });
+
+        sql = "SELECT * FROM APP_SUBJECT WHERE UTMSUB_APPID = " + APP_APPID + "AND HSUB_STATUS = 1";
+        cmd.CommandText = sql;
+        cmd.Connection = con;
+        dr = cmd.ExecuteReader();
+        while (dr.Read())
+        {
+            subjectTable.AddCell(dr["UTMSUB_SUBCODE"].ToString());
+            subjectTable.AddCell(dr["UTMSUB_SUBNAME"].ToString());
+            subjectTable.AddCell(dr["UTMSUB_SUBCREDIT"].ToString());
+            subjectTable.AddCell(dr["HSUB_SUBCODE"].ToString());
+            subjectTable.AddCell(dr["HSUB_SUBNAME"].ToString());
+            subjectTable.AddCell(dr["HSUB_CREDIT"].ToString());
+        }
+        con.Close();
+        document.Add(subjectTable);
 
         var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(contents), null);
 
@@ -186,6 +214,10 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
 
         // Close the Document - this saves the document contents to the output stream
         document.Close();
+
+        Response.ContentType = "application/pdf";
+        Response.AddHeader("Content-Disposition", string.Format("attachment;filename=Application-{0}.pdf", Session["APP_APPID"].ToString()));
+        //Response.BinaryWrite(output.ToArray());
     }
 
     protected void btnApprove_Click(object sender, EventArgs e)
@@ -199,7 +231,6 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Add(new OracleParameter("TNCAAID", "1"));
         cmd.Parameters.Add(new OracleParameter("TNCAADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("TNCAASTATUS", "6"));
-        cmd.Parameters.Add(new OracleParameter("TNCAASTATUS", "0"));
         cmd.Parameters.Add(new OracleParameter("TNCAACOMMENT", txtComment.Text));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
         cmd.Parameters.Add(new OracleParameter("VER_ID", VER_ID));
@@ -216,7 +247,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Clear();
         con.Close();
 
-        produceForm();
+        //produceForm();
 
         MailMessage mail = new MailMessage();
         mail.To.Add(Session["acadStudEm"].ToString());
