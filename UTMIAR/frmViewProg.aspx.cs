@@ -1,50 +1,101 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
+using Oracle.ManagedDataAccess.Client;
 
 public partial class UTMIAR_frmViewProg : System.Web.UI.Page
 {
-    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
-
+    OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             // Declaration
-            //string id = Request.QueryString["ProgId"];
+            string PROG_PROGID = Session["PROG_PROGID"].ToString();
             String strSelect;
-            SqlCommand cmdSelect;
-            SqlDataReader drSelect;
-            //id = Session["pengguna"].ToString();
-            int id = 2;
+            OracleCommand cmdSelect;
+            OracleDataReader drSelect;
 
             con.Open();  // Open Connection with database
 
-            strSelect = "select Types, ProgName, University, Country, StartDate, EndDate, Deadline, IntakeSession, OpenTo from Programme where ProgId='" + id + "'";
-            cmdSelect = new SqlCommand(strSelect, con);
+            strSelect = "SELECT PROGID, TYPES, PROGNAME, UNIVERSITY, COUNTRY, STARTDATE, ENDDATE, DEADLINE, STATUS FROM PROGRAMME WHERE PROGID='" + PROG_PROGID + "'";
+            cmdSelect = new OracleCommand(strSelect, con);
             drSelect = cmdSelect.ExecuteReader();
             drSelect.Read();
 
-            DateTime startDate = Convert.ToDateTime(drSelect["StartDate"].ToString());
-            DateTime endDate = Convert.ToDateTime(drSelect["EndDate"].ToString());
-            DateTime deadLine = Convert.ToDateTime(drSelect["Deadline"].ToString());
-
-            lblTypes.Text = drSelect["Types"].ToString();
-            lblProgName.Text = drSelect["ProgName"].ToString();
-            lblUniversity.Text = drSelect["University"].ToString();
-            lblCountry.Text = drSelect["Country"].ToString();
-            lblStartDate.Text = startDate.ToShortDateString();
-            lblEndDate.Text = endDate.ToShortDateString();
-            lblDeadline.Text = deadLine.ToShortDateString();
-            lblIntakeSession.Text = drSelect["IntakeSession"].ToString();
-            lblOpenTo.Text = drSelect["OpenTo"].ToString();
+            ddlTypes.Text = drSelect["TYPES"].ToString();
+            txtProgName.Text = drSelect["PROGNAME"].ToString();
+            txtUniversity.Text = drSelect["UNIVERSITY"].ToString();
+            ddlCountry.SelectedValue = drSelect["COUNTRY"].ToString();
+            txtStartDate.Text = String.Format("{0:dd-MMM-yyyy}", drSelect["STARTDATE"]);
+            txtEndDate.Text = String.Format("{0:dd-MMM-yyyy}", drSelect["ENDDATE"]);
+            txtDeadline.Text = String.Format("{0:dd-MMM-yyyy}", drSelect["DEADLINE"]);
 
             con.Close();  // Close Connection with database
         }
     }
 
-    protected void btnUpdate_Click(object sender, EventArgs e)
+    protected void btnDraft_Click(object sender, EventArgs e)
     {
-        Response.Redirect("frmUpdateProg.aspx");
+        string PROG_PROGID = Session["PROG_PROGID"].ToString();
+        string strInsertProgramme = "UPDATE PROGRAMME SET TYPES = :TYPES, PROGNAME = :PROGNAME, UNIVERSITY = :UNIVERSITY, COUNTRY = :COUNTRY, STARTDATE = :STARTDATE, ENDDATE = :ENDDATE, DEADLINE = :DEADLINE, STATUS = :STATUS WHERE PROGID = :PROGID";
+
+        con.Open();  // Open Connection with database
+
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = strInsertProgramme;
+        cmd.Parameters.Add(new OracleParameter("TYPES", ddlTypes.Text));
+        cmd.Parameters.Add(new OracleParameter("PROGNAME", txtProgName.Text));
+        cmd.Parameters.Add(new OracleParameter("UNIVERSITY", txtUniversity.Text));
+        cmd.Parameters.Add(new OracleParameter("COUNTRY", ddlCountry.SelectedValue));
+        cmd.Parameters.Add(new OracleParameter("STARTDATE", DateTime.ParseExact(txtStartDate.Text, "dd-MMM-yyyy", null)));
+        cmd.Parameters.Add(new OracleParameter("ENDDATE", DateTime.ParseExact(txtEndDate.Text, "dd-MMM-yyyy", null)));
+        cmd.Parameters.Add(new OracleParameter("DEADLINE", DateTime.ParseExact(txtDeadline.Text, "dd-MMM-yyyy", null)));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "0"));
+        cmd.Parameters.Add(new OracleParameter("PROGID", PROG_PROGID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
+
+        con.Close();  // Close Connection with database
+
+        // Message Box
+        string script = "alert('New Programme Drafted.'); window.location.reload();\n";
+        Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", script, true);
+
+        Response.Redirect("frmProgramme.aspx");
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        string PROG_PROGID = Session["PROG_PROGID"].ToString();
+        // Declaration
+        string strInsertProgramme = "UPDATE PROGRAMME SET TYPES = :TYPES, PROGNAME = :PROGNAME, UNIVERSITY = :UNIVERSITY, COUNTRY = :COUNTRY, STARTDATE = :STARTDATE, ENDDATE = :ENDDATE, DEADLINE = :DEADLINE, STATUS = :STATUS WHERE PROGID = :PROGID";
+
+        con.Open();  // Open Connection with database
+
+        OracleCommand cmd = new OracleCommand();
+        cmd.CommandText = strInsertProgramme;
+        cmd.Parameters.Add(new OracleParameter("TYPES", ddlTypes.Text));
+        cmd.Parameters.Add(new OracleParameter("PROGNAME", txtProgName.Text));
+        cmd.Parameters.Add(new OracleParameter("UNIVERSITY", txtUniversity.Text));
+        cmd.Parameters.Add(new OracleParameter("COUNTRY", ddlCountry.SelectedValue));
+        cmd.Parameters.Add(new OracleParameter("STARTDATE", DateTime.ParseExact(txtStartDate.Text, "dd-MMM-yyyy", null)));
+        cmd.Parameters.Add(new OracleParameter("ENDDATE", DateTime.ParseExact(txtEndDate.Text, "dd-MMM-yyyy", null)));
+        cmd.Parameters.Add(new OracleParameter("DEADLINE", DateTime.ParseExact(txtDeadline.Text, "dd-MMM-yyyy", null)));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "1"));
+        cmd.Parameters.Add(new OracleParameter("PROGID", PROG_PROGID));
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
+
+        con.Close();  // Close Connection with database
+
+        // Message Box
+        string script = "alert('New Programme Added.'); window.location.reload();\n";
+        Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", script, true);
+
+        Response.Redirect("frmProgramme.aspx");
     }
 }

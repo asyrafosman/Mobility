@@ -14,19 +14,19 @@ public partial class UTMIAR_frmProgramme : System.Web.UI.Page
     }
     protected void ViewProg(object sender, EventArgs e)
     {
-        string id = (sender as LinkButton).CommandArgument;
-
+        string PROG_PROGID = (sender as LinkButton).CommandArgument;
+        Session.Add("PROG_PROGID", PROG_PROGID);
         Response.Redirect("frmViewProg.aspx");
     }
     protected void DeleteProg(object sender, EventArgs e)
     {
         con.Open();
-        string id = (sender as LinkButton).CommandArgument;
+        string PROG_PROGID = (sender as LinkButton).CommandArgument;
         //File.Delete(id);
 
-        string strQuery1 = "DELETE FROM Programme WHERE ProgId = '" + id + "'";
-        SqlCommand cmd2 = new SqlCommand(strQuery1, con);
-        cmd2.ExecuteNonQuery();
+        string strQuery1 = "DELETE FROM PROG_INBOX WHERE PROG_PROGID = '" + PROG_PROGID + "'";
+        SqlCommand cmd = new SqlCommand(strQuery1, con);
+        cmd.ExecuteNonQuery();
         GridView1.DataBind();
 
         con.Close();

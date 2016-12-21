@@ -312,57 +312,47 @@
         <tr>
             <td>
                 <asp:Label ID="lblStartDate" runat="server" Text="Start Date"></asp:Label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please enter a Programme Start Date" ForeColor="Red" ControlToValidate="txtStartDate">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="txtStartDate_CalendarExtender" runat="server" BehaviorID="txtStartDate_CalendarExtender" TargetControlID="txtStartDate" Format="dd/MM/yyyy" />
+                <ajaxToolkit:CalendarExtender ID="txtStartDate_CalendarExtender" runat="server" BehaviorID="txtStartDate_CalendarExtender" TargetControlID="txtStartDate" Format="dd-MMM-yyyy" />
             </td>
             <td>
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtStartDate" ControlToValidate="txtEndDate" ErrorMessage="End Date must be greater than Start Date" Operator="GreaterThan">&nbsp;</asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please enter a Programme End Date" ForeColor="Red" ControlToValidate="txtEndDate">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="txtEndDate_CalendarExtender" runat="server" BehaviorID="txtEndDate_CalendarExtender" TargetControlID="txtEndDate" Format="dd/MM/yyyy" />
+                <ajaxToolkit:CalendarExtender ID="txtEndDate_CalendarExtender" runat="server" BehaviorID="txtEndDate_CalendarExtender" TargetControlID="txtEndDate" Format="dd-MMM-yyyy" />
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="lblDeadline" runat="server" Text="Deadline"></asp:Label>
-                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a Application Deadline" ForeColor="Red" ControlToValidate="txtDeadline">*</asp:RequiredFieldValidator>--%>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a Application Deadline" ForeColor="Red" ControlToValidate="txtDeadline">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
                 <asp:TextBox ID="txtDeadline" runat="server"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="txtDeadline_CalendarExtender" runat="server" BehaviorID="txtDeadline_CalendarExtender" TargetControlID="txtDeadline" Format="dd/MM/yyyy" />
+                <ajaxToolkit:CalendarExtender ID="txtDeadline_CalendarExtender" runat="server" BehaviorID="txtDeadline_CalendarExtender" TargetControlID="txtDeadline" Format="dd-MMM-yyyy" />
             </td>
             <td>
-                <asp:Label ID="lblOpenTo" runat="server" Text="Open To"></asp:Label>
+                &nbsp;
             </td>
-            <td style="width: 1px">:</td>
-            <td rowspan="2">
-                <asp:CheckBoxList ID="cblOpenTo" runat="server" RepeatLayout="Flow">
-                    <asp:ListItem> Bachelor&#39;s Degree</asp:ListItem>
-                    <asp:ListItem> Master&#39;s Degree</asp:ListItem>
-                </asp:CheckBoxList>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="lblIntakeSession" runat="server" Text="Intake Session"></asp:Label>
-            </td>
-            <td style="width: 1px">:</td>
-            <td>
-                <asp:TextBox ID="txtIntakeSession" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
             <td style="width: 1px">&nbsp;</td>
+            <td>
+                &nbsp;
+            </td>
         </tr>
         <tr>
             <td colspan="6" style="text-align: center">
-                <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-akad btn-sm" OnClick="btnSave_Click" />
+                <asp:LinkButton ID="btnDraft" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnDraft_Click" ><i class="fa fa-floppy-o"></i>&nbsp;Draft</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnSubmit_Click"><i class="fa fa-share"></i>&nbsp;Submit</asp:LinkButton>
             </td>
         </tr>
     </table>

@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-list fa-lg"></span>&nbsp;List of Programmes</a></li>
+            <li class="active"><a><span class="fa fa-inbox fa-lg"></span>&nbsp;Inbox</a></li>
+            <li><a href=".aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Completed</a></li>
         </ul>
     </div>
     <table style="float: right">
@@ -33,33 +34,9 @@
     </table>
     <br>
     <br>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM &quot;PROGRAMME&quot;" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM &quot;PROG_INBOX&quot;" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>">
     </asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource1" EmptyDataText="No record found" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" Width="100%">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <%--<asp:BoundField DataField="PROGID" HeaderText="PROGID" SortExpression="PROGID" />--%>
-            <asp:BoundField DataField="TYPES" HeaderText="TYPES" SortExpression="TYPES" />
-            <asp:BoundField DataField="PROGNAME" HeaderText="PROGNAME" SortExpression="PROGNAME" />
-            <asp:BoundField DataField="UNIVERSITY" HeaderText="UNIVERSITY" SortExpression="UNIVERSITY" />
-            <asp:BoundField DataField="COUNTRY" HeaderText="COUNTRY" SortExpression="COUNTRY" />
-            <%--<asp:BoundField DataField="STARTDATE" HeaderText="STARTDATE" SortExpression="STARTDATE" />--%>
-            <%--<asp:BoundField DataField="ENDDATE" HeaderText="ENDDATE" SortExpression="ENDDATE" />--%>
-            <asp:BoundField DataField="DEADLINE" HeaderText="DEADLINE" SortExpression="DEADLINE" />
-            <%--<asp:BoundField DataField="INTAKESESSION" HeaderText="INTAKESESSION" SortExpression="INTAKESESSION" />--%>
-            <%--<asp:BoundField DataField="OPENTO" HeaderText="OPENTO" SortExpression="OPENTO" />--%>
-        </Columns>
-        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-        <SortedAscendingCellStyle BackColor="#FDF5AC" />
-        <SortedAscendingHeaderStyle BackColor="#4D0000" />
-        <SortedDescendingCellStyle BackColor="#FCF6C0" />
-        <SortedDescendingHeaderStyle BackColor="#820000" />
-    </asp:GridView>
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ProgId" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Visible="False" EmptyDataText="No record found">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:TemplateField HeaderText="No.">
@@ -69,21 +46,25 @@
                 <HeaderStyle HorizontalAlign="Center" Width="5%" />
                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="3%" />
             </asp:TemplateField>
-            <%--<asp:BoundField DataField="ProgId" HeaderText="ProgId" InsertVisible="False" ReadOnly="True" SortExpression="ProgId" />--%>
-            <asp:BoundField DataField="Types" HeaderText="Types" SortExpression="Types" />
-            <asp:BoundField DataField="ProgName" HeaderText="ProgName" SortExpression="ProgName" />
-            <asp:BoundField DataField="University" HeaderText="University" SortExpression="University" />
-            <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
-            <%--<asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />--%>
-            <%--<asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />--%>
-            <asp:BoundField DataField="Deadline" HeaderText="Deadline" SortExpression="Deadline" />
-            <%--<asp:BoundField DataField="IntakeSession" HeaderText="IntakeSession" SortExpression="IntakeSession" />--%>
-            <asp:BoundField DataField="OpenTo" HeaderText="OpenTo" SortExpression="OpenTo" />
+            <%--<asp:BoundField DataField="PROG_PROGID" HeaderText="PROG_PROGID" SortExpression="PROG_PROGID" />--%>
+            <asp:BoundField DataField="PROG_TYPES" HeaderText="Types" SortExpression="PROG_TYPES" />
+            <asp:BoundField DataField="PROG_PROGNAME" HeaderText="Programme Name" SortExpression="PROG_PROGNAME" />
+            <asp:BoundField DataField="PROG_UNIVERSITY" HeaderText="University" SortExpression="PROG_UNIVERSITY" />
+            <%--<asp:BoundField DataField="PROG_COUNTRY" HeaderText="PROG_COUNTRY" SortExpression="PROG_COUNTRY" />--%>
+            <%--<asp:BoundField DataField="PROG_STARTDATE" HeaderText="PROG_STARTDATE" SortExpression="PROG_STARTDATE" DataFormatString="{0:dd-MMM-yyyy}" />--%>
+            <%--<asp:BoundField DataField="PROG_ENDDATE" HeaderText="PROG_ENDDATE" SortExpression="PROG_ENDDATE" DataFormatString="{0:dd-MMM-yyyy}" />--%>
+            <asp:BoundField DataField="PROG_DEADLINE" HeaderText="Deadline" SortExpression="PROG_DEADLINE" DataFormatString="{0:dd-MMM-yyyy}" />
+            <%--<asp:BoundField DataField="PROG_STATUS" HeaderText="Status" SortExpression="PROG_STATUS" />--%>
+            <asp:TemplateField HeaderText="Status" SortExpression="PROG_STATUS">
+                <ItemTemplate>
+                    <asp:Label ID="Status" runat="server" Text='<%# Eval("PROG_STATUS").ToString() == "0" ? "Draft" : "Submitted" %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="">
                 <HeaderStyle Width="3%" />
              <ItemStyle Width="3%" />
                 <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("ProgId") %>'
+                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("PROG_PROGID") %>'
                         OnClick="ViewProg">
                         <span class="fa fa-search fa-lg"></span></asp:LinkButton>
                 </ItemTemplate>
@@ -94,7 +75,7 @@
                 <HeaderStyle Width="3%" />
              <ItemStyle Width="3%" />
                 <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("ProgId") %>'
+                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("PROG_PROGID") %>'
                         OnClick="DeleteProg" OnClientClick="return confirm('Are you sure to delete this programme?');">
                         <span class="fa fa-trash fa-lg"></span></asp:LinkButton>
                 </ItemTemplate>
@@ -112,11 +93,68 @@
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:UTMMobility %>" SelectCommand="SELECT * FROM [Programme] WHERE ([ProgName] LIKE '%' + @ProgName + '%')">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MOBILITY.XE %>" ProviderName="<%$ ConnectionStrings:MOBILITY.XE.ProviderName %>" SelectCommand="SELECT * FROM &quot;PROG_INBOX&quot; WHERE (&quot;PROG_PROGNAME&quot; = ?)">
         <SelectParameters>
-            <asp:ControlParameter ControlID="txtSearch" Name="ProgName" PropertyName="Text" Type="String" />
+            <asp:ControlParameter ControlID="txtSearch" Name="PROG_PROGNAME" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ProgId" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" Visible="False" EmptyDataText="No record found">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:TemplateField HeaderText="No.">
+                <ItemTemplate>
+                    <%#Container.DataItemIndex +1 %>.
+                </ItemTemplate>
+                <HeaderStyle HorizontalAlign="Center" Width="5%" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="3%" />
+            </asp:TemplateField>
+            <%--<asp:BoundField DataField="PROG_PROGID" HeaderText="PROG_PROGID" SortExpression="PROG_PROGID" />--%>
+            <asp:BoundField DataField="PROG_TYPES" HeaderText="Types" SortExpression="PROG_TYPES" />
+            <asp:BoundField DataField="PROG_PROGNAME" HeaderText="Programme Name" SortExpression="PROG_PROGNAME" />
+            <asp:BoundField DataField="PROG_UNIVERSITY" HeaderText="University" SortExpression="PROG_UNIVERSITY" />
+            <%--<asp:BoundField DataField="PROG_COUNTRY" HeaderText="PROG_COUNTRY" SortExpression="PROG_COUNTRY" />--%>
+            <%--<asp:BoundField DataField="PROG_STARTDATE" HeaderText="PROG_STARTDATE" SortExpression="PROG_STARTDATE" DataFormatString="{0:dd-MMM-yyyy}" />--%>
+            <%--<asp:BoundField DataField="PROG_ENDDATE" HeaderText="PROG_ENDDATE" SortExpression="PROG_ENDDATE" DataFormatString="{0:dd-MMM-yyyy}" />--%>
+            <asp:BoundField DataField="PROG_DEADLINE" HeaderText="Deadline" SortExpression="PROG_DEADLINE" DataFormatString="{0:dd-MMM-yyyy}" />
+            <%--<asp:BoundField DataField="PROG_STATUS" HeaderText="Status" SortExpression="PROG_STATUS" />--%>
+            <asp:TemplateField HeaderText="Status" SortExpression="PROG_STATUS">
+                <ItemTemplate>
+                    <asp:Label ID="Status" runat="server" Text='<%# Eval("PROG_STATUS").ToString() == "0" ? "Draft" : "Submitted" %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="">
+                <HeaderStyle Width="3%" />
+             <ItemStyle Width="3%" />
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("PROG_PROGID") %>'
+                        OnClick="ViewProg">
+                        <span class="fa fa-search fa-lg"></span></asp:LinkButton>
+                </ItemTemplate>
+                <HeaderStyle HorizontalAlign="Center" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="">
+                <HeaderStyle Width="3%" />
+             <ItemStyle Width="3%" />
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("PROG_PROGID") %>'
+                        OnClick="DeleteProg" OnClientClick="return confirm('Are you sure to delete this programme?');">
+                        <span class="fa fa-trash fa-lg"></span></asp:LinkButton>
+                </ItemTemplate>
+                <HeaderStyle HorizontalAlign="Center" />
+                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="5%" />
+            </asp:TemplateField>
+        </Columns>
+        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+        <SortedAscendingCellStyle BackColor="#FDF5AC" />
+        <SortedAscendingHeaderStyle BackColor="#4D0000" />
+        <SortedDescendingCellStyle BackColor="#FCF6C0" />
+        <SortedDescendingHeaderStyle BackColor="#820000" />
+    </asp:GridView>
     <br />
     <table style="border: 1px dotted #64001C; border-radius: 15px; width: 100%">
         <tr>

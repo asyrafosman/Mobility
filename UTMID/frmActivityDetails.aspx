@@ -1,6 +1,8 @@
-﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/UTMID/UTMIDMasterPage.master" AutoEventWireup="true" CodeFile="frmActivityDetails.aspx.cs" Inherits="UTMID_frmActivityDetails" %>
+﻿<%@ Page Title="ACAD2016." Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="frmActivityDetails.aspx.cs" Inherits="UTMID_frmActivityDetails" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
             <li class="active"><a><span class="fa fa-plane fa-lg"></span>&nbsp;Activity Details</a></li>

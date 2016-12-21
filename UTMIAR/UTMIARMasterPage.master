@@ -23,14 +23,14 @@
     <div id="menu" class="menu-bg">
         <ul class="left">
             <li class="home"><a href="Dashboard.aspx" class="icon-home"></a><span style="visibility: hidden;">---</span></li>
-            <%--<li><a href="frmProgramme.aspx">
-                <asp:Label ID="Label1" runat="server" Text="Programme" CssClass="textMenu"></asp:Label></a>
-                <ul id="ulProgramme" runat="server">
-                </ul>
-            </li>--%>
             <li><a href="frmInbox.aspx">
                 <asp:Label ID="Label6" runat="server" Text="Application" CssClass="textMenu"></asp:Label></a>
                 <ul id="ul1" runat="server">
+                </ul>
+            </li>
+            <li><a href="frmProgramme.aspx">
+                <asp:Label ID="Label1" runat="server" Text="Programme" CssClass="textMenu"></asp:Label></a>
+                <ul id="ulProgramme" runat="server">
                 </ul>
             </li>
             <li><a href="frmStudActivity.aspx">
