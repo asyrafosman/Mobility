@@ -12,7 +12,7 @@ public partial class FacultyDean_frmActivityDetails : System.Web.UI.Page
     OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
-        string ACTIVITYID = Session["ACTIVITYID"].ToString();
+        string ACTIVITYID = Request.QueryString["ID"];
         string sql = "SELECT * FROM ACTIVITY WHERE ACTIVITYID = " + ACTIVITYID;
         con.Open();
         OracleCommand cmd = new OracleCommand();

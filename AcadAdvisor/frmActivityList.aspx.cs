@@ -63,7 +63,7 @@ public partial class AcadAdvisor_frmListStudAct : System.Web.UI.Page
         lblProgramme.Text = Session["acadStudPr"].ToString();
         lblFaculty.Text = Session["acadStudFn"].ToString();
         lblMatric.Text = Session["acadStudMt"].ToString();
-        lblBilSemester.Text = Session["acadStudBs"].ToString() + " / " + Session["acadUserNs"].ToString();
+        lblBilSemester.Text = Session["acadStudBs"].ToString() + " / " + Session["acadStudNs"].ToString();
         //lblAA.Text = Session["acadStudSv"].ToString();
         lblToS.Text = Session["acadStudTs"].ToString() + " (Full Time)";
         lblEmail.Text = Session["acadStudEm"].ToString();
@@ -96,11 +96,5 @@ public partial class AcadAdvisor_frmListStudAct : System.Web.UI.Page
                 }
             }
         }
-    }
-    protected void ViewStudAct(object sender, EventArgs e)
-    {
-        string ACTIVITYID = (sender as LinkButton).CommandArgument;
-        Session.Add("ACTIVITYID", ACTIVITYID);
-        Response.Redirect("frmActivityDetails.aspx");
     }
 }

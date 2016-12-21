@@ -97,10 +97,4 @@ public partial class FacultyDean_frmActivityList : System.Web.UI.Page
             }
         }
     }
-    protected void ViewStudAct(object sender, EventArgs e)
-    {
-        string ACTIVITYID = (sender as LinkButton).CommandArgument;
-        Session.Add("ACTIVITYID", ACTIVITYID);
-        Response.Redirect("frmActivityDetails.aspx");
-    }
 }
