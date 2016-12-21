@@ -178,33 +178,41 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         contents = contents.Replace("[lblMeal]", dr["FIN_MEAL"].ToString());
         contents = contents.Replace("[lblContingency]", dr["FIN_CONT"].ToString());
 
-        var subjectTable = new PdfPTable(6);
-        subjectTable.HorizontalAlignment = 0;
-        subjectTable.DefaultCell.Border = 0;
-        subjectTable.SetTotalWidth(new float[] {
-             (PageSize.A4.Rotate().Width - 20) / 6,
-             (PageSize.A4.Rotate().Width - 20) / 6,
-             (PageSize.A4.Rotate().Width - 20) / 6,
-             (PageSize.A4.Rotate().Width - 20) / 6,
-             (PageSize.A4.Rotate().Width - 20) / 6,
-             (PageSize.A4.Rotate().Width - 20) / 6
-        });
+        //var subjectTable = new PdfPTable(6);
+        //subjectTable.HorizontalAlignment = 0;
+        //subjectTable.DefaultCell.Border = 0;
+        //subjectTable.SetTotalWidth(new float[] {
+        //     (PageSize.A4.Rotate().Width - 20) / 6,
+        //     (PageSize.A4.Rotate().Width - 20) / 6,
+        //     (PageSize.A4.Rotate().Width - 20) / 6,
+        //     (PageSize.A4.Rotate().Width - 20) / 6,
+        //     (PageSize.A4.Rotate().Width - 20) / 6,
+        //     (PageSize.A4.Rotate().Width - 20) / 6
+        //});
 
-        sql = "SELECT * FROM APP_SUBJECT WHERE UTMSUB_APPID = " + APP_APPID + "AND HSUB_STATUS = 1";
-        cmd.CommandText = sql;
-        cmd.Connection = con;
-        dr = cmd.ExecuteReader();
-        while (dr.Read())
-        {
-            subjectTable.AddCell(dr["UTMSUB_SUBCODE"].ToString());
-            subjectTable.AddCell(dr["UTMSUB_SUBNAME"].ToString());
-            subjectTable.AddCell(dr["UTMSUB_SUBCREDIT"].ToString());
-            subjectTable.AddCell(dr["HSUB_SUBCODE"].ToString());
-            subjectTable.AddCell(dr["HSUB_SUBNAME"].ToString());
-            subjectTable.AddCell(dr["HSUB_CREDIT"].ToString());
-        }
+        //sql = "SELECT * FROM APP_SUBJECT WHERE UTMSUB_APPID = " + APP_APPID + "AND HSUB_STATUS = 1";
+        //cmd.CommandText = sql;
+        //cmd.Connection = con;
+        //dr = cmd.ExecuteReader();
+        //while (dr.Read())
+        //{
+        //    subjectTable.AddCell(dr["UTMSUB_SUBCODE"].ToString());
+        //    subjectTable.AddCell(dr["UTMSUB_SUBNAME"].ToString());
+        //    subjectTable.AddCell(dr["UTMSUB_SUBCREDIT"].ToString());
+        //    subjectTable.AddCell(dr["HSUB_SUBCODE"].ToString());
+        //    subjectTable.AddCell(dr["HSUB_SUBNAME"].ToString());
+        //    subjectTable.AddCell(dr["HSUB_CREDIT"].ToString());
+        //}
         con.Close();
-        document.Add(subjectTable);
+        //document.Add(subjectTable);
+
+        var logo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Styles/images/UTMInternational.jpg"));
+        logo.SetAbsolutePosition(0, 0);
+        document.Add(logo);
+
+        var photo = iTextSharp.text.Image.GetInstance(Server.MapPath("~/Styles/images/nophoto.png"));
+        logo.SetAbsolutePosition(440, 800);
+        document.Add(photo);
 
         var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(contents), null);
 
@@ -217,7 +225,9 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
 
         Response.ContentType = "application/pdf";
         Response.AddHeader("Content-Disposition", string.Format("attachment;filename=Application-{0}.pdf", Session["APP_APPID"].ToString()));
-        //Response.BinaryWrite(output.ToArray());
+        Response.Buffer = true;
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.End();
     }
 
     protected void btnApprove_Click(object sender, EventArgs e)
@@ -247,36 +257,36 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Clear();
         con.Close();
 
-        //produceForm();
+        produceForm();
 
-        MailMessage mail = new MailMessage();
-        mail.To.Add(Session["acadStudEm"].ToString());
-        mail.From = new MailAddress(Session["acadUserEm"].ToString(), "UTM Deputy Vice Chancellor (Academic & International)", System.Text.Encoding.UTF8);
-        mail.Subject = "Application to " + Session["acadProgUniversity"].ToString() + " for " + Session["acadProgType"].ToString() + " programme.";
-        mail.SubjectEncoding = System.Text.Encoding.UTF8;
-        mail.Body = "Assalamualaikum dan Salam Sejahtera., <br /><br />Sekian terima kasih.";
-        mail.BodyEncoding = System.Text.Encoding.UTF8;
-        mail.IsBodyHtml = true;
-        mail.Priority = MailPriority.High;
-        SmtpClient user = new SmtpClient();
-        user.Credentials = new System.Net.NetworkCredential("mesaasyraf95@gmail.com", "062327504");
-        user.Port = 587;
-        user.Host = "smtp.gmail.com";
-        user.EnableSsl = true;
-        try
-        {
-            user.Send(mail);
-        }
-        catch (Exception ex)
-        {
-            Exception ex2 = ex;
-            string errorMessage = string.Empty;
-            while (ex2 != null)
-            {
-                errorMessage += ex2.ToString();
-                ex2 = ex2.InnerException;
-            }
-        }
+        //MailMessage mail = new MailMessage();
+        //mail.To.Add(Session["acadStudEm"].ToString());
+        //mail.From = new MailAddress(Session["acadUserEm"].ToString(), "UTM Deputy Vice Chancellor (Academic & International)", System.Text.Encoding.UTF8);
+        //mail.Subject = "Application to " + Session["acadProgUniversity"].ToString() + " for " + Session["acadProgType"].ToString() + " programme.";
+        //mail.SubjectEncoding = System.Text.Encoding.UTF8;
+        //mail.Body = "Assalamualaikum dan Salam Sejahtera., <br /><br />Sekian terima kasih.";
+        //mail.BodyEncoding = System.Text.Encoding.UTF8;
+        //mail.IsBodyHtml = true;
+        //mail.Priority = MailPriority.High;
+        //SmtpClient user = new SmtpClient();
+        //user.Credentials = new System.Net.NetworkCredential("mesaasyraf95@gmail.com", "062327504");
+        //user.Port = 587;
+        //user.Host = "smtp.gmail.com";
+        //user.EnableSsl = true;
+        //try
+        //{
+        //    user.Send(mail);
+        //}
+        //catch (Exception ex)
+        //{
+        //    Exception ex2 = ex;
+        //    string errorMessage = string.Empty;
+        //    while (ex2 != null)
+        //    {
+        //        errorMessage += ex2.ToString();
+        //        ex2 = ex2.InnerException;
+        //    }
+        //}
 
         Response.Redirect("Dashboard.aspx");
     }
