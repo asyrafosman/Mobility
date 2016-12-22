@@ -3,6 +3,8 @@ using System.Configuration;
 using System.Web.UI;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using System.Web.UI.WebControls;
+using System.Net;
 
 public partial class UTMIAR_frmViewForm : System.Web.UI.Page
 {
@@ -130,5 +132,26 @@ public partial class UTMIAR_frmViewForm : System.Web.UI.Page
                 }
             }
         }
+    }
+    protected void OpenFile(object sender, EventArgs e)
+    {
+        con.Open();
+        try
+        {
+            string fileExtension = (sender as LinkButton).CommandArgument;
+            string file = Server.MapPath(fileExtension);
+            WebClient User = new WebClient();
+            Byte[] FileBuffer = User.DownloadData(file);
+            if (FileBuffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                Response.BinaryWrite(FileBuffer);
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+        con.Close();
     }
 }

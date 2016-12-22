@@ -3,15 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="BodyContent" Runat="Server">
     <div id="cssmenu2">
         <ul style="font-size: small">
-            <li class="active"><a><span class="fa fa-bar-chart fa-lg"></span>&nbsp;Statistic</a></li>
+            <li class="active"><a><span class="fa fa-bar-chart fa-lg"></span>&nbsp;Report</a></li>
         </ul>
     </div>
+    <table style="float: right">
+        <tr>
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Statistic <span class="fa fa-arrow-right"></span>&nbsp;Report</asp:Label>
+            </td>
+        </tr>
+    </table>
     <br />
-    <h1>UNDER DEVELOPMENT USING POWER BI</h1>
-    <div class="progress">
-        <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-            <span class="sr-only">70% Complete</span>
-        </div>
-    </div>
+    <iframe width="915" height="590" src="https://app.powerbi.com/view?r=eyJrIjoiMmE1ZmZjNDItMzcyNS00ODVmLWE2OWItYWJiYmI4NjYzNWVhIiwidCI6IjBlMGRiMmFkLWM0MTYtNDdjNy04OGVjLWNlYWM0ZWU3Njc2NyIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
 </asp:Content>
 

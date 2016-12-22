@@ -96,7 +96,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
             }
         }
     }
-    protected void DownloadFile(object sender, EventArgs e)
+    protected void OpenFile(object sender, EventArgs e)
     {
         con.Open();
         try

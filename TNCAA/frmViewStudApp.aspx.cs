@@ -257,7 +257,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         cmd.Parameters.Clear();
         con.Close();
 
-        produceForm();
+        //produceForm();
 
         //MailMessage mail = new MailMessage();
         //mail.To.Add(Session["acadStudEm"].ToString());
