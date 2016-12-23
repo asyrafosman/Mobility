@@ -107,7 +107,7 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtComment" runat="server" Style="width: 75%"></asp:TextBox>
+                <asp:TextBox ID="txtComment" runat="server" style="width: 75%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
             </td>
         </tr>
         <tr>

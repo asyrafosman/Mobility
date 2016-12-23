@@ -239,7 +239,7 @@
                         </td>
                         <td class="auto-style1" style="background-color: #FFFBD6; font-weight: bold;">RM
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter an ammount" ForeColor="Red" ControlToValidate="txtTotalAllocated">*</asp:RequiredFieldValidator>
-                            <asp:TextBox ID="txtTotalAllocated" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtTotalAllocated" runat="server" style="width: 50%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
                             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                             <ajaxToolkit:FilteredTextBoxExtender ID="txtTotalAllocated_FilteredTextBoxExtender" runat="server" BehaviorID="txtTotalAllocated_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="txtTotalAllocated" />
                         </td>
@@ -260,7 +260,7 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtComment" runat="server" Style="width: 75%"></asp:TextBox>
+                <asp:TextBox ID="txtComment" runat="server" style="width: 75%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
             </td>
         </tr>
         <tr>

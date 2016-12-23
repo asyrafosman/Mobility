@@ -18,7 +18,7 @@
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" />
     <table style="width: 100%">
         <tr>
-            <td class="style158" style="height: 18px;" colspan="4">
+            <td class="style158" style="height: 18px;" colspan="5">
                 <span id="MainContent_BodyContent_Label37" style="font-weight: bold; font-style: normal;">Programme Details</span>
                 &nbsp;( <a><span class="fa fa-hand-pointer-o"></span></a>&nbsp; Click Field to Edit
                 )
@@ -34,7 +34,7 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:DropDownList ID="ddlTypes" runat="server">
+                <asp:DropDownList ID="ddlTypes" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;">
                     <asp:ListItem Value="none">- Please Choose -</asp:ListItem>
                     <asp:ListItem Value="GOP">Global Outreach Programme</asp:ListItem>
                     <asp:ListItem Value="IIP">International Invitation Programme</asp:ListItem>
@@ -44,12 +44,14 @@
                 </asp:DropDownList>
             </td>
             <td>
+                &nbsp;</td>
+            <td>
                 <asp:Label ID="lblProgName" runat="server" Text="Programme Name" ControlToValidate="lblProgName"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a Programme Name" ForeColor="Red" ControlToValidate="txtProgName">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtProgName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtProgName" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -59,15 +61,17 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtUniversity" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUniversity" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
             </td>
+            <td>
+                &nbsp;</td>
             <td>
                 <asp:Label ID="lblCountry" runat="server" Text="Country"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please choose a Country" InitialValue="none" ForeColor="Red" ControlToValidate="ddlCountry">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:DropDownList ID="ddlCountry" runat="server">
+                <asp:DropDownList ID="ddlCountry" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;">
                     <asp:ListItem Value="none">- Please Choose -</asp:ListItem>
                     <asp:ListItem Value="AF">Afghanistan</asp:ListItem>
                     <asp:ListItem Value="AL">Albania</asp:ListItem>
@@ -316,9 +320,11 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtStartDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtStartDate" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="txtStartDate_CalendarExtender" runat="server" BehaviorID="txtStartDate_CalendarExtender" TargetControlID="txtStartDate" Format="dd-MMM-yyyy" />
             </td>
+            <td>
+                &nbsp;</td>
             <td>
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtStartDate" ControlToValidate="txtEndDate" ErrorMessage="End Date must be greater than Start Date" Operator="GreaterThan">&nbsp;</asp:CompareValidator>
@@ -326,7 +332,7 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtEndDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEndDate" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="txtEndDate_CalendarExtender" runat="server" BehaviorID="txtEndDate_CalendarExtender" TargetControlID="txtEndDate" Format="dd-MMM-yyyy" />
             </td>
         </tr>
@@ -337,9 +343,11 @@
             </td>
             <td style="width: 1px">:</td>
             <td>
-                <asp:TextBox ID="txtDeadline" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDeadline" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;"></asp:TextBox>
                 <ajaxToolkit:CalendarExtender ID="txtDeadline_CalendarExtender" runat="server" BehaviorID="txtDeadline_CalendarExtender" TargetControlID="txtDeadline" Format="dd-MMM-yyyy" />
             </td>
+            <td>
+                &nbsp;</td>
             <td>
                 &nbsp;
             </td>
@@ -349,7 +357,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="6" style="text-align: center">
+            <td colspan="7" style="text-align: center">
                 <asp:LinkButton ID="btnDraft" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnDraft_Click" ><i class="fa fa-floppy-o"></i>&nbsp;Draft</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-akad btn-sm" OnClick="btnSubmit_Click"><i class="fa fa-share"></i>&nbsp;Submit</asp:LinkButton>
