@@ -9,8 +9,8 @@ public partial class AA_AAMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "PM DR. RADZIAH MOHAMAD";
-        Session["acadUserEm"] = "radziahm@utm.my";
+        Session["acadUserNm"] = "PM DR. ISMAIL BIN MAT AMIN";
+        Session["acadUserEm"] = "ismailma@utm.my";
         Session["acadUserTl"] = "07-5538802";
         Session["acadUserPos"] = "Profesor Madya (Ds54)";
         Session["acadUserPHD"] = "10-AUG-2005";

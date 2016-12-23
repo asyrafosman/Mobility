@@ -104,7 +104,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("UTMIARID", "1"));
+        cmd.Parameters.Add(new OracleParameter("UTMIARID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("UTMIARDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "3"));
         cmd.Parameters.Add(new OracleParameter("UTMIARCOMMENT", txtComment.Text));
@@ -127,7 +127,7 @@ public partial class UTMIAR_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("UTMIARID", "1"));
+        cmd.Parameters.Add(new OracleParameter("UTMIARID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("UTMIARDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "2"));
         cmd.Parameters.Add(new OracleParameter("UTMIARCOMMENT", txtComment.Text));

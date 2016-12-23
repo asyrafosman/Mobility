@@ -25,7 +25,7 @@ public partial class AcadAdvisor_frmViewStudApp : System.Web.UI.Page
         Session["acadStudNm"] = dr["STUD_NAME"].ToString();
         Session["acadStudTl"] = dr["STUD_CONTACT"].ToString();
         Session["acadStudEm"] = dr["STUD_EMAIL"].ToString();
-        Session["acadStudSv"] = dr["VER_SVID"].ToString();
+        Session["acadStudSv"] = "Dr. Ismail Bin Mat Amin";
 
         Session["acadStudSs"] = "201620171";
         Session["acadStudPr"] = "Bachelor Of Computer Science (Software Engineering)";
@@ -76,7 +76,7 @@ public partial class AcadAdvisor_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("ID", "1"));
+        cmd.Parameters.Add(new OracleParameter("ID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TODAYSDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("SVSTATUS", "2"));
         cmd.Parameters.Add(new OracleParameter("COMMENTTEXT", txtComment.Text));
@@ -105,7 +105,7 @@ public partial class AcadAdvisor_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("SVID", "1"));
+        cmd.Parameters.Add(new OracleParameter("SVID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("SVDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("SVSTATUS", "3"));
         cmd.Parameters.Add(new OracleParameter("SVCOMMENT", txtComment.Text));

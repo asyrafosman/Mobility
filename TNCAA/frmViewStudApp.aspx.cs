@@ -238,7 +238,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("TNCAAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TNCAAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TNCAADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("TNCAASTATUS", "6"));
         cmd.Parameters.Add(new OracleParameter("TNCAACOMMENT", txtComment.Text));
@@ -299,7 +299,7 @@ public partial class TNCAA_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("TNCAAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TNCAAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TNCAADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("TNCAASTATUS", "7"));
         cmd.Parameters.Add(new OracleParameter("TNCAACOMMENT", txtComment.Text));

@@ -126,7 +126,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("TDAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TDAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("TDASTATUS", "2"));
         cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));
@@ -155,7 +155,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("TDAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TDAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("TDASTATUS", "5"));
         cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));
@@ -184,7 +184,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("TDAID", "1"));
+        cmd.Parameters.Add(new OracleParameter("TDAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("TDASTATUS", "4"));
         cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));

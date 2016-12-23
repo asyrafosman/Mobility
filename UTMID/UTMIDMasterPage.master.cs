@@ -10,7 +10,7 @@ public partial class UTMID_UTMIDMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "UTMI DIRECTOR";
+        Session["acadUserNm"] = "PROF DR NOR HANIZA SARMIN";
 
         if (!IsPostBack)
         {

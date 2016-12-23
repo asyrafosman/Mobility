@@ -111,7 +111,7 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("UTMIDID", "1"));
+        cmd.Parameters.Add(new OracleParameter("UTMIDID", Session["acadUserNm"].ToString()Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("UTMIDDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIDSTATUS", "4"));
         cmd.Parameters.Add(new OracleParameter("UTMIDCOMMENT", txtComment.Text));
@@ -133,7 +133,7 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("UTMIDID", "1"));
+        cmd.Parameters.Add(new OracleParameter("UTMIDID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("UTMIDDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIDSTATUS", "5"));
         cmd.Parameters.Add(new OracleParameter("UTMIDCOMMENT", txtComment.Text));
@@ -162,7 +162,7 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
         con.Open();
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("UTMIDID", "1"));
+        cmd.Parameters.Add(new OracleParameter("UTMIDID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("UTMIDDATE", DateTime.Today.ToString("dd-MMM-yyyy")));
         cmd.Parameters.Add(new OracleParameter("UTMIDSTATUS", "2"));
         cmd.Parameters.Add(new OracleParameter("UTMIDCOMMENT", txtComment.Text));
