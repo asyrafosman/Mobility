@@ -180,9 +180,43 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
     {
         string APP_APPID = Session["APP_APPID"].ToString();
         string VER_ID = Session["VER_ID"].ToString();
-        string sqlUpdate = "UPDATE VERIFICATION SET TDAID = :TDAID, TDADATE = :TDADATE, TDASTATUS = :TDASTATUS, TDACOMMENT = :TDACOMMENT, UTMIARSTATUS = :UTMIARSTATUS WHERE APPID = :APP_APPID AND VERID = :VER_ID";
+        string sqlUpdate = null;
         con.Open();
         OracleCommand cmd = new OracleCommand();
+        foreach (RepeaterItem item in rptSubjects.Items)
+        {
+            // Checking the item is a data item
+            if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label HSUB_SUBCODE = item.FindControl("HSUB_SUBCODE") as Label;
+                RadioButton Approve = item.FindControl("Approve") as RadioButton;
+                if (Approve != null && Approve.Checked)
+                {
+                    sqlUpdate = "UPDATE HSUBJECT SET STATUS = :STATUS WHERE APPID = :APPID AND SUBJECTCODE = :SUBJECTCODE";
+                    cmd.CommandText = sqlUpdate;
+                    cmd.Parameters.Add(new OracleParameter("STATUS", "Approve"));
+                    cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
+                    cmd.Parameters.Add(new OracleParameter("SUBJECTCODE", HSUB_SUBCODE));
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                }
+                RadioButton Disapprove = item.FindControl("Disapprove") as RadioButton;
+                if (Disapprove != null && Disapprove.Checked)
+                {
+                    sqlUpdate = "UPDATE HSUBJECT SET STATUS = :STATUS WHERE APPID = :APPID AND SUBJECTCODE = :SUBJECTCODE";
+                    cmd.CommandText = sqlUpdate;
+                    cmd.Parameters.Add(new OracleParameter("STATUS", "Disapprove"));
+                    cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
+                    cmd.Parameters.Add(new OracleParameter("SUBJECTCODE", HSUB_SUBCODE));
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                }
+            }
+        }
+
+        sqlUpdate = "UPDATE VERIFICATION SET TDAID = :TDAID, TDADATE = :TDADATE, TDASTATUS = :TDASTATUS, TDACOMMENT = :TDACOMMENT, UTMIARSTATUS = :UTMIARSTATUS WHERE APPID = :APP_APPID AND VERID = :VER_ID";
         cmd.CommandText = sqlUpdate;
         cmd.Parameters.Add(new OracleParameter("TDAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));

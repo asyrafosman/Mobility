@@ -9,7 +9,7 @@ public partial class FacultyDean_DeanMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "Prof. Dr. Abd.Samad Bin Haji Ismail";
+        Session["acadUserNm"] = "Prof. Dr. Abd. Samad Bin Haji Ismail";
         Session["acadUserEm"] = "abdsamadm@utm.my";
         Session["acadUserTl"] = "07-5532000";
         Session["acadUserPos"] = "Profesor (VK7)";
