@@ -4,13 +4,14 @@
     <div id="cssmenu2">
         <ul style="font-size: small">
             <li class="active"><a><span class="fa fa-inbox fa-lg"></span>&nbsp;Inbox</a></li>
+            <li><a href="frmProgOngoing.aspx"><span class="fa fa-calendar-o fa-lg"></span>&nbsp;Ongoing</a></li>
             <li><a href="frmProgComplete.aspx"><span class="fa fa-check fa-lg"></span>&nbsp;Completed</a></li>
         </ul>
     </div>
     <table style="float: right">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Ongoing Programme</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="" Font-Bold="True">Progamme <span class="fa fa-arrow-right"></span>&nbsp;Programme Inbox</asp:Label>
             </td>
         </tr>
     </table>
