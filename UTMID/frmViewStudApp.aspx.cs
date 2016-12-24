@@ -145,7 +145,7 @@ public partial class UTMID_frmViewStudApp : System.Web.UI.Page
 
         sqlUpdate = "UPDATE APPLICATION SET STATUS = :STATUS WHERE APPID = :APP_APPID";
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("STATUS", 4));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "Rejected"));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();

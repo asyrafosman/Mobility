@@ -138,7 +138,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
 
         sqlUpdate = "UPDATE APPLICATION SET STATUS = :STATUS WHERE APPID = :APP_APPID";
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("STATUS", 2));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "Need to modify"));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
@@ -167,7 +167,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
 
         sqlUpdate = "UPDATE APPLICATION SET STATUS = :STATUS WHERE APPID = :APP_APPID";
         cmd.CommandText = sqlUpdate;
-        cmd.Parameters.Add(new OracleParameter("STATUS", 4));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "Rejected"));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
@@ -183,6 +183,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
         string sqlUpdate = null;
         con.Open();
         OracleCommand cmd = new OracleCommand();
+        sqlUpdate = "UPDATE APP_SUBJECT SET HSUB_STATUS = :HSUB_STATUS WHERE HSUB_APPID = :HSUB_APPID AND HSUB_SUBCODE = :HSUB_SUBCODE";
         foreach (RepeaterItem item in rptSubjects.Items)
         {
             // Checking the item is a data item
@@ -192,11 +193,10 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
                 RadioButton Approve = item.FindControl("Approve") as RadioButton;
                 if (Approve != null && Approve.Checked)
                 {
-                    sqlUpdate = "UPDATE HSUBJECT SET STATUS = :STATUS WHERE APPID = :APPID AND SUBJECTCODE = :SUBJECTCODE";
                     cmd.CommandText = sqlUpdate;
-                    cmd.Parameters.Add(new OracleParameter("STATUS", "Approve"));
-                    cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
-                    cmd.Parameters.Add(new OracleParameter("SUBJECTCODE", HSUB_SUBCODE));
+                    cmd.Parameters.Add(new OracleParameter("HSUB_STATUS", "Approve"));
+                    cmd.Parameters.Add(new OracleParameter("HSUB_APPID", APP_APPID));
+                    cmd.Parameters.Add(new OracleParameter("HSUB_SUBCODE", HSUB_SUBCODE));
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
@@ -204,11 +204,10 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
                 RadioButton Disapprove = item.FindControl("Disapprove") as RadioButton;
                 if (Disapprove != null && Disapprove.Checked)
                 {
-                    sqlUpdate = "UPDATE HSUBJECT SET STATUS = :STATUS WHERE APPID = :APPID AND SUBJECTCODE = :SUBJECTCODE";
                     cmd.CommandText = sqlUpdate;
-                    cmd.Parameters.Add(new OracleParameter("STATUS", "Disapprove"));
-                    cmd.Parameters.Add(new OracleParameter("APPID", APP_APPID));
-                    cmd.Parameters.Add(new OracleParameter("SUBJECTCODE", HSUB_SUBCODE));
+                    cmd.Parameters.Add(new OracleParameter("HSUB_STATUS", "Disapprove"));
+                    cmd.Parameters.Add(new OracleParameter("HSUB_APPID", APP_APPID));
+                    cmd.Parameters.Add(new OracleParameter("HSUB_SUBCODE", HSUB_SUBCODE));
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
@@ -220,7 +219,8 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
         cmd.CommandText = sqlUpdate;
         cmd.Parameters.Add(new OracleParameter("TDAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
-        cmd.Parameters.Add(new OracleParameter("TDASTATUS", "4"));
+        //cmd.Parameters.Add(new OracleParameter("TDASTATUS", "4"));
+        cmd.Parameters.Add(new OracleParameter("TDASTATUS", "0"));
         cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));
         cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "0"));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));

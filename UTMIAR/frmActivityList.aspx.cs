@@ -26,7 +26,7 @@ public partial class UTMIAR_frmActivityList : System.Web.UI.Page
         Session["acadStudNm"] = dr["STUD_NAME"].ToString();
         Session["acadStudTl"] = dr["STUD_CONTACT"].ToString();
         Session["acadStudEm"] = dr["STUD_EMAIL"].ToString();
-        //Session["acadStudSv"] = dr["VER_SVID"].ToString();
+        Session["acadStudSv"] = "Pm Dr. Ismail Bin Mat Amin";
 
         Session["acadStudSs"] = "201620171";
         Session["acadStudPr"] = "Bachelor Of Computer Science (Software Engineering)";
@@ -64,7 +64,7 @@ public partial class UTMIAR_frmActivityList : System.Web.UI.Page
         lblFaculty.Text = Session["acadStudFn"].ToString();
         lblMatric.Text = Session["acadStudMt"].ToString();
         lblBilSemester.Text = Session["acadStudBs"].ToString() + " / " + Session["acadStudNs"].ToString();
-        //lblAA.Text = Session["acadStudSv"].ToString();
+        lblAA.Text = Session["acadStudSv"].ToString();
         lblToS.Text = Session["acadStudTs"].ToString() + " (Full Time)";
         lblEmail.Text = Session["acadStudEm"].ToString();
         lblPhone.Text = Session["acadStudTl"].ToString();

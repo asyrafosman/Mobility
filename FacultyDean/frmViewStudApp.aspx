@@ -199,10 +199,10 @@
                                     <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" CommandArgument='<%# Eval("HSUB_FILEPATH") %>' OnClick="OpenFile"><i class="fa fa-paperclip fa-lg" style="color:maroon"></i>&nbsp;</asp:HyperLink>
                                 </td>
                                 <td>
-                                    <asp:RadioButton ID="Approve" runat="server"  GroupName="Subject"/>
+                                    <asp:RadioButton ID="Approve" runat="server" GroupName="Subject"/>
                                 </td>
                                 <td>
-                                    <asp:RadioButton ID="Disapprove" runat="server"  GroupName="Subject"/>
+                                    <asp:RadioButton ID="Disapprove" runat="server" GroupName="Subject"/>
                                 </td>
                             </tr>
                         </ItemTemplate>

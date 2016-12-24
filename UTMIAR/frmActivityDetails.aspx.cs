@@ -23,7 +23,7 @@ public partial class UTMIAR_frmActivityDetails : System.Web.UI.Page
         dr.Read();
         lblDate.Text = dr["ACTIVITYDATE"].ToString();
         lblTitle.Text = dr["TITLE"].ToString();
-        imgActivity.ImageUrl = "../Styles/images/" + dr["IMAGE"].ToString();
+        imgActivity.ImageUrl = "../Styles/images/" + dr["IMAGENAME"].ToString();
         lblDetails.Text = dr["BLOG"].ToString();
         con.Close();
     }
