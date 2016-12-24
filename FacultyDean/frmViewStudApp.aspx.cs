@@ -219,8 +219,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
         cmd.CommandText = sqlUpdate;
         cmd.Parameters.Add(new OracleParameter("TDAID", Session["acadUserNm"].ToString()));
         cmd.Parameters.Add(new OracleParameter("TDADATE", DateTime.Today.ToString("dd-MMM-yyyy")));
-        //cmd.Parameters.Add(new OracleParameter("TDASTATUS", "4"));
-        cmd.Parameters.Add(new OracleParameter("TDASTATUS", "0"));
+        cmd.Parameters.Add(new OracleParameter("TDASTATUS", "4"));
         cmd.Parameters.Add(new OracleParameter("TDACOMMENT", txtComment.Text));
         cmd.Parameters.Add(new OracleParameter("UTMIARSTATUS", "0"));
         cmd.Parameters.Add(new OracleParameter("APP_APPID", APP_APPID));
