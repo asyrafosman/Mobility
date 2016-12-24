@@ -10,12 +10,12 @@ public partial class UTMID_UTMIDMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "PROF DR NOR HANIZA SARMIN";
+        Session["acadUserNm"] = "Prof Dr Nor Haniza Sarmin";
 
         if (!IsPostBack)
         {
             string sesisem = Session["acadUserSs"].ToString();
-            lblLoggedInUser.Text = Session["acadUserNm"].ToString();
+            lblLoggedInUser.Text = Session["acadUserNm"].ToString().ToUpper();
         }
     }
 

@@ -9,7 +9,7 @@ public partial class TNCAA_TNCAAMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "PROF. DR. ROSE ALINDA ALIAS";
+        Session["acadUserNm"] = "Prof. Dr. Rose Alinda Alias";
         Session["acadUserEm"] = "dvcai@utm.my";
         Session["acadUserTl"] = "07-5530328";
         Session["acadUserPos"] = "Profesor (VK7)";
@@ -22,7 +22,7 @@ public partial class TNCAA_TNCAAMasterPage : System.Web.UI.MasterPage
             string sesisem = Session["acadUserSs"].ToString();
             showProfile();
             showAchievement();
-            lblLoggedInUser.Text = Session["acadUserNm"].ToString();
+            lblLoggedInUser.Text = Session["acadUserNm"].ToString().ToUpper();
         }
     }
 
@@ -126,7 +126,7 @@ public partial class TNCAA_TNCAAMasterPage : System.Web.UI.MasterPage
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
+        lblName.Text = Session["acadUserNm"].ToString().ToUpper();
         lblEmail.Text = Session["acadUserEm"].ToString();
         lblTel.Text = Session["acadUserTl"].ToString();
         lblNoStaff.Text = Session["acadUserNoStaff"].ToString();

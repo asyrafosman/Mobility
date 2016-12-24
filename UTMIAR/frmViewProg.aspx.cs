@@ -19,12 +19,12 @@ public partial class UTMIAR_frmViewProg : System.Web.UI.Page
 
             con.Open();  // Open Connection with database
 
-            strSelect = "SELECT PROGID, TYPES, PROGNAME, UNIVERSITY, COUNTRY, STARTDATE, ENDDATE, DEADLINE, STATUS FROM PROGRAMME WHERE PROGID='" + PROG_PROGID + "'";
+            strSelect = "SELECT PROGID, TYPE, PROGNAME, UNIVERSITY, COUNTRY, STARTDATE, ENDDATE, DEADLINE, STATUS FROM PROGRAMME WHERE PROGID='" + PROG_PROGID + "'";
             cmdSelect = new OracleCommand(strSelect, con);
             drSelect = cmdSelect.ExecuteReader();
             drSelect.Read();
 
-            ddlTypes.Text = drSelect["TYPES"].ToString();
+            ddlTypes.Text = drSelect["TYPE"].ToString();
             txtProgName.Text = drSelect["PROGNAME"].ToString();
             txtUniversity.Text = drSelect["UNIVERSITY"].ToString();
             ddlCountry.SelectedValue = drSelect["COUNTRY"].ToString();
@@ -39,20 +39,20 @@ public partial class UTMIAR_frmViewProg : System.Web.UI.Page
     protected void btnDraft_Click(object sender, EventArgs e)
     {
         string PROG_PROGID = Session["PROG_PROGID"].ToString();
-        string strInsertProgramme = "UPDATE PROGRAMME SET TYPES = :TYPES, PROGNAME = :PROGNAME, UNIVERSITY = :UNIVERSITY, COUNTRY = :COUNTRY, STARTDATE = :STARTDATE, ENDDATE = :ENDDATE, DEADLINE = :DEADLINE, STATUS = :STATUS WHERE PROGID = :PROGID";
+        string strInsertProgramme = "UPDATE PROGRAMME SET TYPE = :TYPE, PROGNAME = :PROGNAME, UNIVERSITY = :UNIVERSITY, COUNTRY = :COUNTRY, STARTDATE = :STARTDATE, ENDDATE = :ENDDATE, DEADLINE = :DEADLINE, STATUS = :STATUS WHERE PROGID = :PROGID";
 
         con.Open();  // Open Connection with database
 
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = strInsertProgramme;
-        cmd.Parameters.Add(new OracleParameter("TYPES", ddlTypes.Text));
+        cmd.Parameters.Add(new OracleParameter("TYPE", ddlTypes.Text));
         cmd.Parameters.Add(new OracleParameter("PROGNAME", txtProgName.Text));
         cmd.Parameters.Add(new OracleParameter("UNIVERSITY", txtUniversity.Text));
         cmd.Parameters.Add(new OracleParameter("COUNTRY", ddlCountry.SelectedValue));
         cmd.Parameters.Add(new OracleParameter("STARTDATE", DateTime.ParseExact(txtStartDate.Text, "dd-MMM-yyyy", null)));
         cmd.Parameters.Add(new OracleParameter("ENDDATE", DateTime.ParseExact(txtEndDate.Text, "dd-MMM-yyyy", null)));
         cmd.Parameters.Add(new OracleParameter("DEADLINE", DateTime.ParseExact(txtDeadline.Text, "dd-MMM-yyyy", null)));
-        cmd.Parameters.Add(new OracleParameter("STATUS", "0"));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "Draft"));
         cmd.Parameters.Add(new OracleParameter("PROGID", PROG_PROGID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
@@ -71,20 +71,20 @@ public partial class UTMIAR_frmViewProg : System.Web.UI.Page
     {
         string PROG_PROGID = Session["PROG_PROGID"].ToString();
         // Declaration
-        string strInsertProgramme = "UPDATE PROGRAMME SET TYPES = :TYPES, PROGNAME = :PROGNAME, UNIVERSITY = :UNIVERSITY, COUNTRY = :COUNTRY, STARTDATE = :STARTDATE, ENDDATE = :ENDDATE, DEADLINE = :DEADLINE, STATUS = :STATUS WHERE PROGID = :PROGID";
+        string strInsertProgramme = "UPDATE PROGRAMME SET TYPE = :TYPE, PROGNAME = :PROGNAME, UNIVERSITY = :UNIVERSITY, COUNTRY = :COUNTRY, STARTDATE = :STARTDATE, ENDDATE = :ENDDATE, DEADLINE = :DEADLINE, STATUS = :STATUS WHERE PROGID = :PROGID";
 
         con.Open();  // Open Connection with database
 
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = strInsertProgramme;
-        cmd.Parameters.Add(new OracleParameter("TYPES", ddlTypes.Text));
+        cmd.Parameters.Add(new OracleParameter("TYPE", ddlTypes.Text));
         cmd.Parameters.Add(new OracleParameter("PROGNAME", txtProgName.Text));
         cmd.Parameters.Add(new OracleParameter("UNIVERSITY", txtUniversity.Text));
         cmd.Parameters.Add(new OracleParameter("COUNTRY", ddlCountry.SelectedValue));
         cmd.Parameters.Add(new OracleParameter("STARTDATE", DateTime.ParseExact(txtStartDate.Text, "dd-MMM-yyyy", null)));
         cmd.Parameters.Add(new OracleParameter("ENDDATE", DateTime.ParseExact(txtEndDate.Text, "dd-MMM-yyyy", null)));
         cmd.Parameters.Add(new OracleParameter("DEADLINE", DateTime.ParseExact(txtDeadline.Text, "dd-MMM-yyyy", null)));
-        cmd.Parameters.Add(new OracleParameter("STATUS", "1"));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "Submitted"));
         cmd.Parameters.Add(new OracleParameter("PROGID", PROG_PROGID));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();

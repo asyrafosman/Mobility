@@ -184,7 +184,7 @@
                                     <asp:Label ID="lblUtmSubName" runat="server" Text='<%# Eval("UTMSUB_SUBNAME") %>' />
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblUtmSubCredit" runat="server" Text='<%# Eval("UTMSUB_SUBCREDIT") %>' />
+                                    <asp:Label ID="lblUtmSubCredit" runat="server" Text='<%# Eval("UTMSUB_CREDIT") %>' />
                                 </td>
                                 <td>
                                     <asp:Label ID="lblHSubCode" runat="server" Text='<%# Eval("HSUB_SUBCODE") %>' />
@@ -196,7 +196,7 @@
                                     <asp:Label ID="lblHSubCredit" runat="server" Text='<%# Eval("HSUB_CREDIT") %>' />
                                 </td>
                                 <td>
-                                    <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" CommandArgument='<%# Eval("HSUB_ATTACH") %>' OnClick="OpenFile"><i class="fa fa-paperclip fa-lg" style="color:maroon"></i>&nbsp;</asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" Font-Bold="True" CommandArgument='<%# Eval("HSUB_FILEPATH") %>' OnClick="OpenFile"><i class="fa fa-paperclip fa-lg" style="color:maroon"></i>&nbsp;</asp:HyperLink>
                                 </td>
                                 <td>
                                     <asp:RadioButton ID="Approve" runat="server"  GroupName="Subject"/>

@@ -9,7 +9,7 @@ public partial class FacultyDean_DeanMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["acadUserSs"] = "201620171";
-        Session["acadUserNm"] = "PROF. DR. ABD. SAMAD BIN HAJI ISMAIL";
+        Session["acadUserNm"] = "Prof. Dr. Abd.Samad Bin Haji Ismail";
         Session["acadUserEm"] = "abdsamadm@utm.my";
         Session["acadUserTl"] = "07-5532000";
         Session["acadUserPos"] = "Profesor (VK7)";
@@ -22,7 +22,7 @@ public partial class FacultyDean_DeanMasterPage : System.Web.UI.MasterPage
             string sesisem = Session["acadUserSs"].ToString();
             showProfile();
             showAchievement();
-            lblLoggedInUser.Text = Session["acadUserNm"].ToString();
+            lblLoggedInUser.Text = Session["acadUserNm"].ToString().ToUpper();
         }
     }
 
@@ -126,7 +126,7 @@ public partial class FacultyDean_DeanMasterPage : System.Web.UI.MasterPage
     protected void showProfile()
     {
         imgPhoto.InnerHtml = "<img src=\"../Styles/images/nophoto.png\" class=\"img-profile\" width=\"100\" alt=\"profileimage\" />";
-        lblName.Text = Session["acadUserNm"].ToString();
+        lblName.Text = Session["acadUserNm"].ToString().ToUpper();
         lblEmail.Text = Session["acadUserEm"].ToString();
         lblTel.Text = Session["acadUserTl"].ToString();
         lblNoStaff.Text = Session["acadUserNoStaff"].ToString();

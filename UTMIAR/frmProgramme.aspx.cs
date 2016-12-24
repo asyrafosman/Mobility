@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.UI;
+using Oracle.ManagedDataAccess.Client;
 using System.IO;
 
 public partial class UTMIAR_frmProgramme : System.Web.UI.Page
 {
-    private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["UTMMobility"].ConnectionString);
+    OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
         if (GridView1.Rows.Count == 0)
@@ -60,10 +62,10 @@ public partial class UTMIAR_frmProgramme : System.Web.UI.Page
     {
         con.Open();
         string PROG_PROGID = (sender as LinkButton).CommandArgument;
-        //File.Delete(id);
+        File.Delete(PROG_PROGID);
 
-        string strQuery1 = "DELETE FROM PROG_INBOX WHERE PROG_PROGID = '" + PROG_PROGID + "'";
-        SqlCommand cmd = new SqlCommand(strQuery1, con);
+        string strQuery1 = "DELETE FROM PROGRAMME WHERE PROGID = '" + PROG_PROGID + "'";
+        OracleCommand cmd = new OracleCommand(strQuery1, con);
         cmd.ExecuteNonQuery();
         GridView1.DataBind();
 

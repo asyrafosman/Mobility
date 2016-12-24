@@ -13,21 +13,23 @@ public partial class UTMIAR_frmAddNewProg : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         {
+            Random rnd = new Random();
             // Declaration
-            string strInsertProgramme = "INSERT INTO PROGRAMME (TYPES, PROGNAME, UNIVERSITY, COUNTRY, STARTDATE, ENDDATE, DEADLINE, STATUS) VALUES (:TYPES, :PROGNAME, :UNIVERSITY, :COUNTRY, :STARTDATE, :ENDDATE, :DEADLINE, :STATUS)";
+            string strInsertProgramme = "INSERT INTO PROGRAMME (PROGID, TYPE, PROGNAME, UNIVERSITY, COUNTRY, STARTDATE, ENDDATE, DEADLINE, STATUS) VALUES (:PROGID, :TYPE, :PROGNAME, :UNIVERSITY, :COUNTRY, :STARTDATE, :ENDDATE, :DEADLINE, :STATUS)";
    
             con.Open();  // Open Connection with database
 
             OracleCommand cmd = new OracleCommand();
             cmd.CommandText = strInsertProgramme;
-            cmd.Parameters.Add(new OracleParameter("TYPES", ddlTypes.Text));
+            cmd.Parameters.Add(new OracleParameter("PROGID", rnd.Next(9999)));
+            cmd.Parameters.Add(new OracleParameter("TYPE", ddlTypes.Text));
             cmd.Parameters.Add(new OracleParameter("PROGNAME", txtProgName.Text));
             cmd.Parameters.Add(new OracleParameter("UNIVERSITY", txtUniversity.Text));
             cmd.Parameters.Add(new OracleParameter("COUNTRY", ddlCountry.SelectedValue));
             cmd.Parameters.Add(new OracleParameter("STARTDATE", DateTime.ParseExact(txtStartDate.Text, "dd-MMM-yyyy", null)));
             cmd.Parameters.Add(new OracleParameter("ENDDATE", DateTime.ParseExact(txtEndDate.Text, "dd-MMM-yyyy", null)));
             cmd.Parameters.Add(new OracleParameter("DEADLINE", DateTime.ParseExact(txtDeadline.Text, "dd-MMM-yyyy", null)));
-            cmd.Parameters.Add(new OracleParameter("STATUS", "1"));
+            cmd.Parameters.Add(new OracleParameter("STATUS", "Submitted"));
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();
@@ -44,21 +46,23 @@ public partial class UTMIAR_frmAddNewProg : System.Web.UI.Page
 
     protected void btnDraft_Click(object sender, EventArgs e)
     {
+        Random rnd = new Random();
         // Declaration
-        string strInsertProgramme = "INSERT INTO PROGRAMME (TYPES, PROGNAME, UNIVERSITY, COUNTRY, STARTDATE, ENDDATE, DEADLINE, STATUS) VALUES (:TYPES, :PROGNAME, :UNIVERSITY, :COUNTRY, :STARTDATE, :ENDDATE, :DEADLINE, :STATUS)";
+        string strInsertProgramme = "INSERT INTO PROGRAMME (PROGID, TYPE, PROGNAME, UNIVERSITY, COUNTRY, STARTDATE, ENDDATE, DEADLINE, STATUS) VALUES (:PROGID, :TYPE, :PROGNAME, :UNIVERSITY, :COUNTRY, :STARTDATE, :ENDDATE, :DEADLINE, :STATUS)";
 
         con.Open();  // Open Connection with database
 
         OracleCommand cmd = new OracleCommand();
         cmd.CommandText = strInsertProgramme;
-        cmd.Parameters.Add(new OracleParameter("TYPES", ddlTypes.Text));
+        cmd.Parameters.Add(new OracleParameter("PROGID", rnd.Next(9999)));
+        cmd.Parameters.Add(new OracleParameter("TYPE", ddlTypes.Text));
         cmd.Parameters.Add(new OracleParameter("PROGNAME", txtProgName.Text));
         cmd.Parameters.Add(new OracleParameter("UNIVERSITY", txtUniversity.Text));
         cmd.Parameters.Add(new OracleParameter("COUNTRY", ddlCountry.SelectedValue));
         cmd.Parameters.Add(new OracleParameter("STARTDATE", DateTime.ParseExact(txtStartDate.Text, "dd-MMM-yyyy", null)));
         cmd.Parameters.Add(new OracleParameter("ENDDATE", DateTime.ParseExact(txtEndDate.Text, "dd-MMM-yyyy", null)));
         cmd.Parameters.Add(new OracleParameter("DEADLINE", DateTime.ParseExact(txtDeadline.Text, "dd-MMM-yyyy", null)));
-        cmd.Parameters.Add(new OracleParameter("STATUS", "0"));
+        cmd.Parameters.Add(new OracleParameter("STATUS", "Draft"));
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();

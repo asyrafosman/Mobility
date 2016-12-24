@@ -56,12 +56,12 @@
             <%--<asp:BoundField DataField="PROG_STARTDATE" HeaderText="PROG_STARTDATE" SortExpression="PROG_STARTDATE" DataFormatString="{0:dd-MMM-yyyy}" />--%>
             <%--<asp:BoundField DataField="PROG_ENDDATE" HeaderText="PROG_ENDDATE" SortExpression="PROG_ENDDATE" DataFormatString="{0:dd-MMM-yyyy}" />--%>
             <asp:BoundField DataField="PROG_DEADLINE" HeaderText="Deadline" SortExpression="PROG_DEADLINE" DataFormatString="{0:dd-MMM-yyyy}" />
-            <%--<asp:BoundField DataField="PROG_STATUS" HeaderText="Status" SortExpression="PROG_STATUS" />--%>
-            <asp:TemplateField HeaderText="Status" SortExpression="PROG_STATUS">
+            <asp:BoundField DataField="PROG_STATUS" HeaderText="Status" SortExpression="PROG_STATUS" />
+            <%--<asp:TemplateField HeaderText="Status" SortExpression="PROG_STATUS">
                 <ItemTemplate>
                     <asp:Label ID="Status" runat="server" Text='<%# Eval("PROG_STATUS").ToString() == "0" ? "Draft" : "Submitted" %>'></asp:Label>
                 </ItemTemplate>
-            </asp:TemplateField>
+            </asp:TemplateField>--%>
             <asp:TemplateField HeaderText="">
                 <HeaderStyle Width="3%" />
              <ItemStyle Width="3%" />

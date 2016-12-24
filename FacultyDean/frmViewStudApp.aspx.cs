@@ -84,7 +84,7 @@ public partial class FacultyDean_frmViewStudApp : System.Web.UI.Page
         string APP_APPID = Session["APP_APPID"].ToString();
         using (OracleConnection con = new OracleConnection(ConfigurationManager.ConnectionStrings["MOBILITY.XE"].ConnectionString))
         {
-            using (OracleCommand cmd = new OracleCommand("SELECT * FROM APP_SUBJECT WHERE UTMSUB_APPID = " + APP_APPID, con))
+            using (OracleCommand cmd = new OracleCommand("SELECT * FROM APP_SUBJECT WHERE HSUB_APPID = " + APP_APPID, con))
             {
                 using (OracleDataAdapter sda = new OracleDataAdapter(cmd))
                 {

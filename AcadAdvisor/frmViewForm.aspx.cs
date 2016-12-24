@@ -46,14 +46,13 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         Session["acadStudField"] = "-";
 
         Session["acadProgType"] = dr["PROG_TYPES"].ToString();
-        Session["acadProgName"] = dr["PROG_NAME"].ToString();
         Session["acadProgUniversity"] = dr["PROG_UNIVERSITY"].ToString();
         Session["acadProgCountry"] = dr["PROG_COUNTRY"].ToString();
         Session["acadProgStartDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_STARTDATE"]);
         Session["acadProgEndDate"] = String.Format("{0:dd-MMM-yyyy}", dr["PROG_ENDDATE"]);
 
-        Session["acadFinancialSources"] = dr["FIN_SOURCES"].ToString();
-        Session["acadFinancialSponsor"] = dr["FIN_SPONNAME"].ToString();
+        //Session["acadFinancialSources"] = dr["FIN_SOURCES"].ToString();
+        //Session["acadFinancialSponsor"] = dr["FIN_SPONNAME"].ToString();
         Session["acadFinancialFee"] = dr["FIN_FEE"].ToString();
         Session["acadFinancialTransportation"] = dr["FIN_TRAN"].ToString();
         Session["acadFinancialAccommodation"] = dr["FIN_ACCO"].ToString();
@@ -99,14 +98,14 @@ public partial class UTMI_frmViewForm : System.Web.UI.Page
         lblField.Text = Session["acadStudField"].ToString();
 
         lblProgType.Text = Session["acadProgType"].ToString();
-        lblProgName.Text = Session["acadProgName"].ToString();
+        //lblProgName.Text = Session["acadProgName"].ToString();
         lblUniversity.Text = Session["acadProgUniversity"].ToString();
         lblCountry.Text = Session["acadProgCountry"].ToString();
         lblStartDate.Text = Session["acadProgStartDate"].ToString();
         lblEndDate.Text = Session["acadProgEndDate"].ToString();
 
-        lblSources.Text = Session["acadFinancialSources"].ToString();
-        lblSponsorName.Text = Session["acadFinancialSponsor"].ToString();
+        //lblSources.Text = Session["acadFinancialSources"].ToString();
+        //lblSponsorName.Text = Session["acadFinancialSponsor"].ToString();
         lblFee.Text = Session["acadFinancialFee"].ToString();
         lblTransportation.Text = Session["acadFinancialTransportation"].ToString();
         lblAccommodation.Text = Session["acadFinancialAccommodation"].ToString();

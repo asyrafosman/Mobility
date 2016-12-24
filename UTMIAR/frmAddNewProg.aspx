@@ -36,18 +36,17 @@
             <td>
                 <asp:DropDownList ID="ddlTypes" runat="server" style="width: 100%; border-radius: 5px; border: 1px solid CadetBlue;">
                     <asp:ListItem Value="none">- Please Choose -</asp:ListItem>
-                    <asp:ListItem Value="GOP">Global Outreach Programme</asp:ListItem>
-                    <asp:ListItem Value="IIP">International Invitation Programme</asp:ListItem>
-                    <asp:ListItem Value="RI">Research Internship Abroad</asp:ListItem>
-                    <asp:ListItem Value="SE">Study Abroad/Student Exchange</asp:ListItem>
-                    <asp:ListItem Value="SS">Summer School</asp:ListItem>
+                    <asp:ListItem Value="Global Outreach Programme">Global Outreach Programme</asp:ListItem>
+                    <asp:ListItem Value="International Invitation Programme">International Invitation Programme</asp:ListItem>
+                    <asp:ListItem Value="Research Internship Abroad">Research Internship Abroad</asp:ListItem>
+                    <asp:ListItem Value="Student Exchange">Student Exchange</asp:ListItem>
+                    <asp:ListItem Value="Summer School">Summer School</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td>
                 &nbsp;</td>
             <td>
                 <asp:Label ID="lblProgName" runat="server" Text="Programme Name" ControlToValidate="lblProgName"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a Programme Name" ForeColor="Red" ControlToValidate="txtProgName">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
             <td>
@@ -327,7 +326,6 @@
                 &nbsp;</td>
             <td>
                 <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtStartDate" ControlToValidate="txtEndDate" ErrorMessage="End Date must be greater than Start Date" Operator="GreaterThan">&nbsp;</asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Please enter a Programme End Date" ForeColor="Red" ControlToValidate="txtEndDate">*</asp:RequiredFieldValidator>
             </td>
             <td style="width: 1px">:</td>
